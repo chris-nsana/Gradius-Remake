@@ -1,0 +1,13 @@
+/home/chris/Videos/Gradius/build/CMakeFiles/rebuild_cache.dir
+/home/chris/Videos/Gradius/build/CMakeFiles/edit_cache.dir
+/home/chris/Videos/Gradius/build/CMakeFiles/list_install_components.dir
+/home/chris/Videos/Gradius/build/CMakeFiles/install/local.dir
+/home/chris/Videos/Gradius/build/CMakeFiles/install/strip.dir
+/home/chris/Videos/Gradius/build/CMakeFiles/install.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/install/strip.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/rebuild_cache.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/Gradius.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/install.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/install/local.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/list_install_components.dir
+/home/chris/Videos/Gradius/build/src/CMakeFiles/edit_cache.dir
