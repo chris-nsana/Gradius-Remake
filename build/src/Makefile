@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Videos/Gradius
+CMAKE_SOURCE_DIR = /home/chris/GP/gp-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Videos/Gradius/build
+CMAKE_BINARY_DIR = /home/chris/GP/gp-project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,14 +124,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/chris/Videos/Gradius/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Videos/Gradius/build/CMakeFiles /home/chris/Videos/Gradius/build/src/CMakeFiles/progress.marks
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/Videos/Gradius/build/CMakeFiles 0
+	cd /home/chris/GP/gp-project/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/chris/GP/gp-project/build/CMakeFiles /home/chris/GP/gp-project/build/src/CMakeFiles/progress.marks
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/chris/GP/gp-project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/chris/Videos/Gradius/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/chris/GP/gp-project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/Gradius.dir/rule:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/Gradius.dir/rule
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/Gradius.dir/rule
 .PHONY : src/CMakeFiles/Gradius.dir/rule
 
 # Convenience name for target.
@@ -166,7 +166,7 @@ Gradius: src/CMakeFiles/Gradius.dir/rule
 
 # fast build rule for target.
 Gradius/fast:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/build
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/build
 .PHONY : Gradius/fast
 
 Controller/Controller.o: Controller/Controller.cpp.o
@@ -175,7 +175,7 @@ Controller/Controller.o: Controller/Controller.cpp.o
 
 # target to build an object file
 Controller/Controller.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o
 .PHONY : Controller/Controller.cpp.o
 
 Controller/Controller.i: Controller/Controller.cpp.i
@@ -184,7 +184,7 @@ Controller/Controller.i: Controller/Controller.cpp.i
 
 # target to preprocess a source file
 Controller/Controller.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.i
 .PHONY : Controller/Controller.cpp.i
 
 Controller/Controller.s: Controller/Controller.cpp.s
@@ -193,7 +193,7 @@ Controller/Controller.s: Controller/Controller.cpp.s
 
 # target to generate assembly for a file
 Controller/Controller.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.s
 .PHONY : Controller/Controller.cpp.s
 
 Game.o: Game.cpp.o
@@ -202,7 +202,7 @@ Game.o: Game.cpp.o
 
 # target to build an object file
 Game.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.o
 .PHONY : Game.cpp.o
 
 Game.i: Game.cpp.i
@@ -211,7 +211,7 @@ Game.i: Game.cpp.i
 
 # target to preprocess a source file
 Game.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.i
 .PHONY : Game.cpp.i
 
 Game.s: Game.cpp.s
@@ -220,7 +220,7 @@ Game.s: Game.cpp.s
 
 # target to generate assembly for a file
 Game.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
 Model/Entities/Background.o: Model/Entities/Background.cpp.o
@@ -229,7 +229,7 @@ Model/Entities/Background.o: Model/Entities/Background.cpp.o
 
 # target to build an object file
 Model/Entities/Background.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o
 .PHONY : Model/Entities/Background.cpp.o
 
 Model/Entities/Background.i: Model/Entities/Background.cpp.i
@@ -238,7 +238,7 @@ Model/Entities/Background.i: Model/Entities/Background.cpp.i
 
 # target to preprocess a source file
 Model/Entities/Background.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i
 .PHONY : Model/Entities/Background.cpp.i
 
 Model/Entities/Background.s: Model/Entities/Background.cpp.s
@@ -247,7 +247,7 @@ Model/Entities/Background.s: Model/Entities/Background.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/Background.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s
 .PHONY : Model/Entities/Background.cpp.s
 
 Model/Entities/Border.o: Model/Entities/Border.cpp.o
@@ -256,7 +256,7 @@ Model/Entities/Border.o: Model/Entities/Border.cpp.o
 
 # target to build an object file
 Model/Entities/Border.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o
 .PHONY : Model/Entities/Border.cpp.o
 
 Model/Entities/Border.i: Model/Entities/Border.cpp.i
@@ -265,7 +265,7 @@ Model/Entities/Border.i: Model/Entities/Border.cpp.i
 
 # target to preprocess a source file
 Model/Entities/Border.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i
 .PHONY : Model/Entities/Border.cpp.i
 
 Model/Entities/Border.s: Model/Entities/Border.cpp.s
@@ -274,7 +274,7 @@ Model/Entities/Border.s: Model/Entities/Border.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/Border.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s
 .PHONY : Model/Entities/Border.cpp.s
 
 Model/Entities/DynamicEntity.o: Model/Entities/DynamicEntity.cpp.o
@@ -283,7 +283,7 @@ Model/Entities/DynamicEntity.o: Model/Entities/DynamicEntity.cpp.o
 
 # target to build an object file
 Model/Entities/DynamicEntity.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o
 .PHONY : Model/Entities/DynamicEntity.cpp.o
 
 Model/Entities/DynamicEntity.i: Model/Entities/DynamicEntity.cpp.i
@@ -292,7 +292,7 @@ Model/Entities/DynamicEntity.i: Model/Entities/DynamicEntity.cpp.i
 
 # target to preprocess a source file
 Model/Entities/DynamicEntity.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i
 .PHONY : Model/Entities/DynamicEntity.cpp.i
 
 Model/Entities/DynamicEntity.s: Model/Entities/DynamicEntity.cpp.s
@@ -301,7 +301,7 @@ Model/Entities/DynamicEntity.s: Model/Entities/DynamicEntity.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/DynamicEntity.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s
 .PHONY : Model/Entities/DynamicEntity.cpp.s
 
 Model/Entities/Entity.o: Model/Entities/Entity.cpp.o
@@ -310,7 +310,7 @@ Model/Entities/Entity.o: Model/Entities/Entity.cpp.o
 
 # target to build an object file
 Model/Entities/Entity.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o
 .PHONY : Model/Entities/Entity.cpp.o
 
 Model/Entities/Entity.i: Model/Entities/Entity.cpp.i
@@ -319,7 +319,7 @@ Model/Entities/Entity.i: Model/Entities/Entity.cpp.i
 
 # target to preprocess a source file
 Model/Entities/Entity.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i
 .PHONY : Model/Entities/Entity.cpp.i
 
 Model/Entities/Entity.s: Model/Entities/Entity.cpp.s
@@ -328,7 +328,7 @@ Model/Entities/Entity.s: Model/Entities/Entity.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/Entity.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s
 .PHONY : Model/Entities/Entity.cpp.s
 
 Model/Entities/Player.o: Model/Entities/Player.cpp.o
@@ -337,7 +337,7 @@ Model/Entities/Player.o: Model/Entities/Player.cpp.o
 
 # target to build an object file
 Model/Entities/Player.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o
 .PHONY : Model/Entities/Player.cpp.o
 
 Model/Entities/Player.i: Model/Entities/Player.cpp.i
@@ -346,7 +346,7 @@ Model/Entities/Player.i: Model/Entities/Player.cpp.i
 
 # target to preprocess a source file
 Model/Entities/Player.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i
 .PHONY : Model/Entities/Player.cpp.i
 
 Model/Entities/Player.s: Model/Entities/Player.cpp.s
@@ -355,7 +355,7 @@ Model/Entities/Player.s: Model/Entities/Player.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/Player.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s
 .PHONY : Model/Entities/Player.cpp.s
 
 Model/Entities/PlayerBullet.o: Model/Entities/PlayerBullet.cpp.o
@@ -364,7 +364,7 @@ Model/Entities/PlayerBullet.o: Model/Entities/PlayerBullet.cpp.o
 
 # target to build an object file
 Model/Entities/PlayerBullet.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o
 .PHONY : Model/Entities/PlayerBullet.cpp.o
 
 Model/Entities/PlayerBullet.i: Model/Entities/PlayerBullet.cpp.i
@@ -373,7 +373,7 @@ Model/Entities/PlayerBullet.i: Model/Entities/PlayerBullet.cpp.i
 
 # target to preprocess a source file
 Model/Entities/PlayerBullet.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i
 .PHONY : Model/Entities/PlayerBullet.cpp.i
 
 Model/Entities/PlayerBullet.s: Model/Entities/PlayerBullet.cpp.s
@@ -382,7 +382,7 @@ Model/Entities/PlayerBullet.s: Model/Entities/PlayerBullet.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/PlayerBullet.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s
 .PHONY : Model/Entities/PlayerBullet.cpp.s
 
 Model/Entities/World.o: Model/Entities/World.cpp.o
@@ -391,7 +391,7 @@ Model/Entities/World.o: Model/Entities/World.cpp.o
 
 # target to build an object file
 Model/Entities/World.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o
 .PHONY : Model/Entities/World.cpp.o
 
 Model/Entities/World.i: Model/Entities/World.cpp.i
@@ -400,7 +400,7 @@ Model/Entities/World.i: Model/Entities/World.cpp.i
 
 # target to preprocess a source file
 Model/Entities/World.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i
 .PHONY : Model/Entities/World.cpp.i
 
 Model/Entities/World.s: Model/Entities/World.cpp.s
@@ -409,7 +409,7 @@ Model/Entities/World.s: Model/Entities/World.cpp.s
 
 # target to generate assembly for a file
 Model/Entities/World.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s
 .PHONY : Model/Entities/World.cpp.s
 
 Model/Model.o: Model/Model.cpp.o
@@ -418,7 +418,7 @@ Model/Model.o: Model/Model.cpp.o
 
 # target to build an object file
 Model/Model.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.o
 .PHONY : Model/Model.cpp.o
 
 Model/Model.i: Model/Model.cpp.i
@@ -427,7 +427,7 @@ Model/Model.i: Model/Model.cpp.i
 
 # target to preprocess a source file
 Model/Model.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.i
 .PHONY : Model/Model.cpp.i
 
 Model/Model.s: Model/Model.cpp.s
@@ -436,7 +436,7 @@ Model/Model.s: Model/Model.cpp.s
 
 # target to generate assembly for a file
 Model/Model.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Model/Model.cpp.s
 .PHONY : Model/Model.cpp.s
 
 Utilities/Stopwatch.o: Utilities/Stopwatch.cpp.o
@@ -445,7 +445,7 @@ Utilities/Stopwatch.o: Utilities/Stopwatch.cpp.o
 
 # target to build an object file
 Utilities/Stopwatch.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o
 .PHONY : Utilities/Stopwatch.cpp.o
 
 Utilities/Stopwatch.i: Utilities/Stopwatch.cpp.i
@@ -454,7 +454,7 @@ Utilities/Stopwatch.i: Utilities/Stopwatch.cpp.i
 
 # target to preprocess a source file
 Utilities/Stopwatch.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i
 .PHONY : Utilities/Stopwatch.cpp.i
 
 Utilities/Stopwatch.s: Utilities/Stopwatch.cpp.s
@@ -463,7 +463,7 @@ Utilities/Stopwatch.s: Utilities/Stopwatch.cpp.s
 
 # target to generate assembly for a file
 Utilities/Stopwatch.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s
 .PHONY : Utilities/Stopwatch.cpp.s
 
 Utilities/Transformation.o: Utilities/Transformation.cpp.o
@@ -472,7 +472,7 @@ Utilities/Transformation.o: Utilities/Transformation.cpp.o
 
 # target to build an object file
 Utilities/Transformation.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o
 .PHONY : Utilities/Transformation.cpp.o
 
 Utilities/Transformation.i: Utilities/Transformation.cpp.i
@@ -481,7 +481,7 @@ Utilities/Transformation.i: Utilities/Transformation.cpp.i
 
 # target to preprocess a source file
 Utilities/Transformation.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i
 .PHONY : Utilities/Transformation.cpp.i
 
 Utilities/Transformation.s: Utilities/Transformation.cpp.s
@@ -490,7 +490,7 @@ Utilities/Transformation.s: Utilities/Transformation.cpp.s
 
 # target to generate assembly for a file
 Utilities/Transformation.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s
 .PHONY : Utilities/Transformation.cpp.s
 
 View/Animation.o: View/Animation.cpp.o
@@ -499,7 +499,7 @@ View/Animation.o: View/Animation.cpp.o
 
 # target to build an object file
 View/Animation.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.o
 .PHONY : View/Animation.cpp.o
 
 View/Animation.i: View/Animation.cpp.i
@@ -508,7 +508,7 @@ View/Animation.i: View/Animation.cpp.i
 
 # target to preprocess a source file
 View/Animation.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.i
 .PHONY : View/Animation.cpp.i
 
 View/Animation.s: View/Animation.cpp.s
@@ -517,7 +517,7 @@ View/Animation.s: View/Animation.cpp.s
 
 # target to generate assembly for a file
 View/Animation.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/Animation.cpp.s
 .PHONY : View/Animation.cpp.s
 
 View/View.o: View/View.cpp.o
@@ -526,7 +526,7 @@ View/View.o: View/View.cpp.o
 
 # target to build an object file
 View/View.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.o
 .PHONY : View/View.cpp.o
 
 View/View.i: View/View.cpp.i
@@ -535,7 +535,7 @@ View/View.i: View/View.cpp.i
 
 # target to preprocess a source file
 View/View.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.i
 .PHONY : View/View.cpp.i
 
 View/View.s: View/View.cpp.s
@@ -544,7 +544,7 @@ View/View.s: View/View.cpp.s
 
 # target to generate assembly for a file
 View/View.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/View/View.cpp.s
 .PHONY : View/View.cpp.s
 
 main.o: main.cpp.o
@@ -553,7 +553,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.o
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -562,7 +562,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.i
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -571,7 +571,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/chris/Videos/Gradius/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.s
+	cd /home/chris/GP/gp-project/build && $(MAKE) -f src/CMakeFiles/Gradius.dir/build.make src/CMakeFiles/Gradius.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -643,6 +643,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/chris/Videos/Gradius/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/chris/GP/gp-project/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

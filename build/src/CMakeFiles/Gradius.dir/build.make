@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/chris/Videos/Gradius
+CMAKE_SOURCE_DIR = /home/chris/GP/gp-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/chris/Videos/Gradius/build
+CMAKE_BINARY_DIR = /home/chris/GP/gp-project/build
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/Gradius.dir/depend.make
@@ -59,16 +59,16 @@ include src/CMakeFiles/Gradius.dir/flags.make
 
 src/CMakeFiles/Gradius.dir/main.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Gradius.dir/main.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/main.cpp.o -c /home/chris/Videos/Gradius/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Gradius.dir/main.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/main.cpp.o -c /home/chris/GP/gp-project/src/main.cpp
 
 src/CMakeFiles/Gradius.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/main.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/main.cpp > CMakeFiles/Gradius.dir/main.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/main.cpp > CMakeFiles/Gradius.dir/main.cpp.i
 
 src/CMakeFiles/Gradius.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/main.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/main.cpp -o CMakeFiles/Gradius.dir/main.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/main.cpp -o CMakeFiles/Gradius.dir/main.cpp.s
 
 src/CMakeFiles/Gradius.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ src/CMakeFiles/Gradius.dir/main.cpp.o.provides.build: src/CMakeFiles/Gradius.dir
 
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.o: ../src/View/Animation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Gradius.dir/View/Animation.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/View/Animation.cpp.o -c /home/chris/Videos/Gradius/src/View/Animation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Gradius.dir/View/Animation.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/View/Animation.cpp.o -c /home/chris/GP/gp-project/src/View/Animation.cpp
 
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/View/Animation.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/View/Animation.cpp > CMakeFiles/Gradius.dir/View/Animation.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/View/Animation.cpp > CMakeFiles/Gradius.dir/View/Animation.cpp.i
 
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/View/Animation.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/View/Animation.cpp -o CMakeFiles/Gradius.dir/View/Animation.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/View/Animation.cpp -o CMakeFiles/Gradius.dir/View/Animation.cpp.s
 
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.o.requires:
 
@@ -107,16 +107,16 @@ src/CMakeFiles/Gradius.dir/View/Animation.cpp.o.provides.build: src/CMakeFiles/G
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o: ../src/Model/Entities/Entity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/Entity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/Entity.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/Entity.cpp > CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/Entity.cpp > CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/Entity.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/Entity.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o.requires:
 
@@ -131,16 +131,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o: ../src/Model/Entities/DynamicEntity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.cpp > CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.cpp > CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.cpp -o CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.cpp -o CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o.requires:
 
@@ -155,16 +155,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o.provides.build: sr
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o: ../src/Model/Entities/Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/Player.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/Player.cpp > CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/Player.cpp > CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/Player.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/Player.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o.requires:
 
@@ -179,16 +179,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o: ../src/Model/Entities/PlayerBullet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.cpp > CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.cpp > CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.cpp -o CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.cpp -o CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o.requires:
 
@@ -203,16 +203,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o.provides.build: src
 
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o: ../src/Model/Entities/World.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/World.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/World.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/World.cpp > CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/World.cpp > CMakeFiles/Gradius.dir/Model/Entities/World.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/World.cpp -o CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/World.cpp -o CMakeFiles/Gradius.dir/Model/Entities/World.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o.requires:
 
@@ -227,16 +227,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o.provides.build: src/CMakeF
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o: ../src/Model/Entities/Background.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/Background.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/Background.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/Background.cpp > CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/Background.cpp > CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/Background.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/Background.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o.requires:
 
@@ -251,16 +251,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o.provides.build: src/C
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o: ../src/Model/Entities/Border.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o -c /home/chris/Videos/Gradius/src/Model/Entities/Border.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o -c /home/chris/GP/gp-project/src/Model/Entities/Border.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Entities/Border.cpp > CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Entities/Border.cpp > CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Entities/Border.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Entities/Border.cpp -o CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o.requires:
 
@@ -275,16 +275,16 @@ src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/Gradius.dir/Game.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Game.cpp.o: ../src/Game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/Gradius.dir/Game.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Game.cpp.o -c /home/chris/Videos/Gradius/src/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/Gradius.dir/Game.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Game.cpp.o -c /home/chris/GP/gp-project/src/Game.cpp
 
 src/CMakeFiles/Gradius.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Game.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Game.cpp > CMakeFiles/Gradius.dir/Game.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Game.cpp > CMakeFiles/Gradius.dir/Game.cpp.i
 
 src/CMakeFiles/Gradius.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Game.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Game.cpp -o CMakeFiles/Gradius.dir/Game.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Game.cpp -o CMakeFiles/Gradius.dir/Game.cpp.s
 
 src/CMakeFiles/Gradius.dir/Game.cpp.o.requires:
 
@@ -299,16 +299,16 @@ src/CMakeFiles/Gradius.dir/Game.cpp.o.provides.build: src/CMakeFiles/Gradius.dir
 
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.o: ../src/Model/Model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Model.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Model.cpp.o -c /home/chris/Videos/Gradius/src/Model/Model.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/Gradius.dir/Model/Model.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Model/Model.cpp.o -c /home/chris/GP/gp-project/src/Model/Model.cpp
 
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Model/Model.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Model/Model.cpp > CMakeFiles/Gradius.dir/Model/Model.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Model/Model.cpp > CMakeFiles/Gradius.dir/Model/Model.cpp.i
 
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Model/Model.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Model/Model.cpp -o CMakeFiles/Gradius.dir/Model/Model.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Model/Model.cpp -o CMakeFiles/Gradius.dir/Model/Model.cpp.s
 
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.o.requires:
 
@@ -323,16 +323,16 @@ src/CMakeFiles/Gradius.dir/Model/Model.cpp.o.provides.build: src/CMakeFiles/Grad
 
 src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o: ../src/Controller/Controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Controller/Controller.cpp.o -c /home/chris/Videos/Gradius/src/Controller/Controller.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Controller/Controller.cpp.o -c /home/chris/GP/gp-project/src/Controller/Controller.cpp
 
 src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Controller/Controller.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Controller/Controller.cpp > CMakeFiles/Gradius.dir/Controller/Controller.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Controller/Controller.cpp > CMakeFiles/Gradius.dir/Controller/Controller.cpp.i
 
 src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Controller/Controller.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Controller/Controller.cpp -o CMakeFiles/Gradius.dir/Controller/Controller.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Controller/Controller.cpp -o CMakeFiles/Gradius.dir/Controller/Controller.cpp.s
 
 src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o.requires:
 
@@ -347,16 +347,16 @@ src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/Gradius.dir/View/View.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/View/View.cpp.o: ../src/View/View.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/Gradius.dir/View/View.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/View/View.cpp.o -c /home/chris/Videos/Gradius/src/View/View.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/Gradius.dir/View/View.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/View/View.cpp.o -c /home/chris/GP/gp-project/src/View/View.cpp
 
 src/CMakeFiles/Gradius.dir/View/View.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/View/View.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/View/View.cpp > CMakeFiles/Gradius.dir/View/View.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/View/View.cpp > CMakeFiles/Gradius.dir/View/View.cpp.i
 
 src/CMakeFiles/Gradius.dir/View/View.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/View/View.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/View/View.cpp -o CMakeFiles/Gradius.dir/View/View.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/View/View.cpp -o CMakeFiles/Gradius.dir/View/View.cpp.s
 
 src/CMakeFiles/Gradius.dir/View/View.cpp.o.requires:
 
@@ -371,16 +371,16 @@ src/CMakeFiles/Gradius.dir/View/View.cpp.o.provides.build: src/CMakeFiles/Gradiu
 
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o: ../src/Utilities/Transformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o -c /home/chris/Videos/Gradius/src/Utilities/Transformation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o -c /home/chris/GP/gp-project/src/Utilities/Transformation.cpp
 
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Utilities/Transformation.cpp > CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Utilities/Transformation.cpp > CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.i
 
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Utilities/Transformation.cpp -o CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Utilities/Transformation.cpp -o CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.s
 
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o.requires:
 
@@ -395,16 +395,16 @@ src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o.provides.build: src/CM
 
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o: src/CMakeFiles/Gradius.dir/flags.make
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o: ../src/Utilities/Stopwatch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o -c /home/chris/Videos/Gradius/src/Utilities/Stopwatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o"
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o -c /home/chris/GP/gp-project/src/Utilities/Stopwatch.cpp
 
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/Videos/Gradius/src/Utilities/Stopwatch.cpp > CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/GP/gp-project/src/Utilities/Stopwatch.cpp > CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.i
 
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s"
-	cd /home/chris/Videos/Gradius/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/Videos/Gradius/src/Utilities/Stopwatch.cpp -o CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s
+	cd /home/chris/GP/gp-project/build/src && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/GP/gp-project/src/Utilities/Stopwatch.cpp -o CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.s
 
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o.requires:
 
@@ -455,8 +455,8 @@ src/Gradius: src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o
 src/Gradius: src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o
 src/Gradius: src/CMakeFiles/Gradius.dir/build.make
 src/Gradius: src/CMakeFiles/Gradius.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/Videos/Gradius/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Gradius"
-	cd /home/chris/Videos/Gradius/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Gradius.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/GP/gp-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Gradius"
+	cd /home/chris/GP/gp-project/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Gradius.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/Gradius.dir/build: src/Gradius
@@ -482,10 +482,10 @@ src/CMakeFiles/Gradius.dir/requires: src/CMakeFiles/Gradius.dir/Utilities/Stopwa
 .PHONY : src/CMakeFiles/Gradius.dir/requires
 
 src/CMakeFiles/Gradius.dir/clean:
-	cd /home/chris/Videos/Gradius/build/src && $(CMAKE_COMMAND) -P CMakeFiles/Gradius.dir/cmake_clean.cmake
+	cd /home/chris/GP/gp-project/build/src && $(CMAKE_COMMAND) -P CMakeFiles/Gradius.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/Gradius.dir/clean
 
 src/CMakeFiles/Gradius.dir/depend:
-	cd /home/chris/Videos/Gradius/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/Videos/Gradius /home/chris/Videos/Gradius/src /home/chris/Videos/Gradius/build /home/chris/Videos/Gradius/build/src /home/chris/Videos/Gradius/build/src/CMakeFiles/Gradius.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/chris/GP/gp-project/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/chris/GP/gp-project /home/chris/GP/gp-project/src /home/chris/GP/gp-project/build /home/chris/GP/gp-project/build/src /home/chris/GP/gp-project/build/src/CMakeFiles/Gradius.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/Gradius.dir/depend
 

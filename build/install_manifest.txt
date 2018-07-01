@@ -1,1 +1,1 @@
-/home/chris/Videos/Gradius/bin/Gradius
+/home/chris/GP/gp-project/bin/Gradius

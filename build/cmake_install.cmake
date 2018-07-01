@@ -1,4 +1,4 @@
-# Install script for directory: /home/chris/Videos/Gradius
+# Install script for directory: /home/chris/GP/gp-project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/chris/Videos/Gradius/build/src/cmake_install.cmake")
+  include("/home/chris/GP/gp-project/build/src/cmake_install.cmake")
 
 endif()
 
@@ -46,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/chris/Videos/Gradius/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/chris/GP/gp-project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

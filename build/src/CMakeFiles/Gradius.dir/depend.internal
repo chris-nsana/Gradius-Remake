@@ -6,89 +6,89 @@ src/CMakeFiles/Gradius.dir/Controller/Controller.cpp.o
  ../src/./Model/Model.h
  ../src/./Utilities/Singleton.h
  ../src/./Utilities/Stopwatch.h
- /home/chris/Videos/Gradius/src/Controller/Controller.cpp
- /home/chris/Videos/Gradius/src/Controller/Controller.h
+ /home/chris/GP/gp-project/src/Controller/Controller.cpp
+ /home/chris/GP/gp-project/src/Controller/Controller.h
 src/CMakeFiles/Gradius.dir/Game.cpp.o
- /home/chris/Videos/Gradius/src/Controller/Controller.h
- /home/chris/Videos/Gradius/src/Game.cpp
- /home/chris/Videos/Gradius/src/Game.h
- /home/chris/Videos/Gradius/src/GameGlobals.h
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Player.h
- /home/chris/Videos/Gradius/src/Model/Model.h
- /home/chris/Videos/Gradius/src/Utilities/Singleton.h
- /home/chris/Videos/Gradius/src/Utilities/Stopwatch.h
- /home/chris/Videos/Gradius/src/Utilities/json.hpp
- /home/chris/Videos/Gradius/src/View/View.h
+ /home/chris/GP/gp-project/src/Controller/Controller.h
+ /home/chris/GP/gp-project/src/Game.cpp
+ /home/chris/GP/gp-project/src/Game.h
+ /home/chris/GP/gp-project/src/GameGlobals.h
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Player.h
+ /home/chris/GP/gp-project/src/Model/Model.h
+ /home/chris/GP/gp-project/src/Utilities/Singleton.h
+ /home/chris/GP/gp-project/src/Utilities/Stopwatch.h
+ /home/chris/GP/gp-project/src/Utilities/json.hpp
+ /home/chris/GP/gp-project/src/View/View.h
 src/CMakeFiles/Gradius.dir/Model/Entities/Background.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/Background.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/Background.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Background.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/Background.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
 src/CMakeFiles/Gradius.dir/Model/Entities/Border.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/Border.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/Border.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Border.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/Border.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
 src/CMakeFiles/Gradius.dir/Model/Entities/DynamicEntity.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
 src/CMakeFiles/Gradius.dir/Model/Entities/Entity.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
 src/CMakeFiles/Gradius.dir/Model/Entities/Player.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Player.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/Player.h
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Player.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/Player.h
 src/CMakeFiles/Gradius.dir/Model/Entities/PlayerBullet.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
- /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.h
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.h
 src/CMakeFiles/Gradius.dir/Model/Entities/World.cpp.o
  ../src/./GameGlobals.h
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/Background.h
- /home/chris/Videos/Gradius/src/Model/Entities/Border.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
- /home/chris/Videos/Gradius/src/Model/Entities/World.cpp
- /home/chris/Videos/Gradius/src/Model/Entities/World.h
+ /home/chris/GP/gp-project/src/Model/Entities/Background.h
+ /home/chris/GP/gp-project/src/Model/Entities/Border.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/World.cpp
+ /home/chris/GP/gp-project/src/Model/Entities/World.h
 src/CMakeFiles/Gradius.dir/Model/Model.cpp.o
  ../src/./View/View.h
- /home/chris/Videos/Gradius/src/Model/Entities/DynamicEntity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Entity.h
- /home/chris/Videos/Gradius/src/Model/Entities/Player.h
- /home/chris/Videos/Gradius/src/Model/Entities/PlayerBullet.h
- /home/chris/Videos/Gradius/src/Model/Entities/World.h
- /home/chris/Videos/Gradius/src/Model/Model.cpp
- /home/chris/Videos/Gradius/src/Model/Model.h
+ /home/chris/GP/gp-project/src/Model/Entities/DynamicEntity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Entity.h
+ /home/chris/GP/gp-project/src/Model/Entities/Player.h
+ /home/chris/GP/gp-project/src/Model/Entities/PlayerBullet.h
+ /home/chris/GP/gp-project/src/Model/Entities/World.h
+ /home/chris/GP/gp-project/src/Model/Model.cpp
+ /home/chris/GP/gp-project/src/Model/Model.h
 src/CMakeFiles/Gradius.dir/Utilities/Stopwatch.cpp.o
- /home/chris/Videos/Gradius/src/Utilities/Singleton.h
- /home/chris/Videos/Gradius/src/Utilities/Stopwatch.cpp
- /home/chris/Videos/Gradius/src/Utilities/Stopwatch.h
+ /home/chris/GP/gp-project/src/Utilities/Singleton.h
+ /home/chris/GP/gp-project/src/Utilities/Stopwatch.cpp
+ /home/chris/GP/gp-project/src/Utilities/Stopwatch.h
 src/CMakeFiles/Gradius.dir/Utilities/Transformation.cpp.o
- /home/chris/Videos/Gradius/src/Utilities/Singleton.h
- /home/chris/Videos/Gradius/src/Utilities/Transformation.cpp
- /home/chris/Videos/Gradius/src/Utilities/Transformation.h
+ /home/chris/GP/gp-project/src/Utilities/Singleton.h
+ /home/chris/GP/gp-project/src/Utilities/Transformation.cpp
+ /home/chris/GP/gp-project/src/Utilities/Transformation.h
 src/CMakeFiles/Gradius.dir/View/Animation.cpp.o
- /home/chris/Videos/Gradius/src/View/Animation.cpp
- /home/chris/Videos/Gradius/src/View/Animation.h
+ /home/chris/GP/gp-project/src/View/Animation.cpp
+ /home/chris/GP/gp-project/src/View/Animation.h
 src/CMakeFiles/Gradius.dir/View/View.cpp.o
  ../src/./GameGlobals.h
  ../src/./Utilities/Singleton.h
  ../src/./Utilities/Stopwatch.h
  ../src/./Utilities/Transformation.h
- /home/chris/Videos/Gradius/src/View/Animation.h
- /home/chris/Videos/Gradius/src/View/View.cpp
- /home/chris/Videos/Gradius/src/View/View.h
+ /home/chris/GP/gp-project/src/View/Animation.h
+ /home/chris/GP/gp-project/src/View/View.cpp
+ /home/chris/GP/gp-project/src/View/View.h
 src/CMakeFiles/Gradius.dir/main.cpp.o
- /home/chris/Videos/Gradius/src/Game.h
- /home/chris/Videos/Gradius/src/Utilities/json.hpp
- /home/chris/Videos/Gradius/src/main.cpp
+ /home/chris/GP/gp-project/src/Game.h
+ /home/chris/GP/gp-project/src/Utilities/json.hpp
+ /home/chris/GP/gp-project/src/main.cpp

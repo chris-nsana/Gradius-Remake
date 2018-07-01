@@ -6,5 +6,5 @@ CXX_FLAGS = -Wall   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/chris/Videos/Gradius/src/. 
+CXX_INCLUDES = -I/home/chris/GP/gp-project/src/. 
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/chris/Videos/Gradius/src
+# Install script for directory: /home/chris/GP/gp-project/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,25 +33,25 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  if(EXISTS "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius")
+  if(EXISTS "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius"
+         FILE "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/chris/Videos/Gradius/bin/Gradius")
+   "/home/chris/GP/gp-project/bin/Gradius")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/chris/Videos/Gradius/bin" TYPE EXECUTABLE FILES "/home/chris/Videos/Gradius/build/src/Gradius")
-  if(EXISTS "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius")
+file(INSTALL DESTINATION "/home/chris/GP/gp-project/bin" TYPE EXECUTABLE FILES "/home/chris/GP/gp-project/build/src/Gradius")
+  if(EXISTS "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/chris/Videos/Gradius/bin/Gradius")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/chris/GP/gp-project/bin/Gradius")
     endif()
   endif()
 endif()
