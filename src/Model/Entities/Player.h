@@ -1,9 +1,10 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
-#include "DynamicEntity.h"
+#include "Friendly.h"
 
+namespace Model{
 
-class Player : public DynamicEntity{
+class Player : public Friendly{
 	
 public:
 	
@@ -14,6 +15,8 @@ public:
 	void virtual move();
 
 };
+
+}
 
 #endif /* PLAYER_H_ */
 

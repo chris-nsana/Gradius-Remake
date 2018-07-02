@@ -6,13 +6,19 @@
 
 namespace View{class View;}
 
+namespace Model{
+
+class Neutral;
+class Friendly;
+class Enemy;
+
 class Entity{
 
 protected:
 
 	Entity();
 
-	Entity(float x, float y, float radius, int type);
+	Entity(float x, float y, float health, float damage, float width, float height, int type);
 
 
 public:
@@ -60,17 +66,48 @@ public:
 	 */
 	std::pair<float, float> getPosition() const;
 
+	float getHealth() const;
+
+	float getDamage() const;
+
+	float getWidth() const;
+
+	float getHeight() const;
+
+	float getHalfWidth() const;
+
+	float getHalfHeight() const;
+
 	int getID() const;
 
 	int getType() const;
 
-	float getRadius() const;
+	void takeDamage(float amount);
+
+	bool isDead() const;
+
+	virtual void update()=0;
+
+	virtual void move()=0;
+
+	virtual void fire()=0;
+
+	virtual bool isNeutral() const=0;
+
+	virtual void onCollisionReact(Neutral& other)=0;
+
+	virtual void onCollisionReact(Friendly& other)=0;
+
+	virtual void onCollisionReact(Enemy& other)=0;
 
 
 private:
 
 	std::pair<float, float> position;
-	float radius;
+	float health;
+	float damage;
+	float width;
+	float height;
 	int type;
 	int eID;
 	static std::shared_ptr<View::View> observer; //The observer viewing the state of all entities.
@@ -78,5 +115,7 @@ private:
 
 
 };
+
+}
 
 #endif /* ENTITY_H_ */

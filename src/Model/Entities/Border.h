@@ -1,8 +1,11 @@
 #ifndef BORDER_H_
 #define BORDER_H_
 #include "Entity.h"
+#include "Neutral.h"
 
-class Border : public Entity{
+namespace Model{
+
+class Border : public Neutral{
 
 public:
 
@@ -10,6 +13,8 @@ public:
 
 	virtual ~Border();
 };
+
+}
 
 
 

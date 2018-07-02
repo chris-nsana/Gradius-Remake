@@ -1,8 +1,11 @@
 #ifndef BACKGROUND_H_
 #define BACKGROUND_H_
 #include "Entity.h"
+#include "Neutral"
 
-class Background : public Entity{
+namespace Model{
+
+class Background : public Neutral{
 
 public:
 
@@ -10,6 +13,8 @@ public:
 
 	virtual ~Background();
 };
+
+}
 
 
 

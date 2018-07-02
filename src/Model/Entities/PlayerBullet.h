@@ -1,8 +1,11 @@
 #ifndef PLAYERBULLET_H_
 #define PLAYERBULLET_H_
-#include "DynamicEntity.h"
+#include "Friendly.h"
 
-class PlayerBullet : public DynamicEntity{
+namespace Model{
+
+
+class PlayerBullet : public Friendly.h{
 public:
 
 	PlayerBullet(float x, float y);
@@ -16,6 +19,8 @@ private:
 	float originY;
 
 };
+
+}
 
 
 

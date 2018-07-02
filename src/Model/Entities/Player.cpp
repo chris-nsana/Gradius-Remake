@@ -1,8 +1,12 @@
 #include "Player.h"
 
-	Player::Player(float x, float y) :  DynamicEntity(x, y, 2.0f, 0, 100){}
+namespace Model{
+
+Player::Player(float x, float y) :  DynamicEntity(x, y, 2.0f, 0, 100){}
 	
-	Player::~Player(){}
+Player::~Player(){}
 
 
-	void Player::move(){}
+void Player::move(){}
+
+}
