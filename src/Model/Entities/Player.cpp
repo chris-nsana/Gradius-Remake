@@ -2,8 +2,9 @@
 
 namespace Model{
 
-Player::Player(float x, float y) :  DynamicEntity(x, y, 2.0f, 0, 100){}
-	
+Player::Player(float x, float y, float health, float damage, float width, float height) 
+ : Friendly(x, y, health, damage, width, height){}
+
 Player::~Player(){}
 
 

@@ -1,6 +1,9 @@
 #include "PlayerBullet.h"
 
-PlayerBullet::PlayerBullet(float x, float y) : DynamicEntity(x, y, 0.1f, 1, 100), originX(x), originY(x){}
+namespace Model{
+
+PlayerBullet::PlayerBullet(float x, float y, float health, float damage, float width, float height)
+ : Friendly(x, y, health, damage, width, height){}
 
 PlayerBullet::~PlayerBullet(){}
 
@@ -9,5 +12,4 @@ void PlayerBullet::move(){
 	setPosition(pos.first + 0.075f, pos.second);
 }
 
-
-
+}

@@ -3,8 +3,6 @@
 #include <vector>
 #include <memory>
 
-class World;
-class DynamicEntity;
 class Player;
 
 //Elements
@@ -74,8 +72,8 @@ public:
 private:
 
 	std::unique_ptr<Player> player;
-	std::unique_ptr<World> worldPtr;
-	std::vector<dynamicPtr> dynamicEntities;
+	//std::unique_ptr<World> worldPtr;
+	std::vector<std::shared_ptr<Entity>> entities;
 	int playerlives;
 
 

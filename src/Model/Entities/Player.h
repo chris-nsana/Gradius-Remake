@@ -5,11 +5,11 @@
 namespace Model{
 
 class Player : public Friendly{
-	
+
 public:
-	
-	Player(float x, float y);
-	
+
+	Player(float x, float y, float health, float damage, float width, float height);
+
 	~Player();
 
 	void virtual move();
@@ -19,5 +19,3 @@ public:
 }
 
 #endif /* PLAYER_H_ */
-
-

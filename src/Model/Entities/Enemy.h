@@ -4,13 +4,13 @@
 
 namespace Model{
 
-class Enemy : public Enemy{
+class Enemy : public Entity{
 	//These constructors are not to be called outside the class hierarchy.
 	protected:
 
 		Enemy();
 
-		Enemy(float x, float y, float health, float damage, float width, float height, int type);
+		Enemy(float x, float y, float health, float damage, float width, float height);
 
 	public:
 		//Public destructor for proper use of smart pointers.
@@ -18,11 +18,11 @@ class Enemy : public Enemy{
 
 		virtual bool isNeutral() const override;
 
-		virtual void onCollisionReact(Neutral& other) override;
+		virtual bool isFriendly() const override;
 
-		virtual void onCollisionReact(Friendly& other) override;
+		virtual bool isEnemy() const override;
 
-		virtual void onCollisionReact(Enemy& other) override;
+		virtual void onCollisionReact(std::shared_ptr<Entity> otherEntity) override;
 
 		virtual void setBlocked()=0;
 

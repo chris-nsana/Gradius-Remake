@@ -11,19 +11,11 @@ Model::Model() : player(new Player(-3.25f, 0.0f)), worldPtr(new World){}
 Model::~Model(){}
 
 void Model::createEntity(float x, float y, int type, bool dynamic){
-
-	if(dynamic){
-		switch(type){
-		case 1:
-			dynamicEntities.push_back(std::unique_ptr<DynamicEntity>(new PlayerBullet(x, y)));
-			break;
-		}
-	}
-	else worldPtr->createWorldElement(x, y, type);
+//Obsolete
 }
 
 void Model::setLevel(){
-	worldPtr->setWorld();
+	//Different implementaton
 }
 
 void Model::movePlayer(float x, float y){

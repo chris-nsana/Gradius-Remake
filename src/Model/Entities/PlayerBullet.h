@@ -5,18 +5,14 @@
 namespace Model{
 
 
-class PlayerBullet : public Friendly.h{
+class PlayerBullet : public Friendly{
 public:
 
-	PlayerBullet(float x, float y);
+	PlayerBullet(float x, float y, float health, float damage, float width, float height);
 
 	virtual ~PlayerBullet();
 
 	void move();
-
-private:
-	float originX;
-	float originY;
 
 };
 

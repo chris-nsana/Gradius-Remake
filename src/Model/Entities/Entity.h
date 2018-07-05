@@ -18,13 +18,11 @@ protected:
 
 	Entity();
 
-	Entity(float x, float y, float health, float damage, float width, float height, int type);
-
+	Entity(float x, float y, float health, float damage, float width, float height);
 
 public:
 
 	virtual ~Entity();
-
 
     /**
      * @brief Method that attaches a view to all entities of the game.
@@ -94,11 +92,11 @@ public:
 
 	virtual bool isNeutral() const=0;
 
-	virtual void onCollisionReact(Neutral& other)=0;
+	virtual bool isFriendly() const=0;
 
-	virtual void onCollisionReact(Friendly& other)=0;
+	virtual bool isEnemy() const=0;
 
-	virtual void onCollisionReact(Enemy& other)=0;
+	virtual void onCollisionReact(std::shared_ptr<Entity> otherEntity)=0;
 
 
 private:
@@ -108,7 +106,6 @@ private:
 	float damage;
 	float width;
 	float height;
-	int type;
 	int eID;
 	static std::shared_ptr<View::View> observer; //The observer viewing the state of all entities.
 	static int entityCount; //Count of all entities in the game.

@@ -2,10 +2,10 @@
 
 namespace Model{
 
-Entity::Entity() : position(0,0){}
+Entity::Entity(){}
 
-Entity::Entity(float x, float y, float h1, float d,float w, float h2, int eType) :
-		position(x, y), health(h1), damage(d) width(w), height(h2), type(eType)
+Entity::Entity(float x, float y, float h1, float d,float w, float h2) :
+		position(x, y), health(h1), damage(d), width(w), height(h2)
 {
 	entityCount += 1;
 	eID = entityCount;
@@ -81,7 +81,7 @@ float Entity::getHalfHeight() const{
 	return (this->height / 2.0f);
 }
 
-void takeDamage(float amount){
+void Entity::takeDamage(float amount){
 	this->health -= amount;
 }
 
@@ -97,11 +97,11 @@ void Entity::fire(){}
 
 bool Entity::isNeutral() const{}
 
-void Entity::onCollisionReact(Neutral& other){}
+bool Entity::isFriendly() const{}
 
-void Entity::onCollisionReact(Friendly& other){}
+bool Entity::isEnemy() const{}
 
-void Entity::onCollisionReact(Enemy& other){}
+void Entity::onCollisionReact(std::shared_ptr<Entity>){}
 
 int Entity::entityCount = 0;
 
