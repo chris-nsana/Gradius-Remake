@@ -1,8 +1,10 @@
 #include "Border.h"
 
-Border::Border(float x, float y) : Entity(x, y, 0.0f, 4){}
+namespace Model{
+
+Border::Border(float x, float y, float health, float damage, float width, float height)
+ : Neutral(x, y, health, damage, width, height){}
 
 Border::~Border(){};
 
-
-
+}

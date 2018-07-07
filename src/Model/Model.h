@@ -3,12 +3,10 @@
 #include <vector>
 #include <memory>
 
-class Player;
-
-//Elements
-using dynamicPtr =  std::unique_ptr<DynamicEntity>;
-
 namespace Model{
+
+class Entity;
+class Player;
 
 class Model{
 
@@ -59,13 +57,13 @@ public:
 	 * @brief Method that checks whether this exact entity is colliding with another one.
 	 * @param A unique_ptr to the element that we check for.
 	 */
-	void checkCollision(std::unique_ptr<DynamicEntity>& arg);
+	void checkCollision();
 
 	/**
 	 * @brief Method that destroys an entity.
 	 * @param std::unique_ptr reference to the entity
 	 */
-	void destroyEntity(std::unique_ptr<DynamicEntity>& arg);
+	void destroyEntity();
 
 
 

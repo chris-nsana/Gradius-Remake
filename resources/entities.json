@@ -1,21 +1,44 @@
 {
-"Player" :{
+"Player1" : {
 	"entity_type" : "PlayerShip",
 	"health"      : 100,
 	"speed"       : 1.0,
 	"damage"      : 100,
 	"width"       : 300,
 	"height"      : 100,
-	"texture"     :
+	"texture"     : "BlueViper"
 	},
-"Player2" :{
+
+"Player2" : {
 	"entity_type" : "PlayerShip",
 	"health"      : 100,
 	"speed"       : 1.0,
 	"damage"      : 100,
 	"width"       : 300,
-	"height"      : 100
-	}
+	"height"      : 100,
+	"texture"     : "RedViper"
+	},
+
+"Player1Bullet" : {
+	"entity_type" : "PlayerBullet",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 300,
+	"height"      : 100,
+	"texture"     : "BlueBullet"
+	},
+
+"Player2Bullet" : {
+	"entity_type" : "PlayerBullet",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 300,
+	"height"      : 100,
+	"texture"     : "RedBullet"
+	},
+
 
 }
 

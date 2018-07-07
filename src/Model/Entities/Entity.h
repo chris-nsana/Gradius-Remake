@@ -78,8 +78,6 @@ public:
 
 	int getID() const;
 
-	int getType() const;
-
 	void takeDamage(float amount);
 
 	bool isDead() const;
@@ -96,7 +94,7 @@ public:
 
 	virtual bool isEnemy() const=0;
 
-	virtual void onCollisionReact(std::shared_ptr<Entity> otherEntity)=0;
+	virtual void onCollisionReact(std::shared_ptr<Entity>& otherEntity)=0;
 
 
 private:

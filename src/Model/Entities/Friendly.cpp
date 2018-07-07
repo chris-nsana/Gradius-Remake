@@ -7,7 +7,7 @@ namespace Model{
 Friendly::Friendly(){}
 
 Friendly::Friendly(float x, float y, float health, float damage, float width, float height) :
-		Entity(x, y, health, damage, width, height, type){}
+		Entity(x, y, health, damage, width, height){}
 
 Friendly::~Friendly(){}
 
@@ -23,7 +23,7 @@ bool Friendly::isEnemy() const {
 	return false;
 }
 
-void Friendly::onCollisionReact(std::shared_ptr<Entity> otherEntity){
+void Friendly::onCollisionReact(std::shared_ptr<Entity>& otherEntity){
 	//Friendly on Neutral collision has no significant effects for the other but damage for itself.
 	/*float otherDamage = other.getDamage();
 	this->takeDamage(otherDamage);*/

@@ -129,8 +129,9 @@ bool View::isAnimated(int type){
 	 }
 }
 
-void View::inform(float x, float y, int id, int type){
-
+void View::inform(float x, float y, int id){
+	return void();
+	/*
 	bool animated = isAnimated(type);
 	std::map<int, sf::Sprite>::iterator aIterator = animatedSprites.find(id);
 	std::map<int, sf::Sprite>::iterator sIterator = staticSprites.find(id);
@@ -186,7 +187,7 @@ void View::inform(float x, float y, int id, int type){
 		//std::cout << id << " op locatie " << xPixels << " en " << yPixels << std::endl;
 		sf::Sprite& sprite = staticSprites[id];
 		sprite.setPosition(xPixels, yPixels);
-	}
+	}*/
 
 
 }

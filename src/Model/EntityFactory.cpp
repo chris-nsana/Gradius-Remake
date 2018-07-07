@@ -7,11 +7,26 @@
 namespace Model{
 
 EntityFactory::EntityFactory(){
-  json entities;
+  nlohmann::json entities;
   std::ifstream file("./../resources/entities.json");
   file >> entities;
   this->entitiesJson = entities;
   //create the map now....
+  creationMap["PlayerShip"]    = &createPlayerShip
+  creationMap["PlayerBullet"]  = &createPlayerBullet
+  creationMap["Border"]        = &createBorder
+  creationMap["Background"]    = &createBackground
+
+}
+
+std::shared_ptr<Entity> EntityFactory::create(std::string entity_type){
+  auto obj = entitiesJson[entity_type];
+  eType = obj["entity_type"];
+  creationArgs args = {obj["health"], obj["speed"], obj["damage"], obj["width"],
+  obj["height"], obj["texture"], obj[]};
+  ctor = creationMap[eType];
+  return (*this).(*ctor)(args);
+
 }
 
 std::shared_ptr<Entity> EntityFactory::createPlayerShip(creationArgs& args){

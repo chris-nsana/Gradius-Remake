@@ -69,7 +69,7 @@ public:
 	 * @param int type an integer that represents what type of entity is informing the view of its changes.
 	 * @param bool animatet that tells the view if the entity is animated or not
 	 */
-	void inform(float x, float y, int id, int type);
+	void inform(float x, float y, int id);
 
 	/**
 	 * @brief Method that deletes an entity from the view.

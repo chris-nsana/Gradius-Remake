@@ -5,7 +5,7 @@ namespace Model{
 Enemy::Enemy(){}
 
 Enemy::Enemy(float x, float y, float health, float damage, float width, float height) :
-		Entity(x, y, health, damage, width, height, type){}
+		Entity(x, y, health, damage, width, height){}
 
 Enemy::~Enemy(){}
 
@@ -21,7 +21,7 @@ bool Enemy::isEnemy() const{
 	return true;
 }
 
-void Enemy::onCollisionReact(std::shared_ptr<Entity> otherEntity){
+void Enemy::onCollisionReact(std::shared_ptr<Entity>& otherEntity){
 	//Enemy on Neutral collision leads to solid collision without damaged
 	//this->setBlocked();
 }

@@ -1,7 +1,7 @@
 #ifndef BACKGROUND_H_
 #define BACKGROUND_H_
 #include "Entity.h"
-#include "Neutral"
+#include "Neutral.h"
 
 namespace Model{
 
@@ -9,7 +9,7 @@ class Background : public Neutral{
 
 public:
 
-	Background(float x, float y);
+	Background(float x, float y, float health, float damage, float width, float height);
 
 	virtual ~Background();
 };

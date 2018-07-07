@@ -28,7 +28,7 @@ bool Entity::isAttached() const{
 }
 
 void Entity::notify() const{
-if(isAttached())observer->inform(getPosition().first, getPosition().second, getID(), getType());
+if(isAttached())observer->inform(getPosition().first, getPosition().second, getID());
 
 else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
 }
@@ -47,11 +47,6 @@ void Entity::setPosition(float x, float y){
 int Entity::getID() const{
 	return eID;
 }
-
-int Entity::getType() const{
-	return type;
-}
-
 
 std::pair<float, float> Entity::getPosition() const{
 	return this->position;
@@ -101,7 +96,7 @@ bool Entity::isFriendly() const{}
 
 bool Entity::isEnemy() const{}
 
-void Entity::onCollisionReact(std::shared_ptr<Entity>){}
+void Entity::onCollisionReact(std::shared_ptr<Entity>&){}
 
 int Entity::entityCount = 0;
 

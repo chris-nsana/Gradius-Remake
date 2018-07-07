@@ -1,12 +1,11 @@
 #include "Model.h"
 #include "Entities/Player.h"
 #include "Entities/PlayerBullet.h"
-#include "Entities/World.h"
 #include <iostream>
 
 namespace Model{
 
-Model::Model() : player(new Player(-3.25f, 0.0f)), worldPtr(new World){}
+Model::Model() : player(nullptr){}
 
 Model::~Model(){}
 
@@ -36,15 +35,17 @@ void Model::movePlayer(float x, float y){
 }
 
 void Model::update(){
+	/*
 	//Update the world elements
 	worldPtr->update();
 	//Update the dynamic entities
 	for(auto& d : dynamicEntities){
 		d->move();
-	}
+	}*/
 }
 
 void Model::massNotify(){
+	/*
 	//Of course the player has to notify the observer of its changes
 	player->notify();
 	//All the dynamicEntities in the model have to notify their changes as well.
@@ -52,7 +53,7 @@ void Model::massNotify(){
 		ptr->notify();
 	}
 	//The world elements need to notify their changes as well.
-	worldPtr->notify();
+	worldPtr->notify();*/
 }
 
 void Model::playerFire(){
@@ -60,7 +61,7 @@ void Model::playerFire(){
 	createEntity(player->getPosition().first + 0.2f, player->getPosition().second - 0.075f, 1, true);
 }
 
-void Model::checkCollision(std::unique_ptr<DynamicEntity>& arg){
+void Model::checkCollision(){
 	bool collision = false;
 	/*float left;
 	float right;

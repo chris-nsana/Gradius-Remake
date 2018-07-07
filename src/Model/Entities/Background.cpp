@@ -3,11 +3,9 @@
 namespace Model{
 
 
-Background::Background(float x, float y) : Entity(x, y, 0.0f, 3){}
+Background::Background(float x, float y, float health, float damage, float width, float height)
+ : Neutral(x, y, health, damage, width, height){}
 
 Background::~Background(){};
 
 }
-
-
-

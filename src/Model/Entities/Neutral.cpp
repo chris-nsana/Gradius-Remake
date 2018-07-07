@@ -7,7 +7,7 @@ namespace Model{
 Neutral::Neutral(){}
 
 Neutral::Neutral(float x, float y, float health, float damage, float width, float height) :
-		Entity(x, y, health, damage, width, height, type){}
+		Entity(x, y, health, damage, width, height){}
 
 Neutral::~Neutral(){}
 
@@ -24,7 +24,7 @@ bool Neutral::isEnemy() const {
 }
 
 
-void Neutral::onCollisionReact(std::shared_ptr<Entity> otherEntity){
+void Neutral::onCollisionReact(std::shared_ptr<Entity>& otherEntity){
 	//Neutral on neutral collision has no significant effect.
 	return void();
 }

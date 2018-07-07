@@ -71,7 +71,7 @@ void Game::Run(){
 	gameModel   = std::make_shared<Model::Model>();
 	gameControl = std::make_shared<Controller::Controller>(gameModel, window);
 	gameView    = std::make_shared<View::View>(window);
-	Entity::Attach(gameView);
+	Model::Entity::Attach(gameView);
 	gameModel->setLevel();
 
 
