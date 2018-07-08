@@ -10,7 +10,7 @@ class Neutral : public Entity{
 
 		Neutral();
 
-		Neutral(float x, float y, float health, float damage, float width, float height);
+		Neutral(float x, float y, float health, float damage, float width, float height, string texture);
 
 	public:
 		//Public destructor for proper use of smart pointers.
@@ -21,6 +21,8 @@ class Neutral : public Entity{
 		virtual bool isFriendly() const override;
 
 		virtual bool isEnemy() const override;
+
+		virtual void fire() override;
 
 		virtual void onCollisionReact(const std::unique_ptr<Entity>& otherEntity) override;
 

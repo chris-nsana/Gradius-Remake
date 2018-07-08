@@ -6,6 +6,8 @@
 #include <Utilities/json.hpp>
 namespace Model{
 
+class Entity;
+
 class EntityFactory{
 
   //Struct to convienently pass all the needed arguments to the creation methods.
@@ -21,7 +23,7 @@ class EntityFactory{
 
 public:
 
-  EntityFactory();
+  EntityFactory(std::string entitiesFile);
 
   ~EntityFactory();
 
@@ -37,7 +39,7 @@ private:
 
   std::unique_ptr<Entity> createBackground(creationArgs& args);
 
-  using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&)
+  using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&);
   std::map<std::string, creationMethod> creationMap;
   nlohmann::json entitiesJson;
 

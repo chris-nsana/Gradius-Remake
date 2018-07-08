@@ -9,9 +9,13 @@ class Border : public Neutral{
 
 public:
 
-	Border(float x, float y, float health, float damage, float width, float height);
+	Border(float x, float y, float health, float damage, float width, float height, string texture);
 
 	virtual ~Border();
+
+	virtual void update() override;
+
+	virtual void move() override;
 };
 
 }

@@ -6,8 +6,8 @@ namespace Model{
 
 Neutral::Neutral(){}
 
-Neutral::Neutral(float x, float y, float health, float damage, float width, float height) :
-		Entity(x, y, health, damage, width, height){}
+Neutral::Neutral(float x, float y, float health, float damage, float width, float height, string texture) :
+		Entity(x, y, health, damage, width, height, texture){}
 
 Neutral::~Neutral(){}
 
@@ -21,6 +21,10 @@ bool Neutral::isFriendly() const {
 
 bool Neutral::isEnemy() const {
 	return false;
+}
+
+void Neutral::fire(){
+	return void();
 }
 
 

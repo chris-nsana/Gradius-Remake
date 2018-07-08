@@ -4,8 +4,8 @@ namespace Model{
 
 Enemy::Enemy(){}
 
-Enemy::Enemy(float x, float y, float health, float damage, float width, float height) :
-		Entity(x, y, health, damage, width, height){}
+Enemy::Enemy(float x, float y, float health, float damage, float width, float height, string texture) :
+		Entity(x, y, health, damage, width, height, texture){}
 
 Enemy::~Enemy(){}
 

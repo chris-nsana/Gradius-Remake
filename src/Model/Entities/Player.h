@@ -8,9 +8,13 @@ class Player : public Friendly{
 
 public:
 
-	Player(float x, float y, float health, float damage, float width, float height);
+	Player(float x, float y, float health, float damage, float width, float height, string texture);
 
 	~Player();
+
+	void virtual update();
+
+	void virtual fire();
 
 	void virtual move();
 

@@ -2,9 +2,12 @@
 #define ENTITY_H_
 #include <utility>
 #include <memory>
+#include <string>
 #include <View/View.h>
 
 namespace View{class View;}
+
+using std::string;
 
 namespace Model{
 
@@ -18,7 +21,7 @@ protected:
 
 	Entity();
 
-	Entity(float x, float y, float health, float damage, float width, float height);
+	Entity(float x, float y, float health, float damage, float width, float height, string texture);
 
 public:
 
@@ -104,6 +107,7 @@ private:
 	float damage;
 	float width;
 	float height;
+	string texture;
 	int eID;
 	static std::shared_ptr<View::View> observer; //The observer viewing the state of all entities.
 	static int entityCount; //Count of all entities in the game.

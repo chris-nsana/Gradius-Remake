@@ -9,9 +9,13 @@ class Background : public Neutral{
 
 public:
 
-	Background(float x, float y, float health, float damage, float width, float height);
+	Background(float x, float y, float health, float damage, float width, float height, string texture);
 
 	virtual ~Background();
+
+	virtual void update() override;
+
+	virtual void move() override;
 };
 
 }

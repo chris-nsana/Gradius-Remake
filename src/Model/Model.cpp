@@ -1,4 +1,5 @@
 #include "Model.h"
+#include "EntityFactory.h"
 #include "Entities/Player.h"
 #include "Entities/PlayerBullet.h"
 #include <iostream>
