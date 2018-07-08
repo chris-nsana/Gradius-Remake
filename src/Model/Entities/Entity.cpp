@@ -7,8 +7,8 @@ Entity::Entity(){}
 Entity::Entity(float x, float y, float h1, float d,float w, float h2, string tx) :
 		position(x, y), health(h1), damage(d), width(w), height(h2), texture(tx)
 {
-	entityCount += 1;
-	eID = entityCount;
+	Entity::entityCount += 1;
+	eID = Entity::entityCount;
 
 }
 

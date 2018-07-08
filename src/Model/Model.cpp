@@ -6,7 +6,18 @@
 
 namespace Model{
 
-Model::Model() : player(nullptr){}
+Model::Model(std::string entitiesFile, bool co_op) : player1ID(0), player2ID(0){
+	factory         = std::make_unique<EntityFactory>(entitiesFile);
+	auto player1    = factory->create("Player1");
+	this->player1ID  = player1->getID();
+	entities.push_back(std::move(player1));
+
+	if (co_op){
+		auto player2      = factory->create("Player2");
+		this-> player2ID  = player2->getID();
+		entities.push_back(std::move(player2));
+	}
+}
 
 Model::~Model(){}
 
@@ -18,7 +29,12 @@ void Model::setLevel(){
 	//Different implementaton
 }
 
+std::unique_ptr<Entity>& Model::locateEntity(int eID){
+	//Still to implement.
+}
+
 void Model::movePlayer(float x, float y){
+	/***
 	std::pair<float, float> playerPos = player->getPosition();
 	float newX = playerPos.first + x;
 	float newY = playerPos.second +y;
@@ -32,7 +48,7 @@ void Model::movePlayer(float x, float y){
 		newY = -2.42500;
 		//do your thing
 	}
-	player->setPosition(newX, newY);
+	player->setPosition(newX, newY);*/
 }
 
 void Model::update(){
@@ -59,7 +75,7 @@ void Model::massNotify(){
 
 void Model::playerFire(){
 	//
-	createEntity(player->getPosition().first + 0.2f, player->getPosition().second - 0.075f, 1, true);
+	//createEntity(player->getPosition().first + 0.2f, player->getPosition().second - 0.075f, 1, true);
 }
 
 void Model::checkCollision(){

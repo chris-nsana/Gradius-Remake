@@ -15,6 +15,7 @@ class EntityFactory{
     float x;
     float y;
     float health;
+    float speed;
     float damage;
     float width;
     float height;

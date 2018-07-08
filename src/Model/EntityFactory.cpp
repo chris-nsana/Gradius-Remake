@@ -25,8 +25,8 @@ EntityFactory::~EntityFactory(){}
 std::unique_ptr<Entity> EntityFactory::create(std::string entity_type){
   auto obj = entitiesJson[entity_type];
   std::string eType = obj["entity_type"];
-  creationArgs args = {obj["health"], obj["speed"], obj["damage"], obj["width"],
-  obj["height"], obj["texture"]};
+  creationArgs args = {100, 100, obj["health"], obj["speed"], obj["damage"],
+  obj["width"], obj["height"], obj["texture"]};
   auto ctor = creationMap[eType];
   return (this->*ctor)(args);
 

@@ -2,6 +2,7 @@
 #define MODEL_H_
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace Model{
 
@@ -13,7 +14,7 @@ class Model{
 
 public:
 
-	Model();
+	Model(std::string entitiesFile, bool co_op);
 
 	~Model();
 
@@ -30,6 +31,12 @@ public:
 	 * @brief Method that does some prep work for a level.
 	 */
 	void setLevel();
+	/**
+	*
+	*
+	*
+	*/
+	std::unique_ptr<Entity>& locateEntity(int eID);
 
 	/**
 	 * @brief Method that moves the player.
@@ -69,11 +76,11 @@ public:
 
 
 private:
-
-	std::unique_ptr<Player> player;
 	std::unique_ptr<EntityFactory> factory;
-	//std::unique_ptr<World> worldPtr;
-	std::vector<std::shared_ptr<Entity>> entities;
+	std::vector<std::unique_ptr<Entity>> entities;
+	int player1ID;
+	int player2ID;
+	bool co_op;
 	int playerlives;
 
 
