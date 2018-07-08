@@ -22,7 +22,7 @@ class Neutral : public Entity{
 
 		virtual bool isEnemy() const override;
 
-		virtual void onCollisionReact(std::shared_ptr<Entity>& otherEntity) override;
+		virtual void onCollisionReact(const std::unique_ptr<Entity>& otherEntity) override;
 
 };
 }

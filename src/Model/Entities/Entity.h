@@ -94,7 +94,7 @@ public:
 
 	virtual bool isEnemy() const=0;
 
-	virtual void onCollisionReact(std::shared_ptr<Entity>& otherEntity)=0;
+	virtual void onCollisionReact(const std::unique_ptr<Entity>& otherEntity)=0;
 
 
 private:

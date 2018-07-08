@@ -7,6 +7,7 @@ namespace Model{
 
 class Entity;
 class Player;
+class EntityFactory;
 
 class Model{
 
@@ -70,6 +71,7 @@ public:
 private:
 
 	std::unique_ptr<Player> player;
+	//std::unique_ptr<EntityFactory> factory;
 	//std::unique_ptr<World> worldPtr;
 	std::vector<std::shared_ptr<Entity>> entities;
 	int playerlives;

@@ -16,7 +16,7 @@ class EntityFactory{
     float damage;
     float width;
     float height;
-    int type;
+    std::string texture;
   };
 
 public:
@@ -25,19 +25,19 @@ public:
 
   ~EntityFactory();
 
-  std::shared_ptr<Entity> create(std::string entity_type);
+  std::unique_ptr<Entity> create(std::string entity_type);
 
 private:
 
-  std::shared_ptr<Entity> createPlayerShip(creationArgs& args);
+  std::unique_ptr<Entity> createPlayerShip(creationArgs& args);
 
-  std::shared_ptr<Entity> createPlayerBullet(creationArgs& args);
+  std::unique_ptr<Entity> createPlayerBullet(creationArgs& args);
 
-  std::shared_ptr<Entity> createBorder(creationArgs& args);
+  std::unique_ptr<Entity> createBorder(creationArgs& args);
 
-  std::shared_ptr<Entity> createBackground(creationArgs& args);
+  std::unique_ptr<Entity> createBackground(creationArgs& args);
 
-  using creationMethod = std::shared_ptr<Entity> (EntityFactory::*)(creationArgs&)
+  using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&)
   std::map<std::string, creationMethod> creationMap;
   nlohmann::json entitiesJson;
 

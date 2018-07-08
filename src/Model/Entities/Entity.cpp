@@ -96,7 +96,7 @@ bool Entity::isFriendly() const{}
 
 bool Entity::isEnemy() const{}
 
-void Entity::onCollisionReact(std::shared_ptr<Entity>&){}
+void Entity::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){}
 
 int Entity::entityCount = 0;
 

@@ -24,7 +24,7 @@ bool Neutral::isEnemy() const {
 }
 
 
-void Neutral::onCollisionReact(std::shared_ptr<Entity>& otherEntity){
+void Neutral::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){
 	//Neutral on neutral collision has no significant effect.
 	return void();
 }
