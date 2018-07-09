@@ -1,15 +1,27 @@
-#include "View.h"
+#include <iostream>
+#include <tuple>
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
-#include <tuple>
 #include "Utilities/Transformation.h"
 #include "Utilities/Stopwatch.h"
-#include <iostream>
+#include "View.h"
 #include "GameGlobals.h"
 
 namespace View{
 
-View::View(std::shared_ptr<sf::RenderWindow>& w) : window(w){}
+View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : window(w){
+	nlohmann::json textures;
+	std::ifstream file{texturesFile};
+	file >> textures;
+	this->texturesJson = textures;
+
+	for(auto it = textures.begin(); it != textures.end(); ++it ){
+		textureName = it.key();
+		file_path   = it.value()["file_path"]
+		this->textures[textureName] = std::make_unique<sf::Texture>();
+		this->textures[textureName].loadFromFile(file_path);
+	}
+}
 
 View::~View(){}
 
@@ -29,47 +41,13 @@ bool View::isOpen() const{
 	return window->isOpen();
 }
 
-void View::addSprite(int id, int typeOfEntity, bool animated){
+void View::addSprite(int id, std::string texture){
 
-	sf::Sprite s;
+	sf::Sprite spriteObj;
 	//Get a reference to the Texture, since the constructor of sf::Sprite only takes that as argument.
-	const sf::Texture& t = *(textures[typeOfEntity].get());
-	s.setTexture(t);
-	switch(typeOfEntity){
-
-	case 0:
-	{
-		s.scale(sf::Vector2f(0.5f, 0.5f));
-		break;
-	}
-
-	case 1:
-	{
-		s.scale(sf::Vector2f(0.25f, 0.25f));
-		break;
-	}
-
-	case 3:
-	{
-		if(level == 1)s.scale(sf::Vector2f(0.7f, 0.7f));
-		else if(level == 2) s.scale(sf::Vector2f(1.2444444f, 1.2444444f));
-		else if(level == 3) s.scale(sf::Vector2f(0.7f, 0.7f));
-		break;
-	}
-
-	case 4:
-		//scaling is not needed for this type
-		break;
-
-
-
-
-	default:
-		throw std::invalid_argument("Can't create sprite of this type!");
-	}
-
-	if(animated) animatedSprites[id] = s;
-	else staticSprites[id] = s;
+	const sf::Texture& t = *((this->textures[texture]).get());
+	spriteObj.setTexture(t);
+	sprites[id] = spriteObj;
 }
 
 void View::addTexture(int typeOfEntity){
@@ -118,33 +96,22 @@ void View::addAnimation(int id, int typeOfEntity){
 	animations.insert(std::pair<int, Animation>(id, a));
 }
 
-bool View::isAnimated(int type){
-	 switch(type){
-	 case 0:
-		 return true;
-
-	 default:
-		 return false;
-
-	 }
-}
 
 void View::inform(float x, float y, int id){
 	return void();
-	/*
-	bool animated = isAnimated(type);
-	std::map<int, sf::Sprite>::iterator aIterator = animatedSprites.find(id);
-	std::map<int, sf::Sprite>::iterator sIterator = staticSprites.find(id);
+	//bool animated = isAnimated(type);
+	std::map<int, sf::Sprite>::iterator spIterator = sprites.find(id);
+	//std::map<int, sf::Sprite>::iterator sIterator = staticSprites.find(id);
 
 
 	//Check whether View already knows of this object's existence
-	if((aIterator == animatedSprites.end()) and (sIterator == staticSprites.end())){
+	if(spIterator == sprites.end()){
 		//New objects without sprites don't have animations either, but we need the Texture before we can make Animation objects.
 		//Check if the texture is there, we use count() instead of find() because we don't need the iterator.
-		if(!(textures.count(type)> 0)){
+		/*if(!(textures.count(type)> 0)){
 			//Create the texture for the given type.
 			addTexture(type);
-		}
+		}*/
 		//Create the sprite that matches with this object.
 		addSprite(id, type, animated);
 		if(animated){

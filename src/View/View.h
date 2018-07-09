@@ -2,6 +2,8 @@
 #define VIEW_H_
 #include <memory>
 #include <map>
+#include <string>
+#include <Utilities/json.hpp>
 
 namespace sf{
 
@@ -18,7 +20,7 @@ class View{
 
 public:
 
-	View(std::shared_ptr<sf::RenderWindow>& w);
+	View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile);
 
 	~View();
 
@@ -38,7 +40,7 @@ public:
 	 * @param int id to identify which object we're displaying
 	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
 	 */
-	void addSprite(int id, int typeOfEntity, bool animated);
+	void addSprite(int id, std::string texture);
 
 	/**
 	 * @brief Method that loads the texture needed for an entity in memory.
@@ -54,12 +56,6 @@ public:
 	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
 	 */
 	void addAnimation(int id, int typeOfEntity);
-
-	/**
-	 * @brief Method that checks whether a certain type of entity has an animated representation
-	 * @param int typeOfEntity that specifies the entity type.
-	 */
-	bool isAnimated(int typeOfEntity);
 
 	/**
 	 * @brief Method that informs the view of a entity's changes.
@@ -85,14 +81,15 @@ private:
 
 	//Window to render the images.
 	std::shared_ptr<sf::RenderWindow> window;
-	//Assiocative container that maps entities to their respective animated sprites.
-	std::map<int, sf::Sprite> animatedSprites;
-	//Assiocative container that maps entities to their respective static sprites.
-	std::map<int, sf::Sprite> staticSprites;
-	//Associative container that maps entities to their respective animations.
+	//Associative container that maps texture names to their respective texture object.
+	std::map<std::string, std::unique_ptr<sf::Texture>> textures;
+	//Assiocative container that maps entities to their respective sprites.
+	std::map<int, sf::Sprite> sprites
+	//Associative container that maps entities to their respective animation texture.
 	std::map<int, Animation> animations;
-	//Associative container that maps entity types to their respective texture.
-	std::map<int, std::shared_ptr<sf::Texture>> textures;
+	//Json object containing all information on entity textures
+	nlohmann::json texturesJson;
+	//
 
 };
 
