@@ -3,38 +3,10 @@
 	"image_path"  : "./../resources/images/PlayerSprite.png",
 	"frames"      : 5,
 	"rows"        : 2,
-	"switch_time" : 0.2,
+	"switch_time" : 0.15,
 	"origin_x"    : 0,
-	"origin_y"    : 0,
-	},
-
-"BlueViper" : {
-	"image_path"  : "./../resources/images/PlayerSprite.png",
-	"frames"      : 5,
-	"rows"        : 2,
-	"switch_time" : 0.2,
-	"origin_x"    : 0,
-	"origin_y"    : 0,
-	},
-
-"BlueViper" : {
-	"image_path"  : "./../resources/images/PlayerSprite.png",
-	"frames"      : 5,
-	"rows"        : 2,
-	"switch_time" : 0.2,
-	"origin_x"    : 0,
-	"origin_y"    : 0,
-	},
-
-"BlueViper" : {
-	"image_path"  : "./../resources/images/PlayerSprite.png",
-	"frames"      : 5,
-	"rows"        : 2,
-	"switch_time" : 0.2,
-	"origin_x"    : 0,
-	"origin_y"    : 0,
+	"origin_y"    : 0
 	}
-
 
 }
 

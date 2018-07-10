@@ -81,6 +81,8 @@ public:
 
 	int getID() const;
 
+	std::string getTexture() const;
+
 	void takeDamage(float amount);
 
 	bool isDead() const;

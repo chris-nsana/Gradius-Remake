@@ -28,7 +28,7 @@ bool Entity::isAttached() const{
 }
 
 void Entity::notify() const{
-if(isAttached())observer->inform(getPosition().first, getPosition().second, getID());
+if(isAttached())observer->inform(getPosition().first, getPosition().second, getID(), getTexture());
 
 else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
 }
@@ -46,6 +46,10 @@ void Entity::setPosition(float x, float y){
 
 int Entity::getID() const{
 	return eID;
+}
+
+std::string Entity::getTexture() const{
+	return this->texture;		
 }
 
 std::pair<float, float> Entity::getPosition() const{

@@ -9,6 +9,7 @@ namespace Model{
 Model::Model(std::string entitiesFile, bool co_op) : player1ID(0), player2ID(0){
 	factory         = std::make_unique<EntityFactory>(entitiesFile);
 	auto player1    = factory->create("Player1");
+	player1->setPosition(1.0f, 1.0f);
 	this->player1ID  = player1->getID();
 	entities.push_back(std::move(player1));
 
@@ -62,15 +63,10 @@ void Model::update(){
 }
 
 void Model::massNotify(){
-	/*
-	//Of course the player has to notify the observer of its changes
-	player->notify();
-	//All the dynamicEntities in the model have to notify their changes as well.
-	for(auto& ptr : dynamicEntities){
-		ptr->notify();
+	//Every entity needs to notify the observer
+	for(auto& e : entities){
+		e->notify();
 	}
-	//The world elements need to notify their changes as well.
-	worldPtr->notify();*/
 }
 
 void Model::playerFire(){

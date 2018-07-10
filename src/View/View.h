@@ -48,14 +48,14 @@ public:
 	 * @param int typeOfEntity that is an identifier for a specific texture for an entity type.
 	 * @param bool animated is a flag that tells us whether we should treat it as an animated sprite or not.
 	 */
-	void addTexture(int typeOfEntity);
+	//void addTexture(int typeOfEntity);
 
 	/**
 	 * @brief Method that creates the animation object for a certain entity that will be displayed
 	 * @param int id to identify which object we're animating.
 	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
 	 */
-	void addAnimation(int id, int typeOfEntity);
+	void addAnimation(int id, std::string texture);
 
 	/**
 	 * @brief Method that informs the view of a entity's changes.
@@ -65,7 +65,7 @@ public:
 	 * @param int type an integer that represents what type of entity is informing the view of its changes.
 	 * @param bool animatet that tells the view if the entity is animated or not
 	 */
-	void inform(float x, float y, int id);
+	void inform(float x, float y, int id, std::string texture);
 
 	/**
 	 * @brief Method that deletes an entity from the view.
@@ -84,7 +84,7 @@ private:
 	//Associative container that maps texture names to their respective texture object.
 	std::map<std::string, std::unique_ptr<sf::Texture>> textures;
 	//Assiocative container that maps entities to their respective sprites.
-	std::map<int, sf::Sprite> sprites
+	std::map<int, sf::Sprite> sprites;
 	//Associative container that maps entities to their respective animation texture.
 	std::map<int, Animation> animations;
 	//Json object containing all information on entity textures

@@ -15,7 +15,7 @@ namespace View{
 
 Animation::Animation(){}
 
-Animation::Animation(std::shared_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime) : row(0){
+Animation::Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime) : row(0){
 
 	this->imageCount = imageCount;
 	this->switchTime = switchTime;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <tuple>
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
@@ -16,10 +17,10 @@ View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : win
 	this->texturesJson = textures;
 
 	for(auto it = textures.begin(); it != textures.end(); ++it ){
-		textureName = it.key();
-		file_path   = it.value()["file_path"]
+		auto textureName = it.key();
+		auto file_path   = it.value()["image_path"];
 		this->textures[textureName] = std::make_unique<sf::Texture>();
-		this->textures[textureName].loadFromFile(file_path);
+		this->textures[textureName]->loadFromFile(file_path);
 	}
 }
 
@@ -27,12 +28,9 @@ View::~View(){}
 
 void View::displayGame(){
 	window->clear();
-	for(auto& sS : staticSprites){
-		window->draw(sS.second);
-	}
-	for(auto& aS : animatedSprites){
-		(aS.second).setTextureRect((animations[aS.first]).uvRect);
-		window->draw(aS.second);
+	for(auto& s : sprites){
+		(s.second).setTextureRect((animations[s.first]).uvRect);
+		window->draw(s.second);
 	}
 	window->display();
 }
@@ -50,6 +48,7 @@ void View::addSprite(int id, std::string texture){
 	sprites[id] = spriteObj;
 }
 
+/*
 void View::addTexture(int typeOfEntity){
 	std::shared_ptr<sf::Texture> sp = std::make_shared<sf::Texture>();
 
@@ -89,75 +88,43 @@ void View::addTexture(int typeOfEntity){
 	default:
 		throw std::invalid_argument("There is no texture found for this type of entity! Texture files might be missing from the project folder.");
 	}
-}
+}*/
 
-void View::addAnimation(int id, int typeOfEntity){
-	Animation a{textures[typeOfEntity], sf::Vector2u(5, 2), 0.1f};
+void View::addAnimation(int id, std::string texture){
+	//Get the information of this texture's animation from the json file.
+	auto animationInfo = this->texturesJson[texture];
+	int frames    = animationInfo["frames"];
+	int rows      = animationInfo["rows"];
+	float switchT = animationInfo["switch_time"];
+
+	Animation a{this->textures[texture], sf::Vector2u(frames, rows), switchT};
 	animations.insert(std::pair<int, Animation>(id, a));
 }
 
 
-void View::inform(float x, float y, int id){
-	return void();
-	//bool animated = isAnimated(type);
+void View::inform(float x, float y, int id, std::string texture){
 	std::map<int, sf::Sprite>::iterator spIterator = sprites.find(id);
-	//std::map<int, sf::Sprite>::iterator sIterator = staticSprites.find(id);
-
-
 	//Check whether View already knows of this object's existence
 	if(spIterator == sprites.end()){
-		//New objects without sprites don't have animations either, but we need the Texture before we can make Animation objects.
-		//Check if the texture is there, we use count() instead of find() because we don't need the iterator.
-		/*if(!(textures.count(type)> 0)){
-			//Create the texture for the given type.
-			addTexture(type);
-		}*/
 		//Create the sprite that matches with this object.
-		addSprite(id, type, animated);
-		if(animated){
-		sf::Sprite& curSprite = animatedSprites[id];
+		addSprite(id, texture);
+		sf::Sprite& curSprite = sprites[id];
 		//Create the animation object with the texture.
-		addAnimation(id, type);
+		addAnimation(id, texture);
 		//Set the sprite to the starting animation frame.
 		curSprite.setTextureRect(animations[id].uvRect);
 		//Center the origin of the sprite before we us it.
 		sf::FloatRect bound_rect = curSprite.getLocalBounds();
 		curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
 		}
-		else{
-			sf::Sprite& curSprite = staticSprites[id];
-			sf::Texture& tx = *(textures[type].get());
-			curSprite.setTexture(tx);
-			//Center the origin of the sprite before we us it.
-			sf::FloatRect bound_rect = curSprite.getLocalBounds();
-			curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
-			//Special case for the border sprites
-			if(type == 4){
-				curSprite.setTextureRect(sf::IntRect(0, 0, 1120, 60));
-				sf::FloatRect bound_rect = curSprite.getLocalBounds();
-				curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
-			}
-		}
 
-
-	}
-
-	//The object either exist or is created now. We can move the object according to the changes now.
+	//The object either existed or is created now. We can move the object according to the changes now.
 	float xPixels, yPixels;
 	//Unpacking the pixel values that the Transformation object returned in the variables xPixels and yPixels.
 	std::tie(xPixels, yPixels) = utils::Transformation::getInstance().coordinatesToPixels(x, y);
-	if(animated){
-		sf::Sprite& sprite = animatedSprites[id];
-		sprite.setPosition(xPixels, yPixels);
+	sf::Sprite& sprite = sprites[id];
+	sprite.setPosition(xPixels, yPixels);
 	}
-	else{
-		//std::cout << id << " op locatie " << xPixels << " en " << yPixels << std::endl;
-		sf::Sprite& sprite = staticSprites[id];
-		sprite.setPosition(xPixels, yPixels);
-	}*/
-
-
-}
 
 void View::updateAnimations(){
 
@@ -168,15 +135,11 @@ void View::updateAnimations(){
 }
 
 void View::deleteEntity(int ID){
-	auto it = animatedSprites.find(ID);
-	if(it != animatedSprites.end()){
-		animatedSprites.erase(it);
+	auto it = sprites.find(ID);
+	if(it != sprites.end()){
+		sprites.erase(it);
 		auto it2 = animations.find(ID);
 		animations.erase(it2);
-	}
-	else{
-		auto it3 = staticSprites.find(ID);
-		staticSprites.erase(it3);
 	}
 }
 

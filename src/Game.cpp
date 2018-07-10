@@ -70,7 +70,7 @@ void Game::Run(){
 	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(1120, 840), "Gradius", sf::Style::Close);
 	gameModel   = std::make_shared<Model::Model>("./../resources/entities.json", false);
 	gameControl = std::make_shared<Controller::Controller>(gameModel, window);
-	gameView    = std::make_shared<View::View>(window);
+	gameView    = std::make_shared<View::View>(window, "./../resources/textures.json");
 	Model::Entity::Attach(gameView);
 	gameModel->setLevel();
 

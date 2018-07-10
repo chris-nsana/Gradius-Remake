@@ -22,7 +22,7 @@ public:
 
 	Animation();
 
-	Animation(std::shared_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime);
+	Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime);
 
 	~Animation();
 
