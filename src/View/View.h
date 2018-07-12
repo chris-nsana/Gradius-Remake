@@ -58,6 +58,13 @@ public:
 	void addAnimation(int id, std::string texture);
 
 	/**
+	 * @brief Method that creates the animation object for a certain entity that will be displayed
+	 * @param int id to identify which object we're animating.
+	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 */
+	void informCreation(int id, float width, float height, std::string texture);
+
+	/**
 	 * @brief Method that informs the view of a entity's changes.
 	 * @param float x the x-coordinate of the entity in the model
 	 * @param float y the y-coordinate of the entity in the model
@@ -65,7 +72,14 @@ public:
 	 * @param int type an integer that represents what type of entity is informing the view of its changes.
 	 * @param bool animatet that tells the view if the entity is animated or not
 	 */
-	void inform(float x, float y, int id, std::string texture);
+	void inform(int id, float x, float y);
+
+	/**
+	 * @brief Method that creates the animation object for a certain entity that will be displayed
+	 * @param int id to identify which object we're animating.
+	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 */
+	void informDeath(int id);
 
 	/**
 	 * @brief Method that deletes an entity from the view.

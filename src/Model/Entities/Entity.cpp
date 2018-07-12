@@ -9,6 +9,7 @@ Entity::Entity(float x, float y, float h1, float d,float w, float h2, string tx)
 {
 	Entity::entityCount += 1;
 	eID = Entity::entityCount;
+	this->notifyCreation();
 
 }
 
@@ -27,10 +28,20 @@ bool Entity::isAttached() const{
 	return (observer != nullptr);
 }
 
-void Entity::notify() const{
-if(isAttached())observer->inform(getPosition().first, getPosition().second, getID(), getTexture());
+void Entity::notifyCreation() const{
+	if(isAttached()){
+		observer->informCreation(getID(), getPosition().first, getPosition().second, getTexture());
+	}
+	else throw std::runtime_error("This should be a custom exception.");
 
-else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
+
+}
+
+void Entity::notify() const{
+	if(isAttached()){
+		observer->inform(getID(), getPosition().first, getPosition().second);
+	}
+	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
 }
 
 void Entity::notifyDeath() const{
@@ -49,7 +60,7 @@ int Entity::getID() const{
 }
 
 std::string Entity::getTexture() const{
-	return this->texture;		
+	return this->texture;
 }
 
 std::pair<float, float> Entity::getPosition() const{

@@ -101,24 +101,23 @@ void View::addAnimation(int id, std::string texture){
 	animations.insert(std::pair<int, Animation>(id, a));
 }
 
+void View::informCreation(int id, float width, float height, std::string texture){
+	//Create the sprite that matches with this object.
+	addSprite(id, texture);
+	sf::Sprite& curSprite = sprites[id];
+	//Create the animation object with the texture.
+	addAnimation(id, texture);
+	//Set the sprite to the starting animation frame.
+	curSprite.setTextureRect(animations[id].uvRect);
+	//Center the origin of the sprite before we us it.
+	sf::FloatRect bound_rect = curSprite.getLocalBounds();
+	curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
+	}
 
-void View::inform(float x, float y, int id, std::string texture){
-	std::map<int, sf::Sprite>::iterator spIterator = sprites.find(id);
-	//Check whether View already knows of this object's existence
-	if(spIterator == sprites.end()){
-		//Create the sprite that matches with this object.
-		addSprite(id, texture);
-		sf::Sprite& curSprite = sprites[id];
-		//Create the animation object with the texture.
-		addAnimation(id, texture);
-		//Set the sprite to the starting animation frame.
-		curSprite.setTextureRect(animations[id].uvRect);
-		//Center the origin of the sprite before we us it.
-		sf::FloatRect bound_rect = curSprite.getLocalBounds();
-		curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
-		}
 
-	//The object either existed or is created now. We can move the object according to the changes now.
+void View::inform(int id, float x, float y){
+	//Get the existing sprite
+	sf::Sprite& curSprite = sprites[id];
 	float xPixels, yPixels;
 	//Unpacking the pixel values that the Transformation object returned in the variables xPixels and yPixels.
 	std::tie(xPixels, yPixels) = utils::Transformation::getInstance().coordinatesToPixels(x, y);
@@ -126,8 +125,11 @@ void View::inform(float x, float y, int id, std::string texture){
 	sprite.setPosition(xPixels, yPixels);
 	}
 
-void View::updateAnimations(){
+void View::informDeath(int id){
+	return void();
+}
 
+void View::updateAnimations(){
 	float elapsed = utils::Stopwatch::getInstance().getElapsedTime();
 	for(auto& a : animations){
 		a.second.update(elapsed);

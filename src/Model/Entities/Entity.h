@@ -44,13 +44,18 @@ public:
 	 */
 	bool isAttached() const;
 
+	/**
+	 * @brief Method that lets the entity notify its observer of its creation.
+	 */
+	void notifyCreation() const;
+
     /**
-     * @brief Method that lets the entity notify the view of changes in its state.
+     * @brief Method that lets the entity notify its observer of its changes.
      */
 	void notify() const;
 
 	/**
-	 * @brief The model knows of a entities death, but the entity has to notify its observer aswell. This method does just that.
+	 * @brief Method that lets the entity notify its observer of its death.
 	 */
 	void notifyDeath() const;
 
