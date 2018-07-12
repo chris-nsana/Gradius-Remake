@@ -24,6 +24,8 @@ public:
 
 	Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime);
 
+	Animation(float pixelsX, float pixelsY);
+
 	~Animation();
 
 	/**
@@ -43,12 +45,13 @@ public:
 private:
 
 	sf::IntRect uvRect;
-
 	sf::Vector2u currentImage;
 	sf::Vector2u imageCount;
 
 	float totalTime;
 	float switchTime;
 	int row;
+	bool staticTexture;
 };
+
 }
