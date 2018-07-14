@@ -67,7 +67,8 @@ void Game::Run(){
 	//The game runs at 60 ticks per second, tick takes 1.0/60.0 seconds.
 	if(!initialized) throw std::runtime_error("Game::Init() has not been called before running the game!");
 	float tick = 1.0f / 60.0f;
-	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(1120, 840), "Gradius", sf::Style::Close);
+	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600),
+	"Gradius", sf::Style::Close);
 	gameView    = std::make_shared<View::View>(window, "./../resources/textures.json");
 	Model::Entity::Attach(gameView);
 	gameModel   = std::make_shared<Model::Model>("./../resources/entities.json", false);
