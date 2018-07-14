@@ -45,6 +45,9 @@ void Animation::changeRow(int newRow){
 
 void Animation::update( float deltaTime){
 
+	//There are no changes for static textures so there is nothing to do.
+	if (staticTexture) return void();
+
 	currentImage.y = row;
 	totalTime += deltaTime;
 

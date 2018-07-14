@@ -30,11 +30,9 @@ bool Entity::isAttached() const{
 
 void Entity::notifyCreation() const{
 	if(isAttached()){
-		observer->informCreation(getID(), getPosition().first, getPosition().second, getTexture());
+		observer->informCreation(getID(), getWidth(), getHeight(), getTexture());
 	}
 	else throw std::runtime_error("This should be a custom exception.");
-
-
 }
 
 void Entity::notify() const{

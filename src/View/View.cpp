@@ -22,6 +22,8 @@ View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : win
 		this->textures[textureName] = std::make_unique<sf::Texture>();
 		this->textures[textureName]->loadFromFile(file_path);
 	}
+
+	this->baseLengthUnit = (window->getSize()).x / 8.0f;
 }
 
 View::~View(){}
@@ -40,7 +42,6 @@ bool View::isOpen() const{
 }
 
 void View::addSprite(int id, std::string texture){
-
 	sf::Sprite spriteObj;
 	//Get a reference to the Texture, since the constructor of sf::Sprite only takes that as argument.
 	const sf::Texture& t = *((this->textures[texture]).get());
@@ -48,47 +49,19 @@ void View::addSprite(int id, std::string texture){
 	sprites[id] = spriteObj;
 }
 
-/*
-void View::addTexture(int typeOfEntity){
-	std::shared_ptr<sf::Texture> sp = std::make_shared<sf::Texture>();
+void View::scaleSprite(int id, float width, float height){
+	sf::Sprite& curSprite = sprites[id];
+	auto animation        = animations[id];
 
-	switch(typeOfEntity){
+	float startWidth  = animation.uvRect.width;
+	float startHeight = animation.uvRect.height;
+	float realWidth   = width * this->baseLengthUnit;
+	float realHeight  = height * this->baseLengthUnit;
+	float scaleX      = realWidth / startWidth;
+	float scaleY      = realHeight / startHeight;
+	curSprite.scale(scaleX, scaleY);
 
-	case 0:
-		{sp->loadFromFile("./../resources/images/PlayerSprite.png");
-		textures[typeOfEntity] = sp;
-		break;}
-
-	case 1:
-		{sp->loadFromFile("./../resources/images/PlayerBullet.png");
-		textures[typeOfEntity] = sp;
-		break;}
-
-	case 3:
-		{
-		if(level == 1) sp->loadFromFile("./../resources/images/BackgroundLevel1.png");
-		else if(level == 2) sp->loadFromFile("./../resources/images/BackgroundLevel2.png");
-		else if(level == 3) sp->loadFromFile("./../resources/images/BackgroundLevel3.jpg");
-		textures[typeOfEntity] = sp;
-		break;
-		}
-
-	case 4:
-		{
-		sp->setRepeated(true);
-		if(level == 1) sp->loadFromFile("./../resources/images/BorderLevel1.png");
-		else if(level == 2) sp->loadFromFile("./../resources/images/BorderLevel2.png");
-		else if(level == 3) sp->loadFromFile("./../resources/images/BorderLevel3.png");
-		textures[typeOfEntity] = sp;
-		break;
-		}
-
-
-
-	default:
-		throw std::invalid_argument("There is no texture found for this type of entity! Texture files might be missing from the project folder.");
-	}
-}*/
+}
 
 void View::addAnimation(int id, std::string texture){
 	//Get the information of this texture's animation from the json file.
@@ -109,6 +82,8 @@ void View::informCreation(int id, float width, float height, std::string texture
 	addAnimation(id, texture);
 	//Set the sprite to the starting animation frame.
 	curSprite.setTextureRect(animations[id].uvRect);
+	//Scale the sprite using the entities width and height.
+	scaleSprite(id, width, height);
 	//Center the origin of the sprite before we us it.
 	sf::FloatRect bound_rect = curSprite.getLocalBounds();
 	curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);

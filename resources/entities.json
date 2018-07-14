@@ -1,11 +1,11 @@
 {
 "Player1" : {
 	"entity_type" : "PlayerShip",
-	"health"      : 100,
+	"health"      : 20,
 	"speed"       : 1.0,
-	"damage"      : 100,
-	"width"       : 300,
-	"height"      : 100,
+	"damage"      : 20,
+	"width"       : 1.0,
+	"height"      : 0.333333,
 	"texture"     : "BlueViper"
 	},
 

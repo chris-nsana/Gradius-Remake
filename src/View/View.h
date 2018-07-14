@@ -42,19 +42,8 @@ public:
 	 */
 	void addSprite(int id, std::string texture);
 
-	/**
-	 * @brief Method that loads the texture needed for an entity in memory.
-	 * @param int id that identifies the entity
-	 * @param int typeOfEntity that is an identifier for a specific texture for an entity type.
-	 * @param bool animated is a flag that tells us whether we should treat it as an animated sprite or not.
-	 */
-	//void addTexture(int typeOfEntity);
+	void scaleSprite(int id, float width, float height);
 
-	/**
-	 * @brief Method that creates the animation object for a certain entity that will be displayed
-	 * @param int id to identify which object we're animating.
-	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
-	 */
 	void addAnimation(int id, std::string texture);
 
 	/**
@@ -103,7 +92,8 @@ private:
 	std::map<int, Animation> animations;
 	//Json object containing all information on entity textures
 	nlohmann::json texturesJson;
-	//
+	//Float expressing how many pixels a length of 1.0 is in the game model.
+	float baseLengthUnit;
 
 };
 
