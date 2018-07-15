@@ -42,7 +42,7 @@ public:
 	 */
 	void addSprite(int id, std::string texture);
 
-	void scaleSprite(int id, float width, float height);
+	void scaleSprite(int id, float width, float height, bool sheet);
 
 	void addAnimation(int id, std::string texture);
 

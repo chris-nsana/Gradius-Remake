@@ -9,7 +9,7 @@ namespace Model{
 Model::Model(std::string entitiesFile, bool co_op) : player1ID(0), player2ID(0){
 	factory         = std::make_unique<EntityFactory>(entitiesFile);
 	auto player1    = factory->create("Player1");
-	player1->setPosition(1.0f, 1.0f);
+	player1->setPosition(0.0f, 0.0f);
 	this->player1ID  = player1->getID();
 	entities.push_back(std::move(player1));
 

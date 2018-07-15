@@ -16,23 +16,13 @@ namespace View{
 Animation::Animation(){}
 
 Animation::Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime)
- : row(0), staticTexture(false){
-
+ : row(0){
 	this->imageCount = imageCount;
 	this->switchTime = switchTime;
 	totalTime = 0.0f;
 	currentImage.x = 0;
 	uvRect.width  = texture->getSize().x / float(imageCount.x);
 	uvRect.height = texture->getSize().y / float(imageCount.y);
-}
-
-Animation::Animation(float pixelsX, float pixelsY)
- : row(0), staticTexture(true){
-	 totalTime = 0.0f;
-	 currentImage.x = 0;
-	 uvRect.width  = pixelsX;
-	 uvRect.height = pixelsY;
-
 }
 
 Animation::~Animation(){}
@@ -44,10 +34,6 @@ void Animation::changeRow(int newRow){
 }
 
 void Animation::update( float deltaTime){
-
-	//There are no changes for static textures so there is nothing to do.
-	if (staticTexture) return void();
-
 	currentImage.y = row;
 	totalTime += deltaTime;
 

@@ -21,6 +21,7 @@ View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : win
 		auto file_path   = it.value()["image_path"];
 		this->textures[textureName] = std::make_unique<sf::Texture>();
 		this->textures[textureName]->loadFromFile(file_path);
+		this->textures[textureName]->setRepeated(true);
 	}
 
 	this->baseLengthUnit = (window->getSize()).x / 8.0f;
@@ -31,7 +32,12 @@ View::~View(){}
 void View::displayGame(){
 	window->clear();
 	for(auto& s : sprites){
-		(s.second).setTextureRect((animations[s.first]).uvRect);
+		auto it = this->animations.find(s.first);
+		if(it != this->animations.end()){
+			//There is an animation for this sprite and
+			//set the correct frame of the animation
+			s.second.setTextureRect(it->second.uvRect);
+		}
 		window->draw(s.second);
 	}
 	window->display();
@@ -49,18 +55,25 @@ void View::addSprite(int id, std::string texture){
 	sprites[id] = spriteObj;
 }
 
-void View::scaleSprite(int id, float width, float height){
+void View::scaleSprite(int id, float width, float height, bool sheet){
 	sf::Sprite& curSprite = sprites[id];
-	auto animation        = animations[id];
+	float realWidth       = width * this->baseLengthUnit;
+	float realHeight      = height * this->baseLengthUnit;
 
-	float startWidth  = animation.uvRect.width;
-	float startHeight = animation.uvRect.height;
-	float realWidth   = width * this->baseLengthUnit;
-	float realHeight  = height * this->baseLengthUnit;
-	float scaleX      = realWidth / startWidth;
-	float scaleY      = realHeight / startHeight;
-	curSprite.scale(scaleX, scaleY);
+	if (sheet){
+		auto animation    = animations[id];
+		float startWidth  = animation.uvRect.width;
+		float startHeight = animation.uvRect.height;
+		float scaleX      = realWidth / startWidth;
+		float scaleY      = realHeight / startHeight;
+		curSprite.scale(scaleX, scaleY);
+		curSprite.setTextureRect(animation.uvRect);
+	}
 
+	//If it's not a sprite sheet and a normal texture, we just set it to repeat.
+	else{
+		curSprite.setTextureRect(sf::IntRect(0, 0, realWidth, realHeight));
+	}
 }
 
 void View::addAnimation(int id, std::string texture){
@@ -78,17 +91,19 @@ void View::informCreation(int id, float width, float height, std::string texture
 	//Create the sprite that matches with this object.
 	addSprite(id, texture);
 	sf::Sprite& curSprite = sprites[id];
-	//Create the animation object with the texture.
-	addAnimation(id, texture);
-	//Set the sprite to the starting animation frame.
-	curSprite.setTextureRect(animations[id].uvRect);
+	//Find out out if the provided texture element is a sprite sheet or just a normal texture.
+	bool sheet = this->texturesJson[texture]["sprite_sheet"];
+	//If it's a sprite sheet we can generate an animation.
+	if(sheet){
+		//Create the animation object with the texture.
+		addAnimation(id, texture);
+	}
 	//Scale the sprite using the entities width and height.
-	scaleSprite(id, width, height);
+	scaleSprite(id, width, height, sheet);
 	//Center the origin of the sprite before we us it.
 	sf::FloatRect bound_rect = curSprite.getLocalBounds();
 	curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
 	}
-
 
 void View::inform(int id, float x, float y){
 	//Get the existing sprite
