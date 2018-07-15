@@ -1,11 +1,12 @@
 {
 "BlueViper" : {
-	"image_path"  : "./../resources/images/PlayerSprite.png",
-	"frames"      : 5,
-	"rows"        : 2,
-	"switch_time" : 0.15,
-	"origin_x"    : 0,
-	"origin_y"    : 0
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/Player1Sheet.png",
+	"frames"       : 5,
+	"rows"         : 2,
+	"switch_time"  : 0.15,
+	"origin_x"     : 0,
+	"origin_y"     : 0
 	}
 
 }
