@@ -37,6 +37,66 @@
 	"width"       : 0.050,
 	"height"      : 0.050,
 	"texture"     : "RedBullet"
+	},
+
+"BackgroundLevel1" : {
+	"entity_type" : "Background",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 6,
+	"texture"     : "Background1"
+	},
+
+"BackgroundLevel2" : {
+	"entity_type" : "Background",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 6,
+	"texture"     : "Background2"
+	},
+
+"BackgroundLevel3" : {
+	"entity_type" : "Background",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 6,
+	"texture"     : "Background3"
+	},
+
+"BorderLevel1" : {
+	"entity_type" : "Border",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 0.30,
+	"texture"     : "Border1"
+	},
+
+"BorderLevel2" : {
+	"entity_type" : "Border",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 0.30,
+	"texture"     : "Border2"
+	},
+
+"BorderLevel3" : {
+	"entity_type" : "Border",
+	"health"      : 100,
+	"speed"       : 1.0,
+	"damage"      : 100,
+	"width"       : 8,
+	"height"      : 0.30,
+	"texture"     : "Border3"
 	}
 
 

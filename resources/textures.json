@@ -7,7 +7,37 @@
 	"switch_time"  : 0.15,
 	"origin_x"     : 0,
 	"origin_y"     : 0
-	}
+	},
 
+"RedViper" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/Player2Sheet.png",
+	"frames"       : 5,
+	"rows"         : 2,
+	"switch_time"  : 0.15,
+	"origin_x"     : 0,
+	"origin_y"     : 0
+	},
+
+"BlueBullet" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/Player1Bullet.png"
+	},
+
+"RedBullet" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/Player2Bullet.png"
+	},
+
+"Background1" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BackgroundLevel1.png"
+	},
+
+"Border1" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BorderLevel1.png"
+	}
 }
+
 
