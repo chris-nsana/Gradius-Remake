@@ -1,9 +1,9 @@
 #ifndef MODEL_H_
 #define MODEL_H_
-#include <vector>
 #include <memory>
+#include <vector>
 #include <string>
-
+#include <Utilities/json.hpp>
 namespace Model{
 
 class Entity;
@@ -30,13 +30,18 @@ public:
 	/**
 	 * @brief Method that does some prep work for a level.
 	 */
-	void setLevel();
+	void startLevel();
 	/**
 	*
 	*
 	*
 	*/
 	std::unique_ptr<Entity>& locateEntity(int eID);
+	/**
+	*
+	*
+	*/
+	void readLevel();
 
 	/**
 	 * @brief Method that moves the player.
@@ -78,10 +83,15 @@ public:
 private:
 	std::unique_ptr<EntityFactory> factory;
 	std::vector<std::unique_ptr<Entity>> entities;
+	std::vector<std::string> levels; //All the level names that are playable.
+	std::vector<nlohmann::json> levelElements; //Vector of game elements in json format.
+	std::vector<nlohmann::json>::iterator elementPtr; //Points to the next level element that has to be processed.
 	int player1ID;
 	int player2ID;
 	bool co_op;
 	int playerlives;
+	int currentLevel = 1;
+	int levelTime;
 
 
 
