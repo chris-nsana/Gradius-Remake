@@ -10,7 +10,7 @@ class Friendly : public Entity{
 
 		Friendly();
 
-		Friendly(float x, float y, float health, float damage, float width, float height, string texture);
+		Friendly(float x, float y, float health, float damage, float speed, float width, float height, string texture);
 
 	public:
 		//Public destructor for proper use of smart pointers.

@@ -4,8 +4,8 @@ namespace Model{
 
 Entity::Entity(){}
 
-Entity::Entity(float x, float y, float h1, float d,float w, float h2, string tx) :
-		position(x, y), health(h1), damage(d), width(w), height(h2), texture(tx)
+Entity::Entity(float x, float y, float h1, float d, float s, float w, float h2, string tx) :
+		position(x, y), health(h1), damage(d), speed(s), width(w), height(h2), texture(tx)
 {
 	Entity::entityCount += 1;
 	eID = Entity::entityCount;
@@ -71,6 +71,10 @@ float Entity::getHealth() const{
 
 float Entity::getDamage() const{
 	return this->damage;
+}
+
+float Entity::getSpeed() const{
+	return this->speed;
 }
 
 float Entity::getWidth() const{

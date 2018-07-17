@@ -9,7 +9,7 @@ class Border : public Neutral{
 
 public:
 
-	Border(float x, float y, float health, float damage, float width, float height, string texture);
+	Border(float x, float y, float health, float damage, float speed, float width, float height, string texture);
 
 	virtual ~Border();
 

@@ -8,7 +8,7 @@ namespace Model{
 class PlayerBullet : public Friendly{
 public:
 
-	PlayerBullet(float x, float y, float health, float damage, float width, float height, string texture);
+	PlayerBullet(float x, float y, float health, float damage, float speed, float width, float height, string texture);
 
 	virtual ~PlayerBullet();
 

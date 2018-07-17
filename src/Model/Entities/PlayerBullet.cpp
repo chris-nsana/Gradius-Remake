@@ -2,8 +2,8 @@
 
 namespace Model{
 
-PlayerBullet::PlayerBullet(float x, float y, float health, float damage, float width, float height, string texture)
- : Friendly(x, y, health, damage, width, height, texture){}
+PlayerBullet::PlayerBullet(float x, float y, float health, float damage, float speed, float width, float height, string texture)
+ : Friendly(x, y, health, damage, speed, width, height, texture){}
 
 PlayerBullet::~PlayerBullet(){}
 

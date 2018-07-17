@@ -32,7 +32,6 @@ void Model::startLevel(){
 	std::ifstream file(filepath);
 	file >> level;
 	std::string background = level["Background"];
-	std::cout<< "powerful creation" << std::endl;
 	std::string border     = level["Border"];
 	float xpos = 0;
 	for(int i = 0; i < 3; i += 1){
@@ -46,14 +45,14 @@ void Model::startLevel(){
 		entities.push_back(std::move(bground));
 		entities.push_back(std::move(upper_border));
 		entities.push_back(std::move(lower_border));
-		xpos += 4;
+		xpos += 7.99; //7.99 instead of 8.0 to allow a tiny smidgen of overlap.
 	}
 
 	auto player1    = factory->create("Player1");
 	player1->setPosition(0.0f, 0.0f);
 	this->player1ID  = player1->getID();
 	entities.push_back(std::move(player1));
-	
+
 	std::vector<nlohmann::json> elements = level["Elements"];
 	this->levelElements = std::move(elements);
 }

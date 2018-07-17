@@ -18,7 +18,7 @@ int lives = 5;
 
 using nlohmann::json;
 
-Game::Game() : initialized(false){}
+Game::Game(){}
 
 void Game::init(){}
 

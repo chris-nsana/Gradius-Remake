@@ -21,7 +21,7 @@ protected:
 
 	Entity();
 
-	Entity(float x, float y, float health, float damage, float width, float height, string texture);
+	Entity(float x, float y, float health, float damage, float speed, float width, float height, string texture);
 
 public:
 
@@ -76,6 +76,8 @@ public:
 
 	float getDamage() const;
 
+	float getSpeed() const;
+
 	float getWidth() const;
 
 	float getHeight() const;
@@ -112,6 +114,7 @@ private:
 	std::pair<float, float> position;
 	float health;
 	float damage;
+	float speed;
 	float width;
 	float height;
 	string texture;

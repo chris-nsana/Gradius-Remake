@@ -34,25 +34,25 @@ std::unique_ptr<Entity> EntityFactory::create(std::string entity_type){
 
 std::unique_ptr<Entity> EntityFactory::createPlayerShip(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<Player>(args.x, args.y, args.health, args.damage,
-  args.width, args.height, args.texture);
+  args.speed, args.width, args.height, args.texture);
   return ent_ptr;
 }
 
 std::unique_ptr<Entity> EntityFactory::createPlayerBullet(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<PlayerBullet>(args.x, args.y, args.health, args.damage,
-  args.width, args.height, args.texture);
+  args.speed, args.width, args.height, args.texture);
   return ent_ptr;
 }
 
 std::unique_ptr<Entity> EntityFactory::createBorder(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<Border>(args.x, args.y, args.health, args.damage,
-  args.width, args.height, args.texture);
+  args.speed, args.width, args.height, args.texture);
   return ent_ptr;
 }
 
 std::unique_ptr<Entity> EntityFactory::createBackground(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<Background>(args.x, args.y, args.health, args.damage,
-  args.width, args.height, args.texture);
+  args.speed, args.width, args.height, args.texture);
   return ent_ptr;
 }
 

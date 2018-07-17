@@ -45,10 +45,10 @@ public:
 
 	/**
 	 * @brief Method that moves the player.
-	 * @param float x is the x-coordinate offset
-	 * @param float y is the y-coordinate offset
+	 * @param float offset_x is the x-coordinate offset
+	 * @param float offset_y is the y-coordinate offset
 	 */
-	void movePlayer(float x, float y);
+	void movePlayer(float offset_x, float offset_y);
 
 
 	/**
