@@ -3,9 +3,15 @@
 #include <memory>
 
 
-namespace Model{class Model;}
+namespace Model{
+	class Model;
+	class Player;
+}
 
-namespace sf{class RenderWindow;}
+namespace sf{
+	class RenderWindow;
+	class Event;
+}
 
 namespace Controller{
 
@@ -13,7 +19,7 @@ class Controller{
 
 public:
 
-	Controller(std::shared_ptr<Model::Model>& model, std::shared_ptr<sf::RenderWindow>& window);
+	Controller(std::shared_ptr<Model::Model>& model, std::shared_ptr<sf::RenderWindow>& window, bool co_op);
 
 	~Controller();
 
@@ -22,15 +28,23 @@ public:
 	 */
 	void processInput();
 
+	void processKeyPressed(sf::Event& event);
+
+	void processKeyReleased(sf::Event& event);
+
+	void controlPlayer(Model::Player& player, int pattern);
+
+	void controlPlayer1();
+
+	void controlPlayer2();
+
 private:
 
 	std::shared_ptr<Model::Model> model;
 	std::shared_ptr<sf::RenderWindow> window;
-	//A float representing the max ammount of time in seconds the controller will process input before
-	//returning logic to the rest of the game loop.
-	float pTime;
-	int movementPattern;
-	int gunJammed; //This bool is used to limit the fire rate, can't fire for 2 frames in a row
+	int p1Movement;
+	int p2Movement;
+	bool co_op;
 
 };
 }

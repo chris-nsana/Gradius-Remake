@@ -12,7 +12,7 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   std::ifstream file{entitiesFile};
   file >> entities;
   this->entitiesJson = entities;
-  //create the map now....
+  //Create the map now....
   creationMap["PlayerShip"]    = &EntityFactory::createPlayerShip;
   creationMap["PlayerBullet"]  = &EntityFactory::createPlayerBullet;
   creationMap["Border"]        = &EntityFactory::createBorder;
@@ -33,8 +33,8 @@ std::unique_ptr<Entity> EntityFactory::create(std::string entity_type){
 }
 
 std::unique_ptr<Entity> EntityFactory::createPlayerShip(creationArgs& args){
-  std::unique_ptr<Entity> ent_ptr = std::make_unique<Player>(args.x, args.y, args.health, args.damage,
-  args.speed, args.width, args.height, args.texture);
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<Player>(args.x, args.y, args.health, args.speed,
+  args.damage, args.width, args.height, args.texture);
   return ent_ptr;
 }
 

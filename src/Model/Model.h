@@ -31,25 +31,12 @@ public:
 	 * @brief Method that does some prep work for a level.
 	 */
 	void startLevel();
-	/**
-	*
-	*
-	*
-	*/
-	std::unique_ptr<Entity>& locateEntity(int eID);
+
 	/**
 	*
 	*
 	*/
 	void readLevel();
-
-	/**
-	 * @brief Method that moves the player.
-	 * @param float offset_x is the x-coordinate offset
-	 * @param float offset_y is the y-coordinate offset
-	 */
-	void movePlayer(float offset_x, float offset_y);
-
 
 	/**
 	 * @brief Method that updates all the entities for the current game tick
@@ -78,9 +65,29 @@ public:
 	 */
 	void destroyEntity();
 
+	/**
+	 * @brief Return a reference to the player 1 entity.
+	 */
+	Player& getPlayer1();
+
+	/**
+	 * @brief Return a reference to the player 2 entity.
+	 */
+	Player& getPlayer2();
+
 
 
 private:
+
+
+	using entity_it = std::vector<std::unique_ptr<Entity>>::iterator;
+
+	/**
+	*
+	*/
+	entity_it locateEntity(int eID);
+
+
 	std::unique_ptr<EntityFactory> factory;
 	std::vector<std::unique_ptr<Entity>> entities;
 	std::vector<std::string> levels; //All the level names that are playable.

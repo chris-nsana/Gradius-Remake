@@ -22,9 +22,6 @@ Model::Model(std::string entitiesFile, bool co_op) : player1ID(0), player2ID(0){
 
 Model::~Model(){}
 
-void Model::createEntity(float x, float y, int type, bool dynamic){
-//Obsolete
-}
 
 void Model::startLevel(){
 	nlohmann::json level;
@@ -49,16 +46,12 @@ void Model::startLevel(){
 	}
 
 	auto player1    = factory->create("Player1");
-	player1->setPosition(0.0f, 0.0f);
+	player1->setPosition(-1.0f, 0.0f);
 	this->player1ID  = player1->getID();
 	entities.push_back(std::move(player1));
 
 	std::vector<nlohmann::json> elements = level["Elements"];
 	this->levelElements = std::move(elements);
-}
-
-std::unique_ptr<Entity>& Model::locateEntity(int eID){
-	//Still to implement.
 }
 
 void Model::readLevel(){
@@ -81,24 +74,6 @@ void Model::readLevel(){
 	}
 	//If all elements are already read
 	elementPtr = levelElements.end();
-}
-
-void Model::movePlayer(float x, float y){
-	/***
-	std::pair<float, float> playerPos = player->getPosition();
-	float newX = playerPos.first + x;
-	float newY = playerPos.second +y;
-	if(newX < -3.525f) newX = -3.525f;
-	else if(newX > 3.50) newX = 3.50f;
-	if(newY > 2.4000){
-		newY = 2.4000;
-		//do the other thing
-	}
-	else if(newY < -2.42500){
-		newY = -2.42500;
-		//do your thing
-	}
-	player->setPosition(newX, newY);*/
 }
 
 void Model::update(){
@@ -135,6 +110,27 @@ void Model::checkCollision(){
 	}
 	if(collision)destroyEntity(arg);*/
 	return void();
+}
+
+Player& Model::getPlayer1(){
+	auto p1 = locateEntity(player1ID);
+	Entity& entityRef = *((*p1).get());
+	Player& playerRef = dynamic_cast<Player&>(entityRef);
+	return playerRef;
+}
+
+Player& Model::getPlayer2(){
+	auto p2 = locateEntity(player2ID);
+	Entity& entityRef = *((*p2).get());
+	Player& playerRef = dynamic_cast<Player&>(entityRef);
+	return playerRef;
+}
+
+Model::entity_it Model::locateEntity(int eID){
+	for(auto it = entities.begin(); it != entities.end(); ++it){
+		if((*it)->getID() == eID) return it;
+	}
+	//Throw exception if not found.
 }
 
 }

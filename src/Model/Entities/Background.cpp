@@ -21,6 +21,7 @@ void Background::move(){
   //The object is out of sight, wrap around to the right to simulate
   //an endless background
   if(current_pos.first < -8.0f){
+    //15.960 is the position to wrap around to perfectly connect to the rightmost Background entity.
     this->setPosition(15.960f, current_pos.second);
   }
   else{

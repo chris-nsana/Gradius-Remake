@@ -27,6 +27,28 @@ public:
 	*/
 	void virtual move();
 
+	/**
+	*@brief Move left for the duration of a game tick.
+	*/
+	void moveLeft();
+
+	/**
+	*@brief Move right for the duration of a game tick.
+	*/
+	void moveRight();
+
+	/**
+	*@brief Move up for the duration of a game tick.
+	*/
+	void moveUp();
+
+	/**
+	*@brief Move down for the duration of a game tick.
+	*/
+	void moveDown();
+
+
+
 };
 
 }

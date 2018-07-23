@@ -28,8 +28,8 @@ void Game::Run(){
 	"Gradius", sf::Style::Close);
 	gameView    = std::make_shared<View::View>(window, "./../resources/textures.json");
 	Model::Entity::Attach(gameView);
-	gameModel   = std::make_shared<Model::Model>("./../resources/entities.json", true);
-	gameControl = std::make_shared<Controller::Controller>(gameModel, window);
+	gameModel   = std::make_shared<Model::Model>("./../resources/entities.json", false);
+	gameControl = std::make_shared<Controller::Controller>(gameModel, window, false);
 	gameModel->startLevel();
 
 	while(gameView->isOpen()){
