@@ -19,7 +19,7 @@ class Controller{
 
 public:
 
-	Controller(std::shared_ptr<Model::Model>& model, std::shared_ptr<sf::RenderWindow>& window, bool co_op);
+	Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op);
 
 	~Controller();
 

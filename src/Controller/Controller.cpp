@@ -7,7 +7,7 @@
 #include "GameGlobals.h"
 
 namespace Controller{
-Controller::Controller(std::shared_ptr<Model::Model>& model, std::shared_ptr<sf::RenderWindow>& window, bool co_op)
+Controller::Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op)
  : model(model), window(window), p1Movement(0), p2Movement(0), co_op(co_op){
 	//This is an important setting to correctly handle keyboard input.
 	//This basically means that holding a key won't fill the Event queue with multiple events of that key.

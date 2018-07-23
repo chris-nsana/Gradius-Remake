@@ -14,18 +14,9 @@ class Model{
 
 public:
 
-	Model(std::string entitiesFile, bool co_op);
+	Model(std::string entitiesFile, std::vector<std::string> levels, int level, bool co_op);
 
 	~Model();
-
-	/**
-	 * @brief Method that creates and stores a certain type of Entity in the model.
-	 * @param float x is x-coordinate of the new entity
-	 * @param float y is y-coordinate of the new entity
-	 * @param int type is the type of the new entity
-	 * @param bool dynamic specifies whether it's a dynamic entity or not.
-	 */
-	void createEntity(float x, float, int type, bool dynamic);
 
 	/**
 	 * @brief Method that does some prep work for a level.
@@ -34,7 +25,7 @@ public:
 
 	/**
 	*
-	*
+	*@brief Reads the level file and creates entities according to that file.
 	*/
 	void readLevel();
 
@@ -44,6 +35,11 @@ public:
 	void update();
 
 	/**
+	*@brief Increment the tickCounter of the Model
+	*/
+	void tick();
+
+	/**
 	 * @brief Method that lets all the entities in the model notify their observer of their changes.
 	 */
 	void massNotify();
@@ -51,19 +47,14 @@ public:
 	/**
 	 * @brief Method that is called when the player fires a bullet. The creation and handling of the bullet entity is handled by Model.
 	 */
-	void playerFire();
 
-	/**
-	 * @brief Method that checks whether this exact entity is colliding with another one.
-	 * @param A unique_ptr to the element that we check for.
-	 */
 	void checkCollision();
 
 	/**
 	 * @brief Method that destroys an entity.
 	 * @param std::unique_ptr reference to the entity
 	 */
-	void destroyEntity();
+	void destroyEntity(int ID);
 
 	/**
 	 * @brief Return a reference to the player 1 entity.
@@ -83,7 +74,7 @@ private:
 	using entity_it = std::vector<std::unique_ptr<Entity>>::iterator;
 
 	/**
-	*
+	*@brief Internal method used to find specific entities in the entities vector by using their ID.
 	*/
 	entity_it locateEntity(int eID);
 
@@ -95,9 +86,9 @@ private:
 	std::vector<nlohmann::json>::iterator elementPtr; //Points to the next level element that has to be processed.
 	int player1ID;
 	int player2ID;
-	bool co_op;
 	int playerlives;
-	int currentLevel = 1;
+	int currentLevel;
+	bool co_op;
 	int levelTime;
 
 

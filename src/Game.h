@@ -18,7 +18,7 @@ public:
 	/**
 	 * @brief Something something.
 	 */
-	void init();
+	void init(bool co_op=false);
 
 	/**
 	 * @brief Method that initializes the subsystems of the game and starts running it.

@@ -6,11 +6,10 @@
 #include "Utilities/Transformation.h"
 #include "Utilities/Stopwatch.h"
 #include "View.h"
-#include "GameGlobals.h"
 
 namespace View{
 
-View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : window(w){
+View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) : window(window){
 	nlohmann::json textures;
 	std::ifstream file{texturesFile};
 	file >> textures;
@@ -23,7 +22,6 @@ View::View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile) : win
 		this->textures[textureName]->loadFromFile(file_path);
 		this->textures[textureName]->setRepeated(true);
 	}
-
 	this->baseLengthUnit = (window->getSize()).x / 8.0f;
 }
 

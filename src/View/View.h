@@ -20,7 +20,7 @@ class View{
 
 public:
 
-	View(std::shared_ptr<sf::RenderWindow>& w, std::string texturesFile);
+	View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile);
 
 	~View();
 

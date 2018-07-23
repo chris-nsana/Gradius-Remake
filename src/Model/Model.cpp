@@ -8,20 +8,13 @@
 
 namespace Model{
 
-Model::Model(std::string entitiesFile, bool co_op) : player1ID(0), player2ID(0){
-	factory         = std::make_unique<EntityFactory>(entitiesFile);
-	this->levels = {"level1.json", "level2.json", "level3.json"};
+Model::Model(std::string entitiesFile, std::vector<std::string> levels, int level, bool co_op)
+ : levels(levels), currentLevel(level), co_op(co_op), player1ID(0), player2ID(0), levelTime(0){
 
-	if (co_op){
-		auto player2      = factory->create("Player2");
-		player2->setPosition(2.0f, 0.0f);
-		this-> player2ID  = player2->getID();
-		entities.push_back(std::move(player2));
-	}
+	factory = std::make_unique<EntityFactory>(entitiesFile);
 }
 
 Model::~Model(){}
-
 
 void Model::startLevel(){
 	nlohmann::json level;
@@ -84,6 +77,10 @@ void Model::update(){
 	massNotify();
 }
 
+void Model::tick(){
+	this->levelTime += 1;
+}
+
 void Model::massNotify(){
 	//Every entity needs to notify the observer
 	for(auto& e : entities){
@@ -91,26 +88,11 @@ void Model::massNotify(){
 	}
 }
 
-void Model::playerFire(){
-	//
-	//createEntity(player->getPosition().first + 0.2f, player->getPosition().second - 0.075f, 1, true);
-}
-
 void Model::checkCollision(){
-	bool collision = false;
-	/*float left;
-	float right;
-	for(auto& ptr : dynamicEntities){
-		left = (ptr->getPosition().first - arg->getPosition().first)**2 + (arg->getPosition().second + ptr->getPosition().first)**2;
-		right = (ptr->getRadius() + arg->getRadius())**2;
-		if(left <= right){
-			collision = true;
-			ptr->notifyDeath();
-		}
-	}
-	if(collision)destroyEntity(arg);*/
 	return void();
 }
+
+void Model::destroyEntity(int ID){}
 
 Player& Model::getPlayer1(){
 	auto p1 = locateEntity(player1ID);
