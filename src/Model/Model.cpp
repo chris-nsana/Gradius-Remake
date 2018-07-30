@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <math.h>
 
 namespace Model{
 
@@ -74,6 +75,7 @@ void Model::update(){
 	for(const auto& e : entities){
 		e->update();
 	}
+  checkCollision();
 	massNotify();
 }
 
@@ -92,12 +94,14 @@ void Model::checkCollision(){
 
   for(auto& e1 : entities){
     for(auto&e2 : entities){
-      bool horizontal = abs((e1->getPosition().first - e2->getPosition().first)) < (e1->getHalfWidth() + e2->getHalfWidth());
-      bool vertical   = abs((e1->getPosition().second - e2->getPosition().second)) < (e1->getHalfHeight() + e2->getHalfHeight());
+      bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first)) < (e1->getHalfWidth() + e2->getHalfWidth());
+      bool vertical   = fabs((e1->getPosition().second - e2->getPosition().second)) < (e1->getHalfHeight() + e2->getHalfHeight());
       //If entities intersect horizantally and vertically, we have a collision.
-      if(horizantal and vertical){
-        return void();
-
+      if(horizontal and vertical){
+        //Technically entities are colliding with themselves, but we want to ignore this case.
+        if(e1->getID() == e2->getID()) continue;
+        //Let the underlying entities do whatever needs to happen on collision.
+        e1->onCollisionReact(*(e2.get()));
       }
     }
   }
