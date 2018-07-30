@@ -22,7 +22,7 @@ class Enemy : public Entity{
 
 		virtual bool isEnemy() const override;
 
-		virtual void onCollisionReact(const std::unique_ptr<Entity>& otherEntity) override;
+		virtual void onCollisionReact(Entity& other) override;
 
 		virtual void setBlocked()=0;
 

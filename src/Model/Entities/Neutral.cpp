@@ -28,7 +28,7 @@ void Neutral::fire(){
 }
 
 
-void Neutral::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){
+void Neutral::onCollisionReact(Entity& other){
 	//Neutral on neutral collision has no significant effect.
 	return void();
 }

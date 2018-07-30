@@ -113,7 +113,7 @@ bool Entity::isFriendly() const{}
 
 bool Entity::isEnemy() const{}
 
-void Entity::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){}
+void Entity::onCollisionReact(Entity& other){}
 
 int Entity::entityCount = 0;
 

@@ -24,7 +24,7 @@ class Neutral : public Entity{
 
 		virtual void fire() override;
 
-		virtual void onCollisionReact(const std::unique_ptr<Entity>& otherEntity) override;
+		virtual void onCollisionReact(Entity& other) override;
 
 };
 }

@@ -89,7 +89,18 @@ void Model::massNotify(){
 }
 
 void Model::checkCollision(){
-	return void();
+
+  for(auto& e1 : entities){
+    for(auto&e2 : entities){
+      bool horizontal = abs((e1->getPosition().first - e2->getPosition().first)) < (e1->getHalfWidth() + e2->getHalfWidth());
+      bool vertical   = abs((e1->getPosition().second - e2->getPosition().second)) < (e1->getHalfHeight() + e2->getHalfHeight());
+      //If entities intersect horizantally and vertically, we have a collision.
+      if(horizantal and vertical){
+        return void();
+
+      }
+    }
+  }
 }
 
 void Model::destroyEntity(int ID){}

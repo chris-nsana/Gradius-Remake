@@ -23,7 +23,7 @@ bool Friendly::isEnemy() const {
 	return false;
 }
 
-void Friendly::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){
+void Friendly::onCollisionReact(Entity& other){
 	//Friendly on Neutral collision has no significant effects for the other but damage for itself.
 	/*float otherDamage = other.getDamage();
 	this->takeDamage(otherDamage);*/

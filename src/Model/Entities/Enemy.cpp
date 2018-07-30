@@ -21,7 +21,7 @@ bool Enemy::isEnemy() const{
 	return true;
 }
 
-void Enemy::onCollisionReact(const std::unique_ptr<Entity>& otherEntity){
+void Enemy::onCollisionReact(Entity& other){
 	//Enemy on Neutral collision leads to solid collision without damaged
 	//this->setBlocked();
 }

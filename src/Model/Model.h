@@ -45,7 +45,8 @@ public:
 	void massNotify();
 
 	/**
-	 * @brief Method that is called when the player fires a bullet. The creation and handling of the bullet entity is handled by Model.
+	 * @brief Method that looks at all the entities and checks whether there are entities colliding.
+	 * in case there are, it will let the entities handle the collision reaction.
 	 */
 
 	void checkCollision();
