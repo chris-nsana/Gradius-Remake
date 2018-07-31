@@ -1,30 +1,33 @@
 #ifndef EVENTS_H_
 #define EVENTS_H_
+#include<memory>
+
+namespace Model {
 
 class Model;
 
 class Event{
 protected:
 
-  static std::weak_ptr<Mpdel> model;
+  static std::weak_ptr<Model> model;
 
 public:
 
-  Event(Event::Type eventType);
+  Event();
 
   virtual ~Event();
 
-  static void setModel(const std::shared_ptr<Model::Model>& obs);
+  static void setModel(const std::shared_ptr<Model>& m);
 
   virtual void execute()=0;
 };
 
-class Death : public Event{
+class EnemyDeath : public Event{
 public:
 
-  Death(int eID, int killerID, int worth) : eID(eID), killerID(killerID), worth(worth);
+  EnemyDeath(int eID, int killerID, int worth);
 
-  ~Death();
+  ~EnemyDeath();
 
   virtual void execute() override;
 
@@ -38,7 +41,7 @@ private:
 class PlayerDeath : public Event{
 public:
 
-  PlayerDeath(int eID) : eID(eID);
+  PlayerDeath(int eID);
 
   ~PlayerDeath();
 
@@ -51,7 +54,7 @@ private:
 class BossDeath : public Event{
 public:
 
-  BossDeath(int eID, int worth) : eID(eID), worth(worth);
+  BossDeath(int eID, int worth);
 
   ~BossDeath();
 
@@ -65,7 +68,7 @@ private:
 class PlayerFire : public Event{
 public:
 
-  PlayerFire(int shooterID, std::string entity, float x, float y) : shooterID(shooterID), entity(entity), x(x), y(y);
+  PlayerFire(int shooterID, std::string entity, float x, float y);
 
   ~PlayerFire();
 
@@ -76,14 +79,14 @@ private:
   std::string entity;
   float x;
   float y;
-}
+};
 
 class EnemyFire : public Event{
 public:
 
-  EnemyFire(std::string entity, float x, float y) : entity(entity), x(x), y(y);
+  EnemyFire(std::string entity, float x, float y);
 
-  ~BulletFire();
+  ~EnemyFire();
 
   virtual void execute() override;
 
@@ -92,6 +95,8 @@ private:
   std::string entity;
   float x;
   float y;
+};
+
 }
 
 

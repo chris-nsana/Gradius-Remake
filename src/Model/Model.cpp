@@ -17,6 +17,12 @@ Model::Model(std::string entitiesFile, std::vector<std::string> levels, int leve
 
 Model::~Model(){}
 
+void Model::createEntity(std::string type, float x, float y){
+  auto entity    = factory->create(type);
+  entity->setPosition(x, y);
+  entities.push_back(std::move(entity));
+}
+
 void Model::startLevel(){
 	nlohmann::json level;
 	std::string filepath = "./../resources/levels/" + levels[currentLevel-1];
@@ -26,16 +32,10 @@ void Model::startLevel(){
 	std::string border     = level["Border"];
 	float xpos = 0;
 	for(int i = 0; i < 3; i += 1){
-		//Create Background and Border elements
-		auto bground      = factory->create(background);
-		auto upper_border = factory->create(border);
-		auto lower_border = factory->create(border);
-		bground->setPosition(xpos, 0.0f);
-		upper_border->setPosition(xpos,  2.85f);
-		lower_border->setPosition(xpos, -2.85f);
-		entities.push_back(std::move(bground));
-		entities.push_back(std::move(upper_border));
-		entities.push_back(std::move(lower_border));
+		//Create Background and upper+lower Border elements
+    createEntity(background, xpos, 0.0f);
+    createEntity(border, xpos, 2.85f);
+    createEntity(border, xpos, -2.85f);
 		xpos += 7.99; //7.99 instead of 8.0 to allow a tiny smidgen of overlap.
 	}
 
@@ -55,9 +55,7 @@ void Model::readLevel(){
 			std::string type = (*it)["entity_type"];
 			float x          = (*it)["posX"];
 			float y          = (*it)["posY"];
-			auto new_entity = factory->create(type);
-			new_entity->setPosition(x, y);
-			entities.push_back(std::move(new_entity));
+      createEntity(type, x, y);
 		}
 		//Else it's too early and we wait. All events after this one also have to wait so we break out of the method.
 		else{

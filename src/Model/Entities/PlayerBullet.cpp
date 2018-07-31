@@ -16,4 +16,12 @@ void PlayerBullet::update(){}
 
 void PlayerBullet::fire(){}
 
+void PlayerBullet::setShooterID(int id){
+  this->shooterID = id;
+}
+
+int PlayerBullet::getShooterID() const{
+  return shooterID;
+}
+
 }

@@ -25,6 +25,11 @@ public:
 
 	/**
 	*
+	*/
+	void createEntity(std::string type, float x, float y);
+
+	/**
+	*
 	*@brief Reads the level file and creates entities according to that file.
 	*/
 	void readLevel();

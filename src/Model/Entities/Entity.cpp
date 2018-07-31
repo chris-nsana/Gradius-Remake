@@ -17,7 +17,7 @@ Entity::~Entity(){}
 
 
 void Entity::Attach(const std::shared_ptr<View::View>& obs){
-	observer = obs;
+	Entity::observer = obs;
 }
 
 void Entity::Detach(){

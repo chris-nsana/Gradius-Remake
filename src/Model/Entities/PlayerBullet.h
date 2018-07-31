@@ -18,6 +18,13 @@ public:
 
 	void fire();
 
+	void setShooterID(int id);
+
+	int getShooterID() const;
+
+private:
+	int shooterID;
+
 };
 
 }

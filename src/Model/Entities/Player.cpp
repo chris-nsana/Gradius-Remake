@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Model/EventQueue.h"
 
 namespace Model{
 
@@ -11,7 +12,10 @@ void Player::update(){}
 
 void Player::move(){}
 
-void Player::fire(){}
+void Player::fire(){
+  auto pos = getPosition();
+  EventQueue::getInstance().addPlayerFire(0, "Player1Bullet", pos.first, pos.second);
+}
 
 void Player::moveLeft(){
   float tick       = 1.0f / 60.0f;
