@@ -119,7 +119,7 @@ private:
 	float height;
 	string texture;
 	int eID;
-	static std::shared_ptr<View::View> observer; //The observer viewing the state of all entities.
+	static std::weak_ptr<View::View> observer; //The observer viewing the state of all entities.
 	static int entityCount; //Count of all entities in the game.
 
 

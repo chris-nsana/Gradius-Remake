@@ -91,7 +91,6 @@ void Model::massNotify(){
 }
 
 void Model::checkCollision(){
-
   for(auto& e1 : entities){
     for(auto&e2 : entities){
       bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first)) < (e1->getHalfWidth() + e2->getHalfWidth());

@@ -21,32 +21,33 @@ void Entity::Attach(const std::shared_ptr<View::View>& obs){
 }
 
 void Entity::Detach(){
-	observer = nullptr;
+	observer.reset();
 }
 
 bool Entity::isAttached() const{
-	return (observer != nullptr);
+	return (observer.expired());
 }
 
 void Entity::notifyCreation() const{
-	if(isAttached()){
-		observer->informCreation(getID(), getWidth(), getHeight(), getTexture());
+	if(auto spt = observer.lock()){
+		spt->informCreation(getID(), getWidth(), getHeight(), getTexture());
 	}
 	else throw std::runtime_error("This should be a custom exception.");
 }
 
 void Entity::notify() const{
-	if(isAttached()){
-		observer->inform(getID(), getPosition().first, getPosition().second);
+	if(auto spt = observer.lock()){
+		spt->inform(getID(), getPosition().first, getPosition().second);
 	}
 	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
 }
 
 void Entity::notifyDeath() const{
-if(isAttached())observer->deleteEntity(getID());
-
-else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
-}
+	if(auto spt = observer.lock()){
+		spt->deleteEntity(getID());
+	}
+	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
+	}
 
 void Entity::setPosition(float x, float y){
 	position.first  = x;
@@ -117,6 +118,6 @@ void Entity::onCollisionReact(Entity& other){}
 
 int Entity::entityCount = 0;
 
-std::shared_ptr<View::View> Entity::observer = nullptr;
+std::weak_ptr<View::View> Entity::observer = std::weak_ptr<View::View>();
 
 }
