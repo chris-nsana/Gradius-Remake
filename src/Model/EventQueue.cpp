@@ -12,6 +12,11 @@ void EventQueue::addEnemyDeath(int eID, int killerID, int worth){
   container.push(std::move(e));
 }
 
+void EventQueue::addFriendlyDeath(int eID){
+  std::unique_ptr<Event> e = std::make_unique<FriendlyDeath>(eID);
+  container.push(std::move(e));
+}
+
 void EventQueue::addPlayerDeath(int eID){
   std::unique_ptr<Event> e = std::make_unique<PlayerDeath>(eID);
   container.push(std::move(e));

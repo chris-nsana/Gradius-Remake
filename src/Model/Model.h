@@ -24,7 +24,7 @@ public:
 	void startLevel();
 
 	/**
-	*
+	*@brief Creates an entity at location (x, y)
 	*/
 	void createEntity(std::string type, float x, float y);
 
@@ -55,6 +55,11 @@ public:
 	 */
 
 	void checkCollision();
+
+	/**
+	*@brief it is what it is.
+	*/
+	void processEvents();
 
 	/**
 	 * @brief Method that destroys an entity.

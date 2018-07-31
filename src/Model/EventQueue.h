@@ -17,6 +17,8 @@ public:
 
   void addEnemyDeath(int eID, int killerID, int worth);
 
+  void addFriendlyDeath(int eID);
+
   void addPlayerDeath(int eID);
 
   void addBossDeath(int eID, int worth);

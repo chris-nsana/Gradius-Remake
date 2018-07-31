@@ -4,9 +4,7 @@
 	"image_path"   : "./../resources/images/Player1Sheet.png",
 	"frames"       : 5,
 	"rows"         : 2,
-	"switch_time"  : 0.15,
-	"origin_x"     : 0,
-	"origin_y"     : 0
+	"switch_time"  : 0.15
 	},
 
 "RedViper" : {
@@ -14,19 +12,23 @@
 	"image_path"   : "./../resources/images/Player2Sheet.png",
 	"frames"       : 5,
 	"rows"         : 2,
-	"switch_time"  : 0.15,
-	"origin_x"     : 0,
-	"origin_y"     : 0
+	"switch_time"  : 0.15
 	},
 
 "BlueBullet" : {
-	"sprite_sheet" : false,
-	"image_path"   : "./../resources/images/Player1Bullet.png"
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/Player1Bullet.png",
+	"frames"       : 1,
+	"rows"         : 1,
+	"switch_time"  : 0.15
 	},
 
 "RedBullet" : {
-	"sprite_sheet" : false,
-	"image_path"   : "./../resources/images/Player2Bullet.png"
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/Player2Bullet.png",
+	"frames"       : 1,
+	"rows"         : 1,
+	"switch_time"  : 0.15
 	},
 
 "Background1" : {

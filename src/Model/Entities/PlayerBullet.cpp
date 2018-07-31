@@ -12,7 +12,9 @@ void PlayerBullet::move(){
 	setPosition(pos.first + 0.075f, pos.second);
 }
 
-void PlayerBullet::update(){}
+void PlayerBullet::update(){
+  move();
+}
 
 void PlayerBullet::fire(){}
 

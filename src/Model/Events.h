@@ -37,6 +37,17 @@ private:
   int worth;
 };
 
+class FriendlyDeath : public Event{
+public:
+  FriendlyDeath(int eID);
+
+  ~FriendlyDeath();
+
+  virtual void execute() override;
+
+private:
+  int eID;
+};
 
 class PlayerDeath : public Event{
 public:

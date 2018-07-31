@@ -1,5 +1,6 @@
 #include "Model.h"
 #include "EntityFactory.h"
+#include "EventQueue.h"
 #include "Entities/Player.h"
 #include "Entities/PlayerBullet.h"
 
@@ -73,6 +74,7 @@ void Model::update(){
 	for(const auto& e : entities){
 		e->update();
 	}
+  processEvents();
   checkCollision();
 	massNotify();
 }
@@ -86,6 +88,13 @@ void Model::massNotify(){
 	for(auto& e : entities){
 		e->notify();
 	}
+}
+
+void Model::processEvents(){
+  while(!(EventQueue::getInstance().isEmpty())){
+    std::unique_ptr<Event> e = std::move(EventQueue::getInstance().dequeue());
+    e->execute();
+  }
 }
 
 void Model::checkCollision(){

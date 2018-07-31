@@ -1,10 +1,10 @@
 #include "Game.h"
 #include "Model/Model.h"
+#include "Model/Entities/Entity.h"
+#include "Model/Events.h"
 #include "Controller/Controller.h"
 #include "View/View.h"
-#include "Model/Entities/Entity.h"
 #include "Utilities/Stopwatch.h"
-#include "Model/Entities/Player.h"
 #include <fstream>
 #include <iostream>
 #include <utility>
@@ -26,6 +26,7 @@ void Game::init(bool co_op){
 	gameView         = std::make_shared<View::View>(window, texturesFile);
 	Model::Entity::Attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, co_op);
+	Model::Event::setModel(gameModel);
 	gameControl      = std::make_shared<Controller::Controller>(gameModel, window, co_op);
 }
 

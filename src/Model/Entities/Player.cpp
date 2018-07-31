@@ -14,7 +14,9 @@ void Player::move(){}
 
 void Player::fire(){
   auto pos = getPosition();
-  EventQueue::getInstance().addPlayerFire(0, "Player1Bullet", pos.first, pos.second);
+  float x  = pos.first  + 0.1f;  //To make the bullet seem like it's coming from the ship's barrel
+  float y  = pos.second - 0.050f;  //Same reason as why the x coordinate is slightly different.
+  EventQueue::getInstance().addPlayerFire(0, "Player1Bullet", x, y);
 }
 
 void Player::moveLeft(){

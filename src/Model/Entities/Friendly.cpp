@@ -24,6 +24,14 @@ bool Friendly::isEnemy() const {
 }
 
 void Friendly::onCollisionReact(Entity& other){
+	//Collision with Friendly object, do nothing a.k.a phase through eachother
+	if(other.isFriendly()) return void();
+
+	//Collision with Neutral element, take damage
+	else if(other.isNeutral()){
+		float otherDamage = other.getDamage();
+		this->takeDamage(otherDamage);
+	}
 	//Friendly on Neutral collision has no significant effects for the other but damage for itself.
 	/*float otherDamage = other.getDamage();
 	this->takeDamage(otherDamage);*/

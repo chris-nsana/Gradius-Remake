@@ -23,6 +23,14 @@ void EnemyDeath::execute(){
   return void();
 }
 
+FriendlyDeath::FriendlyDeath(int eID) : eID(eID){}
+
+FriendlyDeath::~FriendlyDeath(){}
+
+void FriendlyDeath::execute(){
+  return void();
+}
+
 PlayerDeath::PlayerDeath(int eID) : eID(eID){}
 
 PlayerDeath::~PlayerDeath(){}
