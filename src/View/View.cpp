@@ -105,7 +105,7 @@ void View::informCreation(int id, float width, float height, std::string texture
 
 void View::inform(int id, float x, float y){
 	//Get the existing sprite
-	sf::Sprite& curSprite = sprites[id];
+	sf::Sprite& curSprite = sprites.at(id);
 	float xPixels, yPixels;
 	//Unpacking the pixel values that the Transformation object returned in the variables xPixels and yPixels.
 	std::tie(xPixels, yPixels) = utils::Transformation::getInstance().coordinatesToPixels(x, y);

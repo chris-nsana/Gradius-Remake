@@ -74,8 +74,9 @@ void Model::update(){
 	for(const auto& e : entities){
 		e->update();
 	}
-  processEvents();
   checkCollision();
+  processEvents();
+
 	massNotify();
 }
 
@@ -113,7 +114,11 @@ void Model::checkCollision(){
   }
 }
 
-void Model::destroyEntity(int ID){}
+void Model::destroyEntity(int ID){
+  auto position = locateEntity(ID);
+  (*position)->notifyDeath();
+  entities.erase(position);
+}
 
 Player& Model::getPlayer1(){
 	auto p1 = locateEntity(player1ID);

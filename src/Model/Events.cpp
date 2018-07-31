@@ -28,7 +28,9 @@ FriendlyDeath::FriendlyDeath(int eID) : eID(eID){}
 FriendlyDeath::~FriendlyDeath(){}
 
 void FriendlyDeath::execute(){
-  return void();
+  if(auto spt = model.lock()){
+    spt->destroyEntity(this->eID);
+  }
 }
 
 PlayerDeath::PlayerDeath(int eID) : eID(eID){}

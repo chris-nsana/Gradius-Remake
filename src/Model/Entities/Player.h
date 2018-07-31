@@ -23,6 +23,11 @@ public:
 	void virtual fire();
 
 	/**
+	*@brief Slightly different behavior for Player than most different Friendly entities.
+	*/
+	virtual void onCollisionReact(Entity& other) override;
+
+	/**
 	*@brief A PlayerShip object has no inherent movement pattern, the movement is decided by the Controller.
 	*/
 	void virtual move();

@@ -4,7 +4,7 @@ namespace Model{
 
 
 Background::Background(float x, float y, float health, float damage, float speed, float width, float height, string texture)
- : Neutral(x, y, health, damage, speed, width, height, texture){}
+ : Neutral(x, y, health, 0, speed, width, height, texture){}
 
 Background::~Background(){}
 
