@@ -13,7 +13,9 @@ Entity::Entity(float x, float y, float h1, float d, float s, float w, float h2, 
 
 }
 
-Entity::~Entity(){}
+Entity::~Entity(){
+	this->notifyDeath();
+}
 
 
 void Entity::Attach(const std::shared_ptr<View::View>& obs){

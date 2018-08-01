@@ -10,7 +10,7 @@ namespace Controller{
 Controller::Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op)
  : model(model), window(window), p1Movement(0), p2Movement(0), co_op(co_op){
 	//This is an important setting to correctly handle keyboard input.
-	//This basically means that holding a key won't fill the Event queue with multiple events of that key.
+	//This basically means that holding a key won't fill the Window Event queue with multiple events of that key.
 	window->setKeyRepeatEnabled(false);
 }
 
@@ -37,7 +37,7 @@ void Controller::processInput(){
 			processKeyReleased(event);
 		}
 
-		else if (event.type == sf::Event::Closed){
+		else if(event.type == sf::Event::Closed){
 			window->close();
 		}
 	}
@@ -81,7 +81,7 @@ void Controller::processKeyPressed(sf::Event& event){
 
 		case sf::Keyboard::Key::Space :
 		{
-			auto p1 = model->getPlayer1();
+			auto& p1 = model->getPlayer1();
 			p1.fire();
 			break;
 		}
@@ -89,7 +89,7 @@ void Controller::processKeyPressed(sf::Event& event){
 		case sf::Keyboard::Key::J :
 		{
 		  if(!co_op) break;
-			auto p2 = model->getPlayer2();
+			auto& p2 = model->getPlayer2();
 			p2.fire();
 			break;
 			}

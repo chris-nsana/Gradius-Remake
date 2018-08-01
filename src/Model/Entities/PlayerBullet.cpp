@@ -1,4 +1,5 @@
 #include "PlayerBullet.h"
+#include "Model/EventQueue.h"
 
 namespace Model{
 
@@ -10,6 +11,10 @@ PlayerBullet::~PlayerBullet(){}
 void PlayerBullet::move(){
 	std::pair<float, float> pos = this->getPosition();
 	setPosition(pos.first + 0.075f, pos.second);
+  //Destroy entity that leaves the playable and visible part of the world.
+  if(getPosition().first > (4.0f + getHalfWidth())){
+    EventQueue::getInstance().addFriendlyDeath(getID());
+  }
 }
 
 void PlayerBullet::update(){

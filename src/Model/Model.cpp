@@ -76,7 +76,6 @@ void Model::update(){
 	}
   checkCollision();
   processEvents();
-
 	massNotify();
 }
 
@@ -96,6 +95,7 @@ void Model::processEvents(){
     std::unique_ptr<Event> e = std::move(EventQueue::getInstance().dequeue());
     e->execute();
   }
+
 }
 
 void Model::checkCollision(){
@@ -116,7 +116,7 @@ void Model::checkCollision(){
 
 void Model::destroyEntity(int ID){
   auto position = locateEntity(ID);
-  (*position)->notifyDeath();
+  //(*position)->notifyDeath();
   entities.erase(position);
 }
 

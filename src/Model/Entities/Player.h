@@ -52,8 +52,6 @@ public:
 	*/
 	void moveDown();
 
-
-
 };
 
 }

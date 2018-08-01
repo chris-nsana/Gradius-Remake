@@ -22,7 +22,6 @@ void Player::fire(){
 void Player::onCollisionReact(Entity& other){
   //Collision with Friendly object, do nothing a.k.a phase through eachother
   if(other.isFriendly()) return void();
-
   else if(other.isNeutral()){
     float otherDamage = other.getDamage();
     this->takeDamage(otherDamage);

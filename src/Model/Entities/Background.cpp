@@ -4,6 +4,8 @@ namespace Model{
 
 
 Background::Background(float x, float y, float health, float damage, float speed, float width, float height, string texture)
+  //The damage of the background entity absolutely has to be 0, since it spans over the whole field, but shouldn't
+  //damage other entities.
  : Neutral(x, y, health, 0, speed, width, height, texture){}
 
 Background::~Background(){}

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <Utilities/json.hpp>
+
 namespace Model{
 
 class Entity;
@@ -81,8 +82,16 @@ public:
 
 private:
 
-
 	using entity_it = std::vector<std::unique_ptr<Entity>>::iterator;
+
+	struct PlayerInfo{
+		//Entity ID in the entities container of the Model
+		int playerID;
+		//Lives that the player has left.
+		int playerLives;
+		//Current score of the Player.
+		int score;
+	};
 
 	/**
 	*@brief Internal method used to find specific entities in the entities vector by using their ID.
@@ -90,11 +99,19 @@ private:
 	entity_it locateEntity(int eID);
 
 
+
+
+
+
+
+
 	std::unique_ptr<EntityFactory> factory;
 	std::vector<std::unique_ptr<Entity>> entities;
 	std::vector<std::string> levels; //All the level names that are playable.
-	std::vector<nlohmann::json> levelElements; //Vector of game elements in json format.
+	std::vector<nlohmann::json> levelElements; //Vector of game elements for a level in json format.
 	std::vector<nlohmann::json>::iterator elementPtr; //Points to the next level element that has to be processed.
+	PlayerInfo p1;
+	PlayerInfo p2;
 	int player1ID;
 	int player2ID;
 	int playerlives;

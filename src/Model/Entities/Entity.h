@@ -23,6 +23,10 @@ protected:
 
 	Entity(float x, float y, float health, float damage, float speed, float width, float height, string texture);
 
+	Entity(const Entity&)=delete;
+
+	Entity& operator=(const Entity&) = delete;
+
 public:
 
 	virtual ~Entity();

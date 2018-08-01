@@ -101,11 +101,17 @@ void View::informCreation(int id, float width, float height, std::string texture
 	//Center the origin of the sprite before we us it.
 	sf::FloatRect bound_rect = curSprite.getLocalBounds();
 	curSprite.setOrigin(bound_rect.left + bound_rect.width/2.0f, bound_rect.top  + bound_rect.height/2.0f);
+	curSprite.setPosition(-800.0f, 0.0f);
 	}
 
 void View::inform(int id, float x, float y){
 	//Get the existing sprite
+	try{
 	sf::Sprite& curSprite = sprites.at(id);
+	}
+	catch(std::out_of_range& e){
+		throw std::logic_error("pop");
+	}
 	float xPixels, yPixels;
 	//Unpacking the pixel values that the Transformation object returned in the variables xPixels and yPixels.
 	std::tie(xPixels, yPixels) = utils::Transformation::getInstance().coordinatesToPixels(x, y);
