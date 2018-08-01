@@ -30,7 +30,18 @@ void Neutral::fire(){
 
 void Neutral::onCollisionReact(Entity& other){
 	//Neutral on neutral collision has no significant effect.
-	return void();
+	if(other.isNeutral()){
+		return void();
+	}
+
+	//Neutral on friendly, the friendly object needs to take damage in this collision.
+	else if(other.isFriendly()){
+		other.takeDamage(getDamage(), false);
+	}
+
+	else if(other.isEnemy()){
+		return void();
+	}
 }
 /*
 void Neutral::onCollisionReact(Friendly& other){

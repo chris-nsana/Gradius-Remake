@@ -30,7 +30,7 @@ void Friendly::onCollisionReact(Entity& other){
 	//Collision with Neutral element, take damage
 	else if(other.isNeutral()){
 		float otherDamage = other.getDamage();
-		this->takeDamage(otherDamage);
+		this->takeDamage(otherDamage, false);
 	}
 	//Friendly on Neutral collision has no significant effects for the other but damage for itself.
 	/*float otherDamage = other.getDamage();

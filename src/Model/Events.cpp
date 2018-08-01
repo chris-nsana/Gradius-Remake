@@ -38,7 +38,9 @@ PlayerDeath::PlayerDeath(int eID) : eID(eID){}
 PlayerDeath::~PlayerDeath(){}
 
 void PlayerDeath::execute(){
-  return void();
+  if(auto spt = model.lock()){
+    spt->resetLevel();
+  }
 }
 
 BossDeath::BossDeath(int eID, int worth) : eID(eID), worth(worth){}

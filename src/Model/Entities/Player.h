@@ -15,22 +15,20 @@ public:
 	/**
 	*@brief A PlayerShip object has no specific behavior for every tick.
 	*/
-	void virtual update();
+	virtual void update();
 
 	/**
 	*@brief Method that shoots a bullet from this PlayerShip's location.
 	*/
-	void virtual fire();
+	virtual void fire();
 
-	/**
-	*@brief Slightly different behavior for Player than most different Friendly entities.
-	*/
-	virtual void onCollisionReact(Entity& other) override;
+	virtual void takeDamage(float amount, bool enemy);
+
 
 	/**
 	*@brief A PlayerShip object has no inherent movement pattern, the movement is decided by the Controller.
 	*/
-	void virtual move();
+	virtual void move();
 
 	/**
 	*@brief Move left for the duration of a game tick.

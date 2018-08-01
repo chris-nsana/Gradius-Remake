@@ -78,6 +78,8 @@ public:
 
 	float getHealth() const;
 
+	void setHealth(float health);
+
 	float getDamage() const;
 
 	float getSpeed() const;
@@ -94,9 +96,9 @@ public:
 
 	std::string getTexture() const;
 
-	void takeDamage(float amount);
-
 	bool isDead() const;
+
+	virtual void takeDamage(float amount, bool enemy);
 
 	virtual void update()=0;
 

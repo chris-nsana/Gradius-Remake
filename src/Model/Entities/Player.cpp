@@ -19,16 +19,10 @@ void Player::fire(){
   EventQueue::getInstance().addPlayerFire(0, "Player1Bullet", x, y);
 }
 
-void Player::onCollisionReact(Entity& other){
-  //Collision with Friendly object, do nothing a.k.a phase through eachother
-  if(other.isFriendly()) return void();
-  else if(other.isNeutral()){
-    float otherDamage = other.getDamage();
-    this->takeDamage(otherDamage);
-    if(this->isDead()){
-      //EventQueue::getInstance().addPlayerDeath(this->getID());
-    }
-  }
+void Player::takeDamage(float amount, bool enemy){
+  float totalHealth = getHealth() -  amount;
+  setHealth(totalHealth);
+	if(this->isDead()) EventQueue::getInstance().addPlayerDeath(getID());
 }
 
 void Player::moveLeft(){

@@ -135,7 +135,9 @@ void View::deleteEntity(int ID){
 	if(it != sprites.end()){
 		sprites.erase(it);
 		auto it2 = animations.find(ID);
-		animations.erase(it2);
+		if(it2 != animations.end()){
+			animations.erase(it2);
+		}
 	}
 }
 

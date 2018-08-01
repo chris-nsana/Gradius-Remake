@@ -12,7 +12,7 @@ public:
 
 	virtual ~PlayerBullet();
 
-	void move();
+	void move() override;
 
 	void update();
 

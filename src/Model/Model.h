@@ -24,6 +24,10 @@ public:
 	 */
 	void startLevel();
 
+	void createWorldElements(nlohmann::json& levelInfo);
+
+	void resetLevel();
+
 	/**
 	*@brief Creates an entity at location (x, y)
 	*/
@@ -97,13 +101,6 @@ private:
 	*@brief Internal method used to find specific entities in the entities vector by using their ID.
 	*/
 	entity_it locateEntity(int eID);
-
-
-
-
-
-
-
 
 	std::unique_ptr<EntityFactory> factory;
 	std::vector<std::unique_ptr<Entity>> entities;
