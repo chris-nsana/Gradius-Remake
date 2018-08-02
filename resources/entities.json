@@ -22,7 +22,7 @@
 "Player1Bullet" : {
 	"entity_type" : "PlayerBullet",
 	"health"      : 100,
-	"speed"       : 1.0,
+	"speed"       : 4.0,
 	"damage"      : 100,
 	"width"       : 0.15,
 	"height"      : 0.075,

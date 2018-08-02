@@ -10,7 +10,9 @@ PlayerBullet::~PlayerBullet(){}
 
 void PlayerBullet::move(){
 	std::pair<float, float> pos = this->getPosition();
-	setPosition(pos.first + 0.075f, pos.second);
+  float tick = 1.0f/60.0f;
+  float distance = tick * getSpeed();
+	setPosition(pos.first + distance, pos.second);
   //Destroy entity that leaves the playable and visible part of the world.
   if(getPosition().first > (4.0f + getHalfWidth())){
     EventQueue::getInstance().addFriendlyDeath(getID());

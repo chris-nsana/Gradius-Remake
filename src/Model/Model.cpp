@@ -11,8 +11,7 @@
 namespace Model{
 
 Model::Model(std::string entitiesFile, std::vector<std::string> levels, int level, bool co_op)
- : levels(levels), currentLevel(level), co_op(co_op), player1ID(0), player2ID(0), levelTime(0){
-
+ : levels(levels), currentLevel(level), co_op(co_op), p1(0, 0, 0, true), p2(0, 0, 0, false), levelTime(0){
     factory = std::make_unique<EntityFactory>(entitiesFile);
 }
 
@@ -38,9 +37,12 @@ void Model::createWorldElements(nlohmann::json& levelInfo){
 
   auto player1    = factory->create("Player1");
   player1->setPosition(-1.0f, 0.0f);
-  this->player1ID  = player1->getID();
+  this->p1.setID(player1->getID());
   entities.push_back(std::move(player1));
 
+  if(co_op){
+    //Create player2
+  }
 }
 
 void Model::startLevel(){
@@ -49,8 +51,8 @@ void Model::startLevel(){
   std::ifstream file(filepath);
   file >> level;
   createWorldElements(level);
-    std::vector<nlohmann::json> elements = level["Elements"];
-    this->levelElements = std::move(elements);
+  std::vector<nlohmann::json> elements = level["Elements"];
+  this->levelElements = std::move(elements);
   this->elementPtr    = this->levelElements.begin();
 }
 
@@ -64,8 +66,11 @@ void Model::resetLevel(){
   //Recreate the bare bones
   createWorldElements(level);
   //Take a step back in the level advancement
-  if(elementPtr != levelElements.begin()) --elementPtr;
-
+  if(elementPtr != levelElements.begin()){
+    --elementPtr;
+    //To make sure that next of readLevel reads the elements before death.
+    this->levelTime = ((*elementPtr)["time"]);
+  }
 }
 
 void Model::readLevel(){
@@ -138,20 +143,19 @@ void Model::checkCollision(){
 
 void Model::destroyEntity(int ID){
   auto position = locateEntity(ID);
-  //(*position)->notifyDeath();
   entities.erase(position);
 }
 
 Player& Model::getPlayer1(){
-    auto p1 = locateEntity(player1ID);
-    Entity& entityRef = *((*p1).get());
+    auto player1 = locateEntity(this->p1.getID());
+    Entity& entityRef = *((*player1).get());
     Player& playerRef = dynamic_cast<Player&>(entityRef);
     return playerRef;
 }
 
 Player& Model::getPlayer2(){
-    auto p2 = locateEntity(player2ID);
-    Entity& entityRef = *((*p2).get());
+    auto player2 = locateEntity(this->p2.getID());
+    Entity& entityRef = *((*player2).get());
     Player& playerRef = dynamic_cast<Player&>(entityRef);
     return playerRef;
 }

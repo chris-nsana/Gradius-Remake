@@ -24,7 +24,7 @@ void Game::init(bool co_op){
 
 	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close);
 	gameView         = std::make_shared<View::View>(window, texturesFile);
-	Model::Entity::Attach(gameView);
+	Model::Entity::attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, co_op);
 	Model::Event::setModel(gameModel);
 	gameControl      = std::make_shared<Controller::Controller>(gameModel, window, co_op);

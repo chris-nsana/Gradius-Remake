@@ -35,12 +35,12 @@ public:
      * @brief Method that attaches a view to all entities of the game.
      * @param obs is a shared_ptr reference to that view we want to attach.
      */
-	static void Attach(const std::shared_ptr<View::View>& obs);
+	static void attach(const std::shared_ptr<View::View>& obs);
 
     /**
      * @brief Method that detaches that view from all the entities of the game.
      */
-	static void Detach();
+	static void detach();
 
 	/**
 	 * @brief Method that returns whether an observer is attached to an entity or not.

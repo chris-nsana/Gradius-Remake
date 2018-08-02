@@ -3,7 +3,9 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include "PlayerData.h"
 #include <Utilities/json.hpp>
+
 
 namespace Model{
 
@@ -107,8 +109,8 @@ private:
 	std::vector<std::string> levels; //All the level names that are playable.
 	std::vector<nlohmann::json> levelElements; //Vector of game elements for a level in json format.
 	std::vector<nlohmann::json>::iterator elementPtr; //Points to the next level element that has to be processed.
-	PlayerInfo p1;
-	PlayerInfo p2;
+	PlayerData p1;
+	PlayerData p2;
 	int player1ID;
 	int player2ID;
 	int playerlives;
