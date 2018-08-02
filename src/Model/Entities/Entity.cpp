@@ -41,14 +41,14 @@ void Entity::notify() const{
 	if(auto spt = observer.lock()){
 		spt->inform(getID(), getPosition().first, getPosition().second);
 	}
-	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
+	else throw std::runtime_error("An entity tried to notify its changes to the observer, but no observer was attached to it!");
 }
 
 void Entity::notifyDeath() const{
 	if(auto spt = observer.lock()){
-		spt->deleteEntity(getID());
+		spt->informDeath(getID());
 	}
-	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
+	else throw std::runtime_error("An entity tried to notify its death to the observer, but no observer was attached to it!");
 	}
 
 void Entity::setPosition(float x, float y){

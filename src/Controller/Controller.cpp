@@ -4,7 +4,6 @@
 #include "Utilities/Stopwatch.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "GameGlobals.h"
 
 namespace Controller{
 Controller::Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op)
@@ -187,15 +186,21 @@ void Controller::controlPlayer(Model::Player& player, int pattern){
 }
 
 void Controller::controlPlayer1(){
-	Model::Player& p1 = model->getPlayer1();
-	controlPlayer(p1, p1Movement);
+  try{
+    Model::Player& p1 = model->getPlayer1();
+    controlPlayer(p1, p1Movement);
+  }
+  catch(std::out_of_range& e){return void();}
 }
 
 void Controller::controlPlayer2(){
 	//There is no need to control player 2 if we're not in co-op mode.
 	if(!co_op) return void();
-	Model::Player& p2 = model->getPlayer2();
-	controlPlayer(p2, p2Movement);
+  try{
+    Model::Player& p2 = model->getPlayer2();
+    controlPlayer(p2, p2Movement);
+  }
+  catch(std::out_of_range& e){return void();}
 }
 
 }

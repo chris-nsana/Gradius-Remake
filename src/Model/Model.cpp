@@ -1,5 +1,4 @@
 #include "Model.h"
-#include "EntityFactory.h"
 #include "EventQueue.h"
 #include "Entities/Player.h"
 #include "Entities/PlayerBullet.h"
@@ -10,15 +9,19 @@
 
 namespace Model{
 
-Model::Model(std::string entitiesFile, std::vector<std::string> levels, int level, bool co_op)
- : levels(levels), currentLevel(level), co_op(co_op), p1(0, 0, 0, true), p2(0, 0, 0, false), levelTime(0){
-    factory = std::make_unique<EntityFactory>(entitiesFile);
-}
+Model::Model(std::string entitiesFile, std::vector<std::string> levels, int level, int lives, bool co_op)
+ : factory(entitiesFile), levels(levels), currentLevel(level), co_op(co_op),
+  p1(0, lives, 0, true), p2(0, lives, 0, false), levelTime(0), active(false){}
+
 
 Model::~Model(){}
 
+bool Model::isActive(){
+  return active;
+}
+
 void Model::createEntity(std::string type, float x, float y){
-  auto entity    = factory->create(type);
+  auto entity    = factory.create(type);
   entity->setPosition(x, y);
   entities.push_back(std::move(entity));
 }
@@ -35,7 +38,7 @@ void Model::createWorldElements(nlohmann::json& levelInfo){
     xpos += 7.99; //7.99 instead of 8.0 to allow a tiny smidgen of overlap.
   }
 
-  auto player1    = factory->create("Player1");
+  auto player1    = factory.create("Player1");
   player1->setPosition(-1.0f, 0.0f);
   this->p1.setID(player1->getID());
   entities.push_back(std::move(player1));
@@ -54,9 +57,23 @@ void Model::startLevel(){
   std::vector<nlohmann::json> elements = level["Elements"];
   this->levelElements = std::move(elements);
   this->elementPtr    = this->levelElements.begin();
+  this->active        = true; //When a level starts the game is active.
 }
 
 void Model::resetLevel(){
+  bool endGame = false;
+  if(p1.getLives() == 0){
+    //The only player has no lives left, so the game isn't active anymore.
+    if(!co_op) endGame = true;
+    //Or both player1 and player2 have no lives left.
+    else if(co_op and (p2.getLives()==0)) endGame = true;
+  }
+  //No point in rebuilding the world if no player's are alive, exit the method.
+  if(endGame){
+    this->active= false;
+    return void();
+  }
+  //Recreate the world a little bit before one of the players died.
   nlohmann::json level;
   std::string filepath = "./../resources/levels/" + levels[currentLevel-1];
   std::ifstream file(filepath);
@@ -74,44 +91,44 @@ void Model::resetLevel(){
 }
 
 void Model::readLevel(){
-    for(auto it = elementPtr; it != levelElements.end(); ++it){
-        //If it's time to process this element
-        if(levelTime == (*it)["timeframe"]){
-            std::string type = (*it)["entity_type"];
-            float x          = (*it)["posX"];
-            float y          = (*it)["posY"];
+  for(auto it = elementPtr; it != levelElements.end(); ++it){
+    //If it's time to process this element
+    if(levelTime == (*it)["timeframe"]){
+      std::string type = (*it)["entity_type"];
+      float x          = (*it)["posX"];
+      float y          = (*it)["posY"];
       createEntity(type, x, y);
-        }
-        //Else it's too early and we wait. All events after this one also have to wait so we break out of the method.
-        else{
-            //Store this location in the vector to resume at later ticks.
-            elementPtr = it;
-            return void();
-        }
     }
-    //If all elements are already read
-    elementPtr = levelElements.end();
+    //Else it's too early and we wait. All events after this one also have to wait so we break out of the method.
+    else{
+      //Store this location in the vector to resume at later ticks.
+      elementPtr = it;
+      return void();
+    }
+  }
+  //If all elements are already read
+  elementPtr = levelElements.end();
 }
 
 void Model::update(){
-    readLevel();
-    for(const auto& e : entities){
-        e->update();
-    }
+  readLevel();
+  for(const auto& e : entities){
+    e->update();
+  }
   checkCollision();
   processEvents();
-    massNotify();
+  massNotify();
 }
 
 void Model::tick(){
-    this->levelTime += 1;
+  this->levelTime += 1;
 }
 
 void Model::massNotify(){
-    //Every entity needs to notify the observer
-    for(auto& e : entities){
-        e->notify();
-    }
+  //Every entity needs to notify the observer
+  for(auto& e : entities){
+    e->notify();
+  }
 }
 
 void Model::processEvents(){
@@ -146,6 +163,18 @@ void Model::destroyEntity(int ID){
   entities.erase(position);
 }
 
+void Model::decreasePlayerLives(int id, int lives){
+  if(p1.getID() == id){
+    p1.takeLives(lives);
+  }
+  else if(p2.getID() == id){
+    p2.takeLives(lives);
+  }
+  else{
+    //throw exception here
+  }
+}
+
 Player& Model::getPlayer1(){
     auto player1 = locateEntity(this->p1.getID());
     Entity& entityRef = *((*player1).get());
@@ -165,6 +194,7 @@ Model::entity_it Model::locateEntity(int eID){
         if((*it)->getID() == eID) return it;
     }
     //Throw exception if not found.
+    throw std::out_of_range("No");
 }
 
 }

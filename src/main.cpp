@@ -5,6 +5,6 @@ int main()
 {
     Game Gradius;
     Gradius.init();
-    Gradius.Run();
+    Gradius.run();
     return 0;
 }

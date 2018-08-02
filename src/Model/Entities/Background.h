@@ -20,8 +20,4 @@ public:
 
 }
 
-
-
-
-
 #endif /* BACKGROUND_H_ */

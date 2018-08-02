@@ -120,13 +120,35 @@ void View::inform(int id, float x, float y){
 	}
 
 void View::informDeath(int id){
-	return void();
+	//If it's not animated just delete the sprite.
+	if(animations.find(id) == animations.end()){
+		deleteEntity(id);
+	}
+	//If it's animated we have to let it play it's dying animation (explosion / disintegration)
+	Animation& a = animations[id];
+	a.startDeathAnimation();
+	float tick   = 1.0f/60.0f;
+	//Number of ticks needed to finish this death animation.
+	int total  = (a.imageCount.x * a.switchTime)/tick;
+	dyingSprites[id] = total;
 }
 
 void View::updateAnimations(){
 	float elapsed = utils::Stopwatch::getInstance().getElapsedTime();
 	for(auto& a : animations){
 		a.second.update(elapsed);
+	}
+
+	//Check whether any animation for a dying Sprite has finished it's dying animation.
+	auto it = dyingSprites.begin();
+	while(it != dyingSprites.end()){
+		it->second -= 1;
+		if(it->second <= 0){
+			deleteEntity(it->first);
+			it = dyingSprites.erase(it);
+			continue;
+		}
+		++it;
 	}
 }
 

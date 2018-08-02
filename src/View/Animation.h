@@ -36,7 +36,7 @@ public:
 	 * @brief Method that changes the animation sequence to a different one.
 	 * @param int nRow that represents is used to choose this new sequence.
 	 */
-	void changeRow(int nRow);
+	void startDeathAnimation();
 
 
 
@@ -49,6 +49,7 @@ private:
 	float totalTime;
 	float switchTime;
 	int row;
+	bool death;
 };
 
 }

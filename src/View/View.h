@@ -92,6 +92,9 @@ private:
 	std::map<int, Animation> animations;
 	//Json object containing all information on entity textures
 	nlohmann::json texturesJson;
+	//A container keeping track of dying sprites and when to delete them
+	//the key contains the ID and the value is the ammount of ticks left.
+	std::map<int, int> dyingSprites;
 	//Float expressing how many pixels a length of 1.0 is in the game model.
 	float baseLengthUnit;
 

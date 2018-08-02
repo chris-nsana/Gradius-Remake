@@ -23,7 +23,7 @@ public:
 	/**
 	 * @brief Method that initializes the subsystems of the game and starts running it.
 	 */
-	void Run();
+	void run();
 
 private:
 

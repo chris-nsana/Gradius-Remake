@@ -2,5 +2,6 @@
 "entitiesFile"  : "./../resources/entities.json",
 "texturesFile"  : "./../resources/textures.json",
 "levels"        : ["level1.json", "level2.json", "level3.json"],
-"startingLevel" : 1
+"startingLevel" : 1,
+"playerLives"   : 3
 }

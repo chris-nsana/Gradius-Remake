@@ -16,7 +16,7 @@ namespace View{
 Animation::Animation(){}
 
 Animation::Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime)
- : row(0){
+ : row(0), death(false){
 	this->imageCount = imageCount;
 	this->switchTime = switchTime;
 	totalTime = 0.0f;
@@ -27,10 +27,11 @@ Animation::Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u i
 
 Animation::~Animation(){}
 
-void Animation::changeRow(int newRow){
-	if(newRow >= imageCount.y ) throw std::invalid_argument("Error: trying to set Animation row higher than imageCount");
+void Animation::startDeathAnimation(){
+  //Use the next row, which should be the frames for the death animation.
+  row++;
+	//Restart from the leftmost frame
 	currentImage.x = 0;
-	row = newRow;
 }
 
 void Animation::update( float deltaTime){
@@ -41,7 +42,11 @@ void Animation::update( float deltaTime){
 		totalTime = 0;
 		currentImage.x++;
 
-		if(currentImage.x >= imageCount.x){
+    //The death animation should only be played once, going out of bounds
+    //with currentImage will just result in a black screen, which is ok.
+    if(death){}
+
+		else if(currentImage.x >= imageCount.x){
 			currentImage.x = 0;
 		}
 	}

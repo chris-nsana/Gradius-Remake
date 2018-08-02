@@ -20,7 +20,7 @@
 	"image_path"   : "./../resources/images/Player1Bullet.png",
 	"frames"       : 1,
 	"rows"         : 1,
-	"switch_time"  : 0.15
+	"switch_time"  : 0.0
 	},
 
 "RedBullet" : {

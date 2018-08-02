@@ -39,7 +39,9 @@ PlayerDeath::~PlayerDeath(){}
 
 void PlayerDeath::execute(){
   if(auto spt = model.lock()){
-    spt->resetLevel();
+    spt->decreasePlayerLives(eID, 2);
+    spt->destroyEntity(this->eID);
+    //spt->resetLevel();
   }
 }
 
