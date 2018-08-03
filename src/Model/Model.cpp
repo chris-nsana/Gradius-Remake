@@ -68,7 +68,7 @@ void Model::resetLevel(){
     //Or both player1 and player2 have no lives left.
     else if(co_op and (p2.getLives()==0)) endGame = true;
   }
-  //No point in rebuilding the world if no player's are alive, exit the method.
+  //No point in rebuilding the world if no players are alive, exit the method.
   if(endGame){
     this->active= false;
     return void();
@@ -111,6 +111,12 @@ void Model::readLevel(){
 }
 
 void Model::update(){
+  //If the Model is frozen, we do not update anything and just wait.
+  if(isFrozen()){
+    wait();
+    return void();
+  }
+
   readLevel();
   for(const auto& e : entities){
     e->update();
@@ -187,6 +193,22 @@ Player& Model::getPlayer2(){
     Entity& entityRef = *((*player2).get());
     Player& playerRef = dynamic_cast<Player&>(entityRef);
     return playerRef;
+}
+
+void Model::freeze(double time){
+  waitingTime = time;
+}
+
+void Model::wait(){
+  waitingTime -= (1.0/60.0f);
+}
+
+void Model::unfreeze(){
+  waitingTime = 0.0f;
+}
+
+bool Model::isFrozen() const{
+  return (waitingTime >= 0.0f);
 }
 
 Model::entity_it Model::locateEntity(int eID){

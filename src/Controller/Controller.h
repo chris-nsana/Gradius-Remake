@@ -32,6 +32,8 @@ public:
 
 	void processKeyReleased(sf::Event& event);
 
+	void pauseControl();
+
 	void controlPlayer(Model::Player& player, int pattern);
 
 	void controlPlayer1();
@@ -45,6 +47,7 @@ private:
 	int p1Movement;
 	int p2Movement;
 	bool co_op;
+	bool paused;
 
 };
 }

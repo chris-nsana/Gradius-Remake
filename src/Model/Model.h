@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <limits>
 #include "EntityFactory.h"
 #include "PlayerData.h"
 #include <Utilities/json.hpp>
@@ -95,6 +96,22 @@ public:
 	 */
 	Player& getPlayer2();
 
+	/**
+	*@brief Freeze all activity of the Model for a number of ticks
+	*/
+	void freeze(double time = std::numeric_limits<double>::infinity());
+
+	/**
+	*@brief
+	*/
+	void wait();
+
+	/**
+	*@brief Unfreeze all the activity of the Model
+	*/
+	void unfreeze();
+
+	bool isFrozen() const;
 
 
 private:
@@ -116,6 +133,7 @@ private:
 	int currentLevel;
 	bool co_op;
 	int levelTime;
+	float waitingTime;
 	bool active; //Boolean indicating whether the Game World is still active.
 
 
