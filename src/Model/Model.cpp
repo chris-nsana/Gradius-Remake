@@ -16,6 +16,10 @@ Model::Model(std::string entitiesFile, std::vector<std::string> levels, int leve
 
 Model::~Model(){}
 
+void Model::attach(const std::shared_ptr<View::View>& obs){
+  observer = obs;
+}
+
 bool Model::isActive(){
   return active;
 }
@@ -196,7 +200,14 @@ Player& Model::getPlayer2(){
 }
 
 void Model::freeze(double time){
-  waitingTime = time;
+  //Only an active game can be frozen.
+  if(active){
+    waitingTime = time;
+    if(auto spt = observer.lock()){
+      spt->freezeView();
+    }
+    else throw std::runtime_error("This should be a custom exception.");
+  }
 }
 
 void Model::wait(){
@@ -204,7 +215,14 @@ void Model::wait(){
 }
 
 void Model::unfreeze(){
-  waitingTime = 0.0f;
+  //Only an active game can be unfrozen.
+  if(active){
+    waitingTime = 0.0f;
+    if(auto spt = observer.lock()){
+      spt->unfreezeView();
+    }
+    else throw std::runtime_error("This should be a custom exception.");
+  }
 }
 
 bool Model::isFrozen() const{

@@ -80,6 +80,10 @@ public:
 	 */
 	void updateAnimations();
 
+	void freezeView();
+
+	void unfreezeView();
+
 private:
 
 	//Window to render the images.
@@ -97,6 +101,7 @@ private:
 	std::map<int, int> dyingSprites;
 	//Float expressing how many pixels a length of 1.0 is in the game model.
 	float baseLengthUnit;
+	bool paused;
 
 };
 

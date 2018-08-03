@@ -9,7 +9,7 @@
 
 namespace View{
 
-View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) : window(window){
+View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) : window(window), paused(false){
 	nlohmann::json textures;
 	std::ifstream file{texturesFile};
 	file >> textures;
@@ -28,6 +28,7 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) :
 View::~View(){}
 
 void View::displayGame(){
+	if(paused) return;
 	window->clear();
 	for(auto& s : sprites){
 		auto it = this->animations.find(s.first);
@@ -134,6 +135,8 @@ void View::informDeath(int id){
 }
 
 void View::updateAnimations(){
+	//Don't change anything about the animations if the view is paused.
+	if(paused) return;
 	float elapsed = utils::Stopwatch::getInstance().getElapsedTime();
 	for(auto& a : animations){
 		a.second.update(elapsed);
@@ -161,6 +164,32 @@ void View::deleteEntity(int ID){
 			animations.erase(it2);
 		}
 	}
+}
+
+void View::freezeView(){
+	paused = true;
+	auto grey = sf::Color(100, 100, 100, 125);
+	sf::Vector2f effectSize(8 * baseLengthUnit, 6 * baseLengthUnit);
+	sf::RectangleShape greyEffect(effectSize);
+	greyEffect.setFillColor(grey);
+
+	sf::Font font;
+	font.loadFromFile("./../resources/fonts/no-continue.ttf");
+
+	sf::Text t("PAUSED", font);
+	t.setCharacterSize(72);
+	sf::FloatRect textRect = t.getLocalBounds();
+	t.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
+	t.setPosition(4 * baseLengthUnit, 3 * baseLengthUnit);
+
+	window->draw(greyEffect);
+	window->draw(t);
+	window->display();
+}
+
+void View::unfreezeView(){
+	paused = false;
+	window->clear();
 }
 
 

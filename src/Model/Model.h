@@ -8,6 +8,7 @@
 #include "PlayerData.h"
 #include <Utilities/json.hpp>
 
+namespace View{class View;}
 
 namespace Model{
 
@@ -22,6 +23,8 @@ public:
 	Model(std::string entitiesFile, std::vector<std::string> levels, int level, int lives, bool co_op);
 
 	~Model();
+
+	void attach(const std::shared_ptr<View::View>& obs);
 
 	/**
 	 * @brief Method that does some prep work for a level.
@@ -128,6 +131,7 @@ private:
 	std::vector<std::string> levels; //All the level names that are playable.
 	std::vector<nlohmann::json> levelElements; //Vector of game elements for a level in json format.
 	std::vector<nlohmann::json>::iterator elementPtr; //Points to the next level element that has to be processed.
+	std::weak_ptr<View::View> observer; //Observer
 	PlayerData p1;
 	PlayerData p2;
 	int currentLevel;

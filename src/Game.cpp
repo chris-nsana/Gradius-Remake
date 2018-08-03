@@ -27,6 +27,7 @@ void Game::init(bool co_op){
 	gameView         = std::make_shared<View::View>(window, texturesFile);
 	Model::Entity::attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, lives, co_op);
+	gameModel->attach(gameView);
 	Model::Event::setModel(gameModel);
 	gameControl      = std::make_shared<Controller::Controller>(gameModel, window, co_op);
 }
