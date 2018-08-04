@@ -8,6 +8,10 @@ bool EventQueue::isEmpty(){
   return container.empty();
 }
 
+int  EventQueue::getSize(){
+  return container.size();
+}
+
 void EventQueue::addEnemyDeath(int eID, int killerID, int worth){
   std::unique_ptr<Event> e = std::make_unique<EnemyDeath>(eID, killerID, worth);
   container.push(std::move(e));
@@ -35,6 +39,11 @@ void EventQueue::addPlayerFire(int shooterID, std::string entity, float x, float
 
 void EventQueue::addEnemyFire(std::string entity, float x, float y){
   std::unique_ptr<Event> e = std::make_unique<EnemyFire>(entity, x, y);
+  container.push(std::move(e));
+}
+
+void EventQueue::addLevelReset(){
+  std::unique_ptr<Event> e = std::make_unique<LevelReset>();
   container.push(std::move(e));
 }
 

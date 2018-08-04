@@ -108,6 +108,16 @@ private:
   float y;
 };
 
+class LevelReset : public Event{
+public:
+  LevelReset();
+
+  ~LevelReset();
+
+  virtual void execute() override;
+
+};
+
 }
 
 

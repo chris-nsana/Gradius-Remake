@@ -57,11 +57,6 @@ public:
 	void update();
 
 	/**
-	*@brief Increment the tickCounter of the Model
-	*/
-	void tick();
-
-	/**
 	 * @brief Method that lets all the entities in the model notify their observer of their changes.
 	 */
 	void massNotify();
@@ -102,7 +97,7 @@ public:
 	/**
 	*@brief Freeze all activity of the Model for a number of ticks
 	*/
-	void freeze(double time = std::numeric_limits<double>::infinity());
+	void freeze(double time = std::numeric_limits<double>::infinity(), bool informView=true);
 
 	/**
 	*@brief

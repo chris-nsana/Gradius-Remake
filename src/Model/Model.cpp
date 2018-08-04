@@ -121,6 +121,7 @@ void Model::update(){
     return void();
   }
 
+  levelTime++;
   readLevel();
   for(const auto& e : entities){
     e->update();
@@ -128,10 +129,6 @@ void Model::update(){
   checkCollision();
   processEvents();
   massNotify();
-}
-
-void Model::tick(){
-  this->levelTime += 1;
 }
 
 void Model::massNotify(){
@@ -142,9 +139,14 @@ void Model::massNotify(){
 }
 
 void Model::processEvents(){
-  while(!(EventQueue::getInstance().isEmpty())){
+  int processed = 0;
+  int toProcess = EventQueue::getInstance().getSize();
+  //We only want to process Events generated in the previous tick
+  //so only execute the ones we can see now
+  while(processed < toProcess){
     std::unique_ptr<Event> e = std::move(EventQueue::getInstance().dequeue());
     e->execute();
+    processed += 1;
   }
 }
 
@@ -199,14 +201,16 @@ Player& Model::getPlayer2(){
     return playerRef;
 }
 
-void Model::freeze(double time){
+void Model::freeze(double time, bool informView){
   //Only an active game can be frozen.
   if(active){
     waitingTime = time;
-    if(auto spt = observer.lock()){
-      spt->freezeView();
+    if(informView){
+      if(auto spt = observer.lock()){
+        spt->freezeView();
+      }
+      else throw std::runtime_error("This should be a custom exception.");
     }
-    else throw std::runtime_error("This should be a custom exception.");
   }
 }
 

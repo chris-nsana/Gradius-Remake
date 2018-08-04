@@ -1,5 +1,6 @@
 #include "Events.h"
 #include "Model.h"
+#include "EventQueue.h"
 
 namespace Model{
 
@@ -41,7 +42,10 @@ void PlayerDeath::execute(){
   if(auto spt = model.lock()){
     spt->decreasePlayerLives(eID, 2);
     spt->destroyEntity(this->eID);
-    //spt->resetLevel();
+    //Freeze the model activity for 2 seconds without freezing the View
+    spt->freeze(2.0f, false);
+    //Add an event to reset the level after the wait is over.
+    EventQueue::getInstance().addLevelReset();
   }
 }
 
@@ -69,6 +73,16 @@ EnemyFire::~EnemyFire(){}
 
 void EnemyFire::execute(){
   return void();
+}
+
+LevelReset::LevelReset(){}
+
+LevelReset::~LevelReset(){}
+
+void LevelReset::execute(){
+  if(auto spt = model.lock()){
+    spt->resetLevel();
+  }
 }
 
 }

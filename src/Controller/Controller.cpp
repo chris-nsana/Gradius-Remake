@@ -89,16 +89,22 @@ void Controller::processKeyPressed(sf::Event& event){
 
 		case sf::Keyboard::Key::Space :
 		{ if(paused) break;
-      auto& p1 = model->getPlayer1();
-			p1.fire();
+      try{
+        auto& p1 = model->getPlayer1();
+			  p1.fire();
+      }
+      catch(std::out_of_range& e){}
 			break;
 		}
 
 		case sf::Keyboard::Key::J :
 		{
 		  if(!co_op or paused) break;
-			auto& p2 = model->getPlayer2();
-			p2.fire();
+      try{
+  			auto& p2 = model->getPlayer2();
+  			p2.fire();
+      }
+      catch(std::out_of_range& e){}
 			break;
 			}
 		}

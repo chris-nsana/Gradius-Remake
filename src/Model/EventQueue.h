@@ -15,6 +15,8 @@ public:
 
   bool isEmpty();
 
+  int getSize();
+
   void addEnemyDeath(int eID, int killerID, int worth);
 
   void addFriendlyDeath(int eID);
@@ -26,6 +28,8 @@ public:
   void addPlayerFire(int shooterID, std::string entity, float x, float y);
 
   void addEnemyFire(std::string entity, float x, float y);
+
+  void addLevelReset();
 
   std::unique_ptr<Event> dequeue();
 
