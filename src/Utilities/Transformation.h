@@ -19,6 +19,11 @@ public:
      */
 	std::pair<float, float> coordinatesToPixels(float x, float y) const;
 
+		/**
+		* @brief ...
+		*/
+	float getLengthUnit() const;
+
 	/**
 	 * @brief Method that changes the scale of the coordinate to pixel mapping
 	 * @param scale, a float that determines how much bigger the new screen is compared to the default.

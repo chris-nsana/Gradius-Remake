@@ -19,12 +19,13 @@ void Game::init(bool co_op){
 	file >> config;
 	std::string entitiesFile        = config["entitiesFile"];
 	std::string texturesFile        = config["texturesFile"];
+	std::string mainFont            = config["mainFont"];
 	std::vector<std::string> levels = config["levels"];
 	int startingLevel               = config["startingLevel"];
 	int lives                       = config["playerLives"];
 
 	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close);
-	gameView         = std::make_shared<View::View>(window, texturesFile);
+	gameView         = std::make_shared<View::View>(window, texturesFile, mainFont, co_op);
 	Model::Entity::attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, lives, co_op);
 	gameModel->attach(gameView);
@@ -52,8 +53,6 @@ void Game::run(){
 		gameView->displayGame();
 		//Increase the ammount of ticks that happened in this game by 1
 		tickNumber += 1;
-		//Also update this in the Model
-		gameModel->tick();
     }
 
 }

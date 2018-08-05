@@ -9,7 +9,9 @@
 
 namespace View{
 
-View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) : window(window), paused(false){
+View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, std::string fontPath, bool co_op)
+ : window(window), co_op(co_op), paused(false){
+	this->font.loadFromFile(fontPath);
 	nlohmann::json textures;
 	std::ifstream file{texturesFile};
 	file >> textures;
@@ -22,6 +24,9 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile) :
 		this->textures[textureName]->loadFromFile(file_path);
 		this->textures[textureName]->setRepeated(true);
 	}
+
+	const sf::Texture& lifeTexture = *((this->textures["lifeIcon"]).get());
+	playerStatus = StatusDisplay(lifeTexture, this->font, co_op);
 	this->baseLengthUnit = (window->getSize()).x / 8.0f;
 }
 
@@ -39,11 +44,8 @@ void View::displayGame(){
 		}
 		window->draw(s.second);
 	}
+	playerStatus.draw(window);
 	window->display();
-}
-
-bool View::isOpen() const{
-	return window->isOpen();
 }
 
 void View::addSprite(int id, std::string texture){
@@ -134,6 +136,15 @@ void View::informDeath(int id){
 	dyingSprites[id] = total;
 }
 
+void View::informPlayerInfo(bool p1, int lives, int score){
+	if(p1){
+		playerStatus.updatePlayer1(lives, score);
+	}
+	else{
+		playerStatus.updatePlayer2(lives, score);
+	}
+}
+
 void View::updateAnimations(){
 	//Don't change anything about the animations if the view is paused.
 	if(paused) return;
@@ -173,17 +184,14 @@ void View::freezeView(){
 	sf::RectangleShape greyEffect(effectSize);
 	greyEffect.setFillColor(grey);
 
-	sf::Font font;
-	font.loadFromFile("./../resources/fonts/no-continue.ttf");
-
-	sf::Text t("PAUSED", font);
-	t.setCharacterSize(72);
-	sf::FloatRect textRect = t.getLocalBounds();
-	t.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
-	t.setPosition(4 * baseLengthUnit, 3 * baseLengthUnit);
+	sf::Text paused("PAUSED", this->font);
+	paused.setCharacterSize(72);
+	sf::FloatRect textRect = paused.getLocalBounds();
+	paused.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
+	paused.setPosition(4 * baseLengthUnit, 3 * baseLengthUnit);
 
 	window->draw(greyEffect);
-	window->draw(t);
+	window->draw(paused);
 	window->display();
 }
 

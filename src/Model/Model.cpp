@@ -11,7 +11,7 @@ namespace Model{
 
 Model::Model(std::string entitiesFile, std::vector<std::string> levels, int level, int lives, bool co_op)
  : factory(entitiesFile), levels(levels), currentLevel(level), co_op(co_op),
-  p1(0, lives, 0, true), p2(0, lives, 0, false), levelTime(0), active(false){}
+  p1(0, lives, 0, true), p2(0, lives, 0, false), levelTime(0), waitingTime(0.0f), active(false){}
 
 
 Model::~Model(){}
@@ -129,6 +129,8 @@ void Model::update(){
   checkCollision();
   processEvents();
   massNotify();
+  auto spt = observer.lock();
+  spt->informPlayerInfo(true, p1.getLives(), p1.getScore());
 }
 
 void Model::massNotify(){

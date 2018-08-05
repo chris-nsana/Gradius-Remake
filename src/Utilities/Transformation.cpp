@@ -45,6 +45,10 @@ std::pair<float, float> Transformation::coordinatesToPixels(float x, float y) co
 
 }
 
+float Transformation::getLengthUnit() const{
+	return baseLengthUnit;
+}
+
 void Transformation::scaleTransformation(float scale){
 	float newUnit = this->baseLengthUnit * scale;
 	this->baseLengthUnit = newUnit;

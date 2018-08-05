@@ -3,7 +3,8 @@
 #include <memory>
 #include <map>
 #include <string>
-#include <Utilities/json.hpp>
+#include "Utilities/json.hpp"
+#include "StatusDisplay.h"
 
 namespace sf{
 
@@ -20,7 +21,7 @@ class View{
 
 public:
 
-	View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile);
+	View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, std::string fontPath, bool co_op);
 
 	~View();
 
@@ -28,12 +29,6 @@ public:
 	 * @brief Method that displays the given game state provided by the entities.
 	 */
 	void displayGame();
-
-	/**
-	 * @brief Method to return the isOpen() method of the encapsulated sf::RenderWindow
-	 * @return returns true if the window is still open or else it returns false.
-	 */
-	bool isOpen() const;
 
 	/**
 	 * @brief Method that creates a new sprite for an object that will be displayed by View.
@@ -71,6 +66,11 @@ public:
 	void informDeath(int id);
 
 	/**
+	*@brief Method that ...
+	*/
+	void informPlayerInfo(bool p1, int lives, int score);
+
+	/**
 	 * @brief Method that deletes an entity from the view.
 	 * @param int ID to identify the entity
 	 */
@@ -99,13 +99,16 @@ private:
 	//A container keeping track of dying sprites and when to delete them
 	//the key contains the ID and the value is the ammount of ticks left.
 	std::map<int, int> dyingSprites;
+	//2 x 2
+	StatusDisplay playerStatus;
+	//sf::Fo
+	sf::Font font;
+	bool co_op;
 	//Float expressing how many pixels a length of 1.0 is in the game model.
 	float baseLengthUnit;
 	bool paused;
 
 };
-
-
 
 }
 

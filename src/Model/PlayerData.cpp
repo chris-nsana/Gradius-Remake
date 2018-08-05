@@ -31,7 +31,7 @@ int PlayerData::getLives() const{
 }
 
 int PlayerData::getScore() const{
-  return lives;
+  return score;
 }
 
 void PlayerData::takeLives(int lives){

@@ -1,6 +1,7 @@
 {
 "entitiesFile"  : "./../resources/entities.json",
 "texturesFile"  : "./../resources/textures.json",
+"mainFont"      : "./../resources/fonts/no-continue.ttf",
 "levels"        : ["level1.json", "level2.json", "level3.json"],
 "startingLevel" : 1,
 "playerLives"   : 3

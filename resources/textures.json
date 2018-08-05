@@ -1,4 +1,8 @@
 {
+"lifeIcon"  : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/heart.png"
+	},
 "BlueViper" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/Player1Sheet.png",
