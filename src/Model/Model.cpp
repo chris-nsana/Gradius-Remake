@@ -26,9 +26,10 @@ bool Model::isActive(){
   return active;
 }
 
-void Model::createEntity(std::string type, float x, float y){
+void Model::createEntity(std::string type, float x, float y, int creatorID){
   auto entity    = factory.create(type);
   entity->setPosition(x, y);
+  if(creatorID != 0) entity->setCreatorID(creatorID);
   entities.push_back(std::move(entity));
 }
 
@@ -162,8 +163,8 @@ void Model::checkCollision(){
     for(auto&e2 : entities){
       //If the entity is dead and waiting to be deleted out of the Model, we ignore it.
       if(e2->isDead()) continue;
-      bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first))   < (e1->getHalfWidth() + e2->getHalfWidth());
-      bool vertical   = fabs((e1->getPosition().second - e2->getPosition().second)) < (e1->getHalfHeight() + e2->getHalfHeight());
+      bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first))   < ( 0.90f * e1->getHalfWidth() +  0.90f * e2->getHalfWidth());
+      bool vertical   = fabs((e1->getPosition().second - e2->getPosition().second)) < ( 0.90f * e1->getHalfHeight() + 0.90f * e2->getHalfHeight());
       //If entities intersect horizantally and vertically, we have a collision.
       if(horizontal and vertical){
         if(e1->isEnemy() and e2->isFriendly())
@@ -245,6 +246,16 @@ Model::entity_it Model::locateEntity(int eID){
     }
     //Throw exception if not found.
     throw std::out_of_range("No");
+}
+
+void Model::addPoints(int id, int amount){
+  if (id == p1.getID()) {
+    p1.addPoints(amount);
+  } else if (id == p2.getID()) {
+    p2.addPoints(amount);
+  } else {
+    //Throw exception
+  }
 }
 
 }

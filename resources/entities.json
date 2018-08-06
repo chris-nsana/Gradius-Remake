@@ -106,9 +106,8 @@
 	"damage"      : 100,
 	"width"       : 0.5,
 	"height"      : 0.25,
-	"texture"     : "SmallShip"
+	"texture"     : "SmallShip",
+	"worth"       : 100
 	}
-
-
 }
 

@@ -1,5 +1,6 @@
 #ifndef ENEMYGRUNT_H_
 #define ENEMYGRUNT_H_
+#include <utility>
 #include "Enemy.h"
 
 namespace Model{
@@ -11,9 +12,15 @@ public:
 
   ~EnemyGrunt();
 
+  virtual void takeDamage(float amount, bool enemy) override;
+
   virtual void update();
 
   virtual void move();
+
+private:
+
+  static std::pair<float, float> swarmPoint;
 };
 
 }

@@ -51,8 +51,8 @@ void StatusDisplay::draw(const std::shared_ptr<sf::RenderWindow>& window){
 
 std::string StatusDisplay::stringify_score(int score){
   std::string stringScore = std::to_string(score);
-  if(stringScore.size() < 6){
-    int rest = 6 - stringScore.size();
+  if(stringScore.size() < 8){
+    int rest    = 8 - stringScore.size();
     stringScore = std::string(rest, '0') + stringScore;
   }
   return stringScore;

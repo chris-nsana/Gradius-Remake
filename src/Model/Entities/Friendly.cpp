@@ -26,7 +26,7 @@ bool Friendly::isEnemy() const {
 
 void Friendly::takeDamage(float amount, bool enemy){
 	//Let the base class handle the subtraction of life
-	Entity::takeDamage(amount);
+	Entity::takeDamage(amount, enemy);
 	//If the Friendly entity died we store that event
 	if(this->isDead()){
 		int id = getID();
@@ -51,6 +51,7 @@ void Friendly::onCollisionReact(Entity& other){
 		float thisDamage  = thisEntity.getDamage();
 		thisEntity.takeDamage(otherDamage, true);
 		other.takeDamage(thisEntity.getDamage(), false);
+		if(other.isDead()) EventQueue::getInstance().addPointsGain(thisEntity.getCreatorID(), other.getWorth());
 	}
 }
 

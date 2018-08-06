@@ -4,23 +4,31 @@
 namespace Model{
 
 Player::Player(float x, float y, float health, float speed, float damage, float width, float height, string texture)
- : Friendly(x, y, health, damage, speed, width, height, texture){}
+ : Friendly(x, y, health, damage, speed, width, height, texture), gunJammed(false){}
 
 Player::~Player(){}
 
-void Player::update(){}
+void Player::update(){
+  //If the gun was jammed in this tick then the Player will be able to fire
+  //after the gunJam is over.
+  if(gunJammed > 0) gunJammed -=1;
+}
 
 void Player::move(){}
 
 void Player::fire(){
+  //If the gun is jammed we can't fire in this tick
+  if(gunJammed) return void();
   auto pos = getPosition();
   float x  = pos.first  + 0.1f;  //To make the bullet seem like it's coming from the ship's barrel
   float y  = pos.second - 0.050f;  //Same reason as why the x coordinate is slightly different.
-  EventQueue::getInstance().addPlayerFire(0, "Player1Bullet", x, y);
+  EventQueue::getInstance().addPlayerFire(getID(), "Player1Bullet", x, y);
+  //We shoot fired a bullet, so the gun is jammed for the next tick.
+  gunJammed = 10;
 }
 
 void Player::takeDamage(float amount, bool enemy){
-  Entity::takeDamage(amount);
+  Entity::takeDamage(amount, enemy);
 	if(this->isDead()) EventQueue::getInstance().addPlayerDeath(getID());
 }
 

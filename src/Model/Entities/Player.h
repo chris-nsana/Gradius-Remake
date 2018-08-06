@@ -50,6 +50,10 @@ public:
 	*/
 	void moveDown();
 
+private:
+
+	int gunJammed;
+
 };
 
 }

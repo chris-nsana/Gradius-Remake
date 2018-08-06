@@ -111,6 +111,21 @@ private:
   float y;
 };
 
+class PointsGain : public Event{
+public:
+  PointsGain(int scorerID, int amount);
+
+  ~PointsGain();
+
+  virtual void execute() override;
+
+private:
+
+  int scorerID;
+  int amount;
+
+};
+
 class LevelReset : public Event{
 public:
   LevelReset();
@@ -120,6 +135,8 @@ public:
   virtual void execute() override;
 
 };
+
+
 
 }
 

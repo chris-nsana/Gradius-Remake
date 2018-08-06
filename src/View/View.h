@@ -97,7 +97,7 @@ private:
 	//Json object containing all information on entity textures
 	nlohmann::json texturesJson;
 	//A container keeping track of dying sprites and when to delete them
-	//the key contains the ID and the value is the ammount of ticks left.
+	//the key contains the ID and the value is the ammount of ticks left before deletion.
 	std::map<int, int> dyingSprites;
 	//2 x 2
 	StatusDisplay playerStatus;

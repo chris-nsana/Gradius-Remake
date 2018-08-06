@@ -43,7 +43,7 @@ public:
 	/**
 	*@brief Creates an entity at location (x, y)
 	*/
-	void createEntity(std::string type, float x, float y);
+	void createEntity(std::string type, float x, float y, int creatorID=0);
 
 	/**
 	*
@@ -110,6 +110,11 @@ public:
 	void unfreeze();
 
 	bool isFrozen() const;
+
+	/**
+	*
+	*/
+	void addPoints(int id, int amount);
 
 
 private:

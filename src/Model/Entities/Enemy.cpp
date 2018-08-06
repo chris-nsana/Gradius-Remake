@@ -24,7 +24,7 @@ bool Enemy::isEnemy() const{
 
 void Enemy::takeDamage(float amount, bool enemy){
 	//Let the base class handle the subtraction of life
-	Entity::takeDamage(amount);
+	Entity::takeDamage(amount, enemy);
 	//If the Enemy entity died we store that event
 	if(this->isDead()){
 		int id = getID();
@@ -40,6 +40,7 @@ void Enemy::onCollisionReact(Entity& other){
 		float thisDamage  = thisEntity.getDamage();
 		other.takeDamage(thisDamage, false);
 		thisEntity.takeDamage(otherDamage, true);
+		if(this->isDead()) EventQueue::getInstance().addPointsGain(other.getCreatorID(), thisEntity.getWorth());
 	}
 
 	//Collision with Neutral element, take damage

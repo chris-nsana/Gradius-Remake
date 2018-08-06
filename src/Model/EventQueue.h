@@ -17,6 +17,8 @@ public:
 
   int getSize();
 
+  void clear();
+
   void addEnemyDeath(int eID);
 
   void addEnemyDeath(int eID, int killerID, int worth);
@@ -30,6 +32,8 @@ public:
   void addPlayerFire(int shooterID, std::string entity, float x, float y);
 
   void addEnemyFire(std::string entity, float x, float y);
+
+  void addPointsGain(int id, int amount);
 
   void addLevelReset();
 

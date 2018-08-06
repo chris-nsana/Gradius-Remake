@@ -5,7 +5,7 @@ namespace Model{
 Entity::Entity(){}
 
 Entity::Entity(float x, float y, float h1, float d, float s, float w, float h2, string tx) :
-		position(x, y), health(h1), damage(d), speed(s), width(w), height(h2), texture(tx)
+		position(x, y), health(h1), damage(d), speed(s), width(w), height(h2), worth(0), creatorID(0), texture(tx)
 {
 	Entity::entityCount += 1;
 	eID = Entity::entityCount;
@@ -56,14 +56,6 @@ void Entity::setPosition(float x, float y){
 	position.second = y;
 }
 
-int Entity::getID() const{
-	return eID;
-}
-
-std::string Entity::getTexture() const{
-	return this->texture;
-}
-
 std::pair<float, float> Entity::getPosition() const{
 	return this->position;
 }
@@ -92,8 +84,28 @@ float Entity::getHalfHeight() const{
 	return (this->height / 2.0f);
 }
 
-void Entity::takeDamage(float amount){
-	this->health -= amount;
+float Entity::getWorth() const{
+	return this->worth;
+}
+
+float Entity::getCreatorID() const{
+	return this->creatorID;
+}
+
+int Entity::getID() const{
+	return eID;
+}
+
+std::string Entity::getTexture() const{
+	return this->texture;
+}
+
+void Entity::setWorth(int worth){
+	this->worth = worth;
+}
+
+void Entity::setCreatorID(int id){
+	this->creatorID = id;
 }
 
 void Entity::takeDamage(float amount, bool enemy){

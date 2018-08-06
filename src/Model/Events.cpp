@@ -67,7 +67,7 @@ PlayerFire::~PlayerFire(){}
 
 void PlayerFire::execute(){
   if(auto spt = model.lock()){
-    spt->createEntity(this->entity, this->x, this->y);
+    spt->createEntity(this->entity, this->x, this->y, this->shooterID);
   }
 }
 
@@ -77,6 +77,16 @@ EnemyFire::~EnemyFire(){}
 
 void EnemyFire::execute(){
   return void();
+}
+
+PointsGain::PointsGain(int scorerID, int amount) : scorerID(scorerID), amount(amount){}
+
+PointsGain::~PointsGain(){}
+
+void PointsGain::execute(){
+  if(auto spt = model.lock()){
+    spt->addPoints(scorerID, amount);
+  }
 }
 
 LevelReset::LevelReset(){}

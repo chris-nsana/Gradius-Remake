@@ -13,12 +13,12 @@
 				"timeframe"    : 180,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
-				"posY"         : 1.0
+				"posY"         : -2.0
 				}, 
 				{
 				"timeframe"    : 300,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
-				"posY"         : 1.0
+				"posY"         : 0.0
 				}]
 }

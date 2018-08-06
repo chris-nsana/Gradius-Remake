@@ -61,6 +61,8 @@ std::unique_ptr<Entity> EntityFactory::createBackground(creationArgs& args){
 std::unique_ptr<Entity> EntityFactory::createEnemyGrunt(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyGrunt>(args.x, args.y, args.health, args.damage,
   args.speed, args.width, args.height, args.texture);
+  int worth = entitiesJson["EnemyGrunt"]["worth"];
+  ent_ptr->setWorth(worth);
   return ent_ptr;
 }
 

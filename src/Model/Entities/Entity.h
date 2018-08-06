@@ -84,17 +84,20 @@ public:
 
 	float getHalfHeight() const;
 
+	float getWorth() const;
+
+	float getCreatorID() const;
+
 	int getID() const;
 
 	std::string getTexture() const;
 
+	void setWorth(int worth);
+
+	void setCreatorID(int id);
+
 	bool isDead() const;
 
-	virtual void takeDamage(float amount);
-
-	/**
-	*@brief Overload
-	*/
 	virtual void takeDamage(float amount, bool enemy);
 
 	virtual void fire();
@@ -120,6 +123,8 @@ private:
 	float speed;
 	float width;
 	float height;
+	int worth;
+	int creatorID;
 	string texture;
 	int eID;
 	static std::weak_ptr<View::View> observer; //The observer viewing the state of all entities.
