@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////
 //
-// This class design was provided by Hilze Vonck in a video tutorial.
+// The original class design was provided by Hilze Vonck in a video tutorial.
 // All credits for the main design and implementation go to Hilze Vonck.
 // The code was shared under a Creative Commons licence, meaning that the
 // code can be freely used and altered aslong as the creator is credited for their work
@@ -16,8 +16,6 @@ namespace View{
 class View;
 
 class Animation{
-	//The View class is the only class that should know the details of animations.
-	friend View;
 public:
 
 	Animation();
@@ -25,6 +23,26 @@ public:
 	Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u imageCount, float switchTime);
 
 	~Animation();
+
+	/**
+	*@brief Bloodee blabla bloo blieblie bloo bla
+	*/
+	const sf::IntRect& getTextureRect() const;
+
+	/**
+	*@brief Bloodee blabla bloo blieblie bloo bla
+	*/
+	int getNumberOfFrames() const;
+
+	/**
+	*@brief Bloodee blabla bloo blieblie bloo bla
+	*/
+	int getNumberOfRows() const;
+
+	/**
+	*@brief Bloodee blabla bloo blieblie bloo bla
+	*/
+	float getSwitchTime() const;
 
 	/**
 	 * @brief Method that updates the state of an animation in function of the elapsed time

@@ -27,7 +27,6 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, s
 
 	const sf::Texture& lifeTexture = *((this->textures["lifeIcon"]).get());
 	playerStatus = StatusDisplay(lifeTexture, this->font, co_op);
-	this->baseLengthUnit = (window->getSize()).x / 8.0f;
 }
 
 View::~View(){}
@@ -40,7 +39,8 @@ void View::displayGame(){
 		if(it != this->animations.end()){
 			//There is an animation for this sprite and
 			//set the correct frame of the animation
-			s.second.setTextureRect(it->second.uvRect);
+      const auto& txRect = it->second.getTextureRect();
+			s.second.setTextureRect(txRect);
 		}
 		window->draw(s.second);
 	}
@@ -57,18 +57,19 @@ void View::addSprite(int id, std::string texture){
 }
 
 void View::scaleSprite(int id, float width, float height, bool sheet){
+  float lengthUnit      = utils::Transformation::getInstance().getLengthUnit();
 	sf::Sprite& curSprite = sprites[id];
-	float realWidth       = width * this->baseLengthUnit;
-	float realHeight      = height * this->baseLengthUnit;
+	float realWidth       = width  * lengthUnit;
+	float realHeight      = height * lengthUnit;
 
 	if (sheet){
 		auto animation    = animations[id];
-		float startWidth  = animation.uvRect.width;
-		float startHeight = animation.uvRect.height;
+		float startWidth  = animation.getTextureRect().width;
+		float startHeight = animation.getTextureRect().height;
 		float scaleX      = realWidth / startWidth;
 		float scaleY      = realHeight / startHeight;
 		curSprite.scale(scaleX, scaleY);
-		curSprite.setTextureRect(animation.uvRect);
+		curSprite.setTextureRect(animation.getTextureRect());
 	}
 
 	//If it's not a sprite sheet and a normal texture, we just set it to repeat.
@@ -132,7 +133,7 @@ void View::informDeath(int id){
 	a.startDeathAnimation();
 	float tick   = 1.0f/60.0f;
 	//Number of ticks needed to finish this death animation.
-	int total  = (a.imageCount.x * a.switchTime)/tick;
+	int total  = (a.getNumberOfFrames() * a.getSwitchTime())/tick;
 	dyingSprites[id] = total;
 }
 
@@ -179,8 +180,9 @@ void View::deleteEntity(int ID){
 
 void View::freezeView(){
 	paused = true;
-	auto grey = sf::Color(100, 100, 100, 125);
-	sf::Vector2f effectSize(8 * baseLengthUnit, 6 * baseLengthUnit);
+  float lengthUnit = utils::Transformation::getInstance().getLengthUnit();
+	sf::Color grey   = sf::Color(100, 100, 100, 125);
+	sf::Vector2f effectSize(8 * lengthUnit, 6 * lengthUnit);
 	sf::RectangleShape greyEffect(effectSize);
 	greyEffect.setFillColor(grey);
 
@@ -188,7 +190,7 @@ void View::freezeView(){
 	paused.setCharacterSize(72);
 	sf::FloatRect textRect = paused.getLocalBounds();
 	paused.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
-	paused.setPosition(4 * baseLengthUnit, 3 * baseLengthUnit);
+	paused.setPosition(4 * lengthUnit, 3 * lengthUnit);
 
 	window->draw(greyEffect);
 	window->draw(paused);

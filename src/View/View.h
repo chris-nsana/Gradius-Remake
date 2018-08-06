@@ -104,8 +104,6 @@ private:
 	//sf::Fo
 	sf::Font font;
 	bool co_op;
-	//Float expressing how many pixels a length of 1.0 is in the game model.
-	float baseLengthUnit;
 	bool paused;
 
 };

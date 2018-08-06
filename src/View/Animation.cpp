@@ -27,11 +27,29 @@ Animation::Animation(const std::unique_ptr<sf::Texture>& texture, sf::Vector2u i
 
 Animation::~Animation(){}
 
+const sf::IntRect& Animation::getTextureRect() const{
+  return this->uvRect;
+}
+
+int Animation::getNumberOfFrames() const{
+  return this->imageCount.x;
+}
+
+int Animation::getNumberOfRows() const{
+  return this->imageCount.y;
+}
+
+float Animation::getSwitchTime() const{
+  return this->switchTime;
+}
+
 void Animation::startDeathAnimation(){
   //Use the next row, which should be the frames for the death animation.
   row++;
 	//Restart from the leftmost frame
 	currentImage.x = 0;
+  //Set the death flag
+  death = true;
 }
 
 void Animation::update( float deltaTime){
@@ -42,12 +60,17 @@ void Animation::update( float deltaTime){
 		totalTime = 0;
 		currentImage.x++;
 
-    //The death animation should only be played once, going out of bounds
-    //with currentImage will just result in a black screen, which is ok.
-    if(death){}
-
-		else if(currentImage.x >= imageCount.x){
-			currentImage.x = 0;
+		if(currentImage.x >= imageCount.x){
+      if(!death){
+        currentImage.x = 0;
+      }
+      //The death animation should only be played once, going through all
+      //the frames is enough. Render the uvRect empty to prevent any other imaging.
+      else{
+        uvRect.width  = 0;
+        uvRect.height = 0;
+        return void();
+      }
 		}
 	}
 

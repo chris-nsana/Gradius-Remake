@@ -66,10 +66,12 @@ void StatusDisplay::updatePlayer1(int lives, int score){
 }
 
 void StatusDisplay::updatePlayer2(int lives, int score){
+  /*
   std::string livesString = "X" + std::to_string(lives);
   std::string scoreString = stringify_score(score);
   lives2.setString(livesString);
   score2.setString(scoreString);
+  */
 }
 
 }
