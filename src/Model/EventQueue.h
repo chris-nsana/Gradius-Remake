@@ -17,6 +17,8 @@ public:
 
   int getSize();
 
+  void addEnemyDeath(int eID);
+
   void addEnemyDeath(int eID, int killerID, int worth);
 
   void addFriendlyDeath(int eID);

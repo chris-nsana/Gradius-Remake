@@ -18,6 +18,8 @@ Model::~Model(){}
 
 void Model::attach(const std::shared_ptr<View::View>& obs){
   observer = obs;
+  p1.attach(obs);
+  p2.attach(obs);
 }
 
 bool Model::isActive(){
@@ -90,14 +92,14 @@ void Model::resetLevel(){
   if(elementPtr != levelElements.begin()){
     --elementPtr;
     //To make sure that next of readLevel reads the elements before death.
-    this->levelTime = ((*elementPtr)["time"]);
+    this->levelTime = ((*elementPtr)["timeframe"]);
   }
 }
 
 void Model::readLevel(){
   for(auto it = elementPtr; it != levelElements.end(); ++it){
     //If it's time to process this element
-    if(levelTime == (*it)["timeframe"]){
+    if(levelTime >= (*it)["timeframe"]){
       std::string type = (*it)["entity_type"];
       float x          = (*it)["posX"];
       float y          = (*it)["posY"];
@@ -129,8 +131,6 @@ void Model::update(){
   checkCollision();
   processEvents();
   massNotify();
-  auto spt = observer.lock();
-  spt->informPlayerInfo(true, p1.getLives(), p1.getScore());
 }
 
 void Model::massNotify(){
@@ -138,6 +138,9 @@ void Model::massNotify(){
   for(auto& e : entities){
     e->notify();
   }
+  //The changes to the player data need to be notified as well
+  p1.notify();
+  if(co_op) p2.notify();
 }
 
 void Model::processEvents(){
@@ -159,10 +162,11 @@ void Model::checkCollision(){
     for(auto&e2 : entities){
       //If the entity is dead and waiting to be deleted out of the Model, we ignore it.
       if(e2->isDead()) continue;
-      bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first)) < (e1->getHalfWidth() + e2->getHalfWidth());
+      bool horizontal = fabs((e1->getPosition().first - e2->getPosition().first))   < (e1->getHalfWidth() + e2->getHalfWidth());
       bool vertical   = fabs((e1->getPosition().second - e2->getPosition().second)) < (e1->getHalfHeight() + e2->getHalfHeight());
       //If entities intersect horizantally and vertically, we have a collision.
       if(horizontal and vertical){
+        if(e1->isEnemy() and e2->isFriendly())
         //Technically entities are colliding with themselves, but we want to ignore this case.
         if(e1->getID() == e2->getID()) continue;
         //Let the underlying entities do whatever needs to happen on collision.

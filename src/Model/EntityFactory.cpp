@@ -3,6 +3,7 @@
 #include "Entities/PlayerBullet.h"
 #include "Entities/Border.h"
 #include "Entities/Background.h"
+#include "Entities/EnemyGrunt.h"
 #include <fstream>
 
 namespace Model{
@@ -17,6 +18,7 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   creationMap["PlayerBullet"]  = &EntityFactory::createPlayerBullet;
   creationMap["Border"]        = &EntityFactory::createBorder;
   creationMap["Background"]    = &EntityFactory::createBackground;
+  creationMap["EnemyGrunt"]    = &EntityFactory::createEnemyGrunt;
 
 }
 
@@ -52,6 +54,12 @@ std::unique_ptr<Entity> EntityFactory::createBorder(creationArgs& args){
 
 std::unique_ptr<Entity> EntityFactory::createBackground(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<Background>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  return ent_ptr;
+}
+
+std::unique_ptr<Entity> EntityFactory::createEnemyGrunt(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyGrunt>(args.x, args.y, args.health, args.damage,
   args.speed, args.width, args.height, args.texture);
   return ent_ptr;
 }

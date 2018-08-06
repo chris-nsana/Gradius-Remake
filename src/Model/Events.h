@@ -25,6 +25,9 @@ public:
 class EnemyDeath : public Event{
 public:
 
+  //This constructor is handy if the Enemy died without being killed.
+  EnemyDeath(int eID);
+
   EnemyDeath(int eID, int killerID, int worth);
 
   ~EnemyDeath();

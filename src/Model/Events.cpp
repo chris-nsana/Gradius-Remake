@@ -16,12 +16,16 @@ void Event::execute(){}
 
 std::weak_ptr<Model> Event::model = std::weak_ptr<Model>();
 
+EnemyDeath::EnemyDeath(int eID) : eID(eID), killerID(0), worth(0){}
+
 EnemyDeath::EnemyDeath(int eID, int killerID, int worth) : eID(eID), killerID(killerID), worth(worth){}
 
 EnemyDeath::~EnemyDeath(){}
 
 void EnemyDeath::execute(){
-  return void();
+  if(auto spt = model.lock()){
+    spt->destroyEntity(this->eID);
+  }
 }
 
 FriendlyDeath::FriendlyDeath(int eID) : eID(eID){}

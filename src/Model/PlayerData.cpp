@@ -1,4 +1,5 @@
 #include "PlayerData.h"
+#include "View/View.h"
 
 namespace Model{
 
@@ -13,7 +14,7 @@ void PlayerData::attach(const std::shared_ptr<View::View>& obs){
 
 void PlayerData::notify() const{
   if(auto spt = observer.lock()){
-		//spt->inform(getID(), getPosition().first, getPosition().second);
+		spt->informPlayerInfo(this->p1, this->lives, this->score);
 	}
 	else throw std::runtime_error("An entity tried to notify its observer, but no observer was attached to it!");
 }
