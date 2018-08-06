@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "Model/EventQueue.h"
 
 namespace Model{
 
@@ -21,24 +22,34 @@ bool Enemy::isEnemy() const{
 	return true;
 }
 
+void Enemy::takeDamage(float amount, bool enemy){
+	//Let the base class handle the subtraction of life
+	Entity::takeDamage(amount);
+	//If the Enemy entity died we store that event
+	if(this->isDead()){
+		int id = getID();
+		EventQueue::getInstance().addEnemyDeath(id);
+	}
+}
+
 void Enemy::onCollisionReact(Entity& other){
-	//Enemy on Neutral collision leads to solid collision without damaged
-	//this->setBlocked();
+	Entity& thisEntity = *this;
+	//Collision with Friendly object, take damage and deal damage
+	if(other.isFriendly()){
+		float otherDamage = other.getDamage();
+		float thisDamage  = thisEntity.getDamage();
+		other.takeDamage(thisDamage, false);
+		thisEntity.takeDamage(otherDamage, true);
+	}
+
+	//Collision with Neutral element, take damage
+	else if(other.isNeutral()){
+		//We'll implement pushBack() later
+	}
+
+	//Collision with Enemy, do nothing and phase through eachother
+	else if(other.isEnemy()) return void();
 }
-
-/*
-void Enemy::onCollisionReact(Friendly& other){
-	float thisDamage  = this->getDamage();
-	float otherDamage = other.getDamage();
-	this->takeDamage(otherDamage);
-	other.takeDamage(thisDamage);
-
-}
-
-void Enemy::onCollisionReact(Enemy& other){
-	//Enemy on Enemy collision is bypassed by letting these entities "phase" through eachother.
-	return void();
-}*/
 
 
 }

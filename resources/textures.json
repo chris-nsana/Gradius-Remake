@@ -19,6 +19,14 @@
 	"switch_time"  : 0.15
 	},
 
+"SmallShip" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/SmallShipSheet.png",
+	"frames"       : 5,
+	"rows"         : 2,
+	"switch_time"  : 0.15
+	},
+
 "BlueBullet" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/Player1Bullet.png",

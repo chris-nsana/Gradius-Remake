@@ -2,5 +2,23 @@
 "Duration"    : 6000,
 "Border"      : "BorderLevel1",
 "Background"  : "BackgroundLevel1",
-"Elements"    : []
+"Elements"    : [
+				{
+				"timeframe"    : 30,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
+				"timeframe"    : 180,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
+				"timeframe"    : 300,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}]
 }

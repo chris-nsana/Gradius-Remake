@@ -68,14 +68,6 @@ std::pair<float, float> Entity::getPosition() const{
 	return this->position;
 }
 
-float Entity::getHealth() const{
-	return this->health;
-}
-
-void Entity::setHealth(float health){
-		this->health = health;
-}
-
 float Entity::getDamage() const{
 	return this->damage;
 }
@@ -100,10 +92,12 @@ float Entity::getHalfHeight() const{
 	return (this->height / 2.0f);
 }
 
-void Entity::takeDamage(float amount, bool enemy){
-	if(amount > 50) std::cout << "wajooo" << std::endl;
+void Entity::takeDamage(float amount){
 	this->health -= amount;
-	if(this->isDead()) return void();
+}
+
+void Entity::takeDamage(float amount, bool enemy){
+	this->health -= amount;
 }
 
 bool Entity::isDead() const{

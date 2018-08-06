@@ -22,6 +22,8 @@ class Friendly : public Entity{
 
 		virtual bool isEnemy() const override;
 
+		virtual void takeDamage(float amount, bool enemy) override;
+
 		virtual void onCollisionReact(Entity& other) override;
 
 

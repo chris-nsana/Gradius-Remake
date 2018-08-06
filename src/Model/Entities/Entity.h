@@ -11,10 +11,6 @@ using std::string;
 
 namespace Model{
 
-class Neutral;
-class Friendly;
-class Enemy;
-
 class Entity{
 
 protected:
@@ -76,10 +72,6 @@ public:
 	 */
 	std::pair<float, float> getPosition() const;
 
-	float getHealth() const;
-
-	void setHealth(float health);
-
 	float getDamage() const;
 
 	float getSpeed() const;
@@ -98,13 +90,18 @@ public:
 
 	bool isDead() const;
 
+	virtual void takeDamage(float amount);
+
+	/**
+	*@brief Overload
+	*/
 	virtual void takeDamage(float amount, bool enemy);
+
+	virtual void fire();
 
 	virtual void update()=0;
 
 	virtual void move()=0;
-
-	virtual void fire()=0;
 
 	virtual bool isNeutral() const=0;
 

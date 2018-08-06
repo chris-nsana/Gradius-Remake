@@ -97,6 +97,16 @@
 	"width"       : 8,
 	"height"      : 0.30,
 	"texture"     : "Border3"
+	},
+
+"EnemyGrunt" : {
+	"entity_type" : "EnemyGrunt",
+	"health"      : 100,
+	"speed"       : 2.0,
+	"damage"      : 100,
+	"width"       : 0.5,
+	"height"      : 0.25,
+	"texture"     : "SmallShip"
 	}
 
 

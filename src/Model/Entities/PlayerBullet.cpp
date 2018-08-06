@@ -23,8 +23,6 @@ void PlayerBullet::update(){
   move();
 }
 
-void PlayerBullet::fire(){}
-
 void PlayerBullet::setShooterID(int id){
   this->shooterID = id;
 }

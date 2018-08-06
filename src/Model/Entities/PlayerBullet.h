@@ -16,8 +16,6 @@ public:
 
 	void update();
 
-	void fire();
-
 	void setShooterID(int id);
 
 	int getShooterID() const;

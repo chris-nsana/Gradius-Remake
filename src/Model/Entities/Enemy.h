@@ -22,9 +22,9 @@ class Enemy : public Entity{
 
 		virtual bool isEnemy() const override;
 
-		virtual void onCollisionReact(Entity& other) override;
+		virtual void takeDamage(float amount, bool enemy) override;
 
-		virtual void setBlocked()=0;
+		virtual void onCollisionReact(Entity& other) override;
 
 };
 }

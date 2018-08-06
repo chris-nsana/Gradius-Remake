@@ -20,8 +20,7 @@ void Player::fire(){
 }
 
 void Player::takeDamage(float amount, bool enemy){
-  float totalHealth = getHealth() -  amount;
-  setHealth(totalHealth);
+  Entity::takeDamage(amount);
 	if(this->isDead()) EventQueue::getInstance().addPlayerDeath(getID());
 }
 
@@ -50,6 +49,8 @@ void Player::moveUp(){
   float yMovement  = tick * 0.75f *this->getSpeed();
   auto current_pos = this->getPosition();
   float newY       = current_pos.second + yMovement;
+  //Prevent the ship from flying out of the field from above
+  if(newY > 3.0) newY = 3.0f;
   this->setPosition(current_pos.first, newY);
 }
 
@@ -58,6 +59,8 @@ void Player::moveDown(){
   float yMovement  = tick * 0.75f *this->getSpeed();
   auto current_pos = this->getPosition();
   float newY       = current_pos.second - yMovement;
+  //Prevent the ship from flying out of the field from below.
+  if(newY < -3.0) newY = -3.0f;
   this->setPosition(current_pos.first, newY);
 }
 

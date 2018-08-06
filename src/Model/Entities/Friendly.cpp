@@ -1,6 +1,7 @@
 #include "Friendly.h"
 #include "Neutral.h"
 #include "Enemy.h"
+#include "Model/EventQueue.h"
 
 namespace Model{
 
@@ -23,31 +24,34 @@ bool Friendly::isEnemy() const {
 	return false;
 }
 
+void Friendly::takeDamage(float amount, bool enemy){
+	//Let the base class handle the subtraction of life
+	Entity::takeDamage(amount);
+	//If the Friendly entity died we store that event
+	if(this->isDead()){
+		int id = getID();
+		EventQueue::getInstance().addFriendlyDeath(id);
+	}
+}
+
 void Friendly::onCollisionReact(Entity& other){
+	Entity& thisEntity = *this;
 	//Collision with Friendly object, do nothing a.k.a phase through eachother
 	if(other.isFriendly()) return void();
 
 	//Collision with Neutral element, take damage
 	else if(other.isNeutral()){
 		float otherDamage = other.getDamage();
-		this->takeDamage(otherDamage, false);
+		thisEntity.takeDamage(otherDamage, false);
 	}
-	//Friendly on Neutral collision has no significant effects for the other but damage for itself.
-	/*float otherDamage = other.getDamage();
-	this->takeDamage(otherDamage);*/
-}
-/*
-void Friendly::onCollisionReact(Friendly& other){
-	//Friendly on friendly collision is bypassed by letting these entities "phase" through eachother.
-	return void();
-}
 
-void Friendly::onCollisionReact(Enemy& other){
-	float thisDamage  = this->getDamage();
-	float otherDamage = other.getDamage();
-	this->takeDamage(otherDamage);
-	other.takeDamage(thisDamage);
-
-}*/
+	//Collision with Enemy, take damage and deal damage
+	else if(other.isEnemy()){
+		float otherDamage = other.getDamage();
+		float thisDamage  = thisEntity.getDamage();
+		thisEntity.takeDamage(otherDamage, true);
+		other.takeDamage(thisEntity.getDamage(), false);
+	}
+}
 
 }
