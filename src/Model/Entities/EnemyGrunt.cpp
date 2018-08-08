@@ -33,7 +33,7 @@ void EnemyGrunt::move(){
       distanceY = -0.1 * (tick * getSpeed());
     }
     else if(pos.second < swarmPoint.second){
-      distanceY = + 0.1 *(tick * getSpeed());
+      distanceY = + 0.35 *(tick * getSpeed());
     }
   }
   setPosition(pos.first - distanceX, pos.second + distanceY);

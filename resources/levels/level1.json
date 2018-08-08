@@ -10,15 +10,117 @@
 				"posY"         : 1.0
 				}, 
 				{
+				"timeframe"    : 90,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				}, 
+				{
+				"timeframe"    : 90,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 90,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
+				"timeframe"    : 110,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				}, 
+				{
+				"timeframe"    : 120,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.5
+				},
+				{
+				"timeframe"    : 150,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
 				"timeframe"    : 180,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
 				"posY"         : -2.0
 				}, 
 				{
-				"timeframe"    : 300,
+				"timeframe"    : 200,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 245,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.500
+				}, 
+				{
+				"timeframe"    : 245,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -0.500
+				}, 
+				{
+				"timeframe"    : 290,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 290,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				}, 
+				{
+				"timeframe"    : 335,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				}, 
+				{
+				"timeframe"    : 335,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 350,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
 				"posY"         : 0.0
+				}, 
+				{
+				"timeframe"    : 390,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 410,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.25
+				}, 
+				{
+				"timeframe"    : 430,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				}, 
+				{
+				"timeframe"    : 450,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.00
 				}]
 }

@@ -80,7 +80,9 @@ void Model::resetLevel(){
     this->active= false;
     return void();
   }
-  //Recreate the world a little bit before one of the players died.
+  //Clear the EventQueue since we're resetting everything.
+  EventQueue::getInstance().clear();
+  //Recreate the world to a point a little before one of the players died.
   nlohmann::json level;
   std::string filepath = "./../resources/levels/" + levels[currentLevel-1];
   std::ifstream file(filepath);

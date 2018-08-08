@@ -108,6 +108,18 @@
 	"height"      : 0.25,
 	"texture"     : "SmallShip",
 	"worth"       : 100
+	},
+
+"FlyingSaucer" : {
+	"entity_type" : "FlyingSaucer",
+	"health"      : 100,
+	"speed"       : 2.0,
+	"damage"      : 100,
+	"width"       : 1.0,
+	"height"      : 0.333,
+	"texture"     : "RedSaucer",
+	"worth"       : 100
 	}
+
 }
 

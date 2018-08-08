@@ -4,6 +4,7 @@
 #include "Entities/Border.h"
 #include "Entities/Background.h"
 #include "Entities/EnemyGrunt.h"
+#include "Entities/FlyingSaucer.h"
 #include <fstream>
 
 namespace Model{
@@ -19,6 +20,7 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   creationMap["Border"]        = &EntityFactory::createBorder;
   creationMap["Background"]    = &EntityFactory::createBackground;
   creationMap["EnemyGrunt"]    = &EntityFactory::createEnemyGrunt;
+  creationMap["FlyingSaucer"]  = &EntityFactory::createFlyingSaucer;
 
 }
 
@@ -65,5 +67,13 @@ std::unique_ptr<Entity> EntityFactory::createEnemyGrunt(creationArgs& args){
   ent_ptr->setWorth(worth);
   return ent_ptr;
 }
+
+std::unique_ptr<Entity> EntityFactory::createFlyingSaucer(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<FlyingSaucer>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  int worth = entitiesJson["FlyingSaucer"]["worth"];
+  ent_ptr->setWorth(worth);
+  return ent_ptr;
+} 
 
 }
