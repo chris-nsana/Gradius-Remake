@@ -181,7 +181,9 @@ void Model::checkCollision(){
 
 void Model::destroyEntity(int ID){
   auto position = locateEntity(ID);
-  entities.erase(position);
+  if(position != entities.end()){
+    entities.erase(position);
+  }
 }
 
 void Model::decreasePlayerLives(int id, int lives){
@@ -198,16 +200,26 @@ void Model::decreasePlayerLives(int id, int lives){
 
 Player& Model::getPlayer1(){
     auto player1 = locateEntity(this->p1.getID());
-    Entity& entityRef = *((*player1).get());
-    Player& playerRef = dynamic_cast<Player&>(entityRef);
-    return playerRef;
+    if(player1 != entities.end()){
+      Entity& entityRef = *((*player1).get());
+      Player& playerRef = dynamic_cast<Player&>(entityRef);
+      return playerRef;
+    }
+    else{
+      throw std::out_of_range("");
+    }
 }
 
 Player& Model::getPlayer2(){
     auto player2 = locateEntity(this->p2.getID());
-    Entity& entityRef = *((*player2).get());
-    Player& playerRef = dynamic_cast<Player&>(entityRef);
-    return playerRef;
+    if(player2 != entities.end()){
+      Entity& entityRef = *((*player2).get());
+      Player& playerRef = dynamic_cast<Player&>(entityRef);
+      return playerRef;
+    }
+    else{
+      throw std::out_of_range("");
+    }
 }
 
 void Model::freeze(double time, bool informView){
@@ -243,11 +255,13 @@ bool Model::isFrozen() const{
 }
 
 Model::entity_it Model::locateEntity(int eID){
-    for(auto it = entities.begin(); it != entities.end(); ++it){
-        if((*it)->getID() == eID) return it;
-    }
-    //Throw exception if not found.
-    throw std::out_of_range("No");
+  for(auto it = entities.begin(); it != entities.end(); ++it){
+    if((*it)->getID() == eID) return it;
+  }
+  //Return end iterator if no entity is found with this ID.
+  return entities.end();
+  //Throw exception if not found.
+  throw std::out_of_range(std::to_string(eID));
 }
 
 void Model::addPoints(int id, int amount){

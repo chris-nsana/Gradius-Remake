@@ -15,6 +15,7 @@ void EnemyGrunt::takeDamage(float amount, bool enemy){
   if(this->isDead()){
     //If this entity dies, tell its brethren to swarm to this location.
     swarmPoint = getPosition();
+
   }
 }
 
