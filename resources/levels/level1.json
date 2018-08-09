@@ -29,7 +29,7 @@
 				}, 
 				{
 				"timeframe"    : 110,
-				"entity_type" : "FlyingSaucer",
+				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
 				"posY"         : -2.0
 				}, 
@@ -119,8 +119,38 @@
 				}, 
 				{
 				"timeframe"    : 450,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 2.20
+				},
+				{
+				"timeframe"    : 470,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
-				"posY"         : -1.00
+				"posY"         : 0.0
+				}, 
+				{
+				"timeframe"    : 500,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 500,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.25
+				}, 
+				{
+				"timeframe"    : 525,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -2.50
+				}, 
+				{
+				"timeframe"    : 550,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 2.20
 				}]
 }

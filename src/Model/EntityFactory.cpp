@@ -15,12 +15,13 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   file >> entities;
   this->entitiesJson = entities;
   //Create the map now....
-  creationMap["PlayerShip"]    = &EntityFactory::createPlayerShip;
-  creationMap["PlayerBullet"]  = &EntityFactory::createPlayerBullet;
-  creationMap["Border"]        = &EntityFactory::createBorder;
-  creationMap["Background"]    = &EntityFactory::createBackground;
-  creationMap["EnemyGrunt"]    = &EntityFactory::createEnemyGrunt;
-  creationMap["FlyingSaucer"]  = &EntityFactory::createFlyingSaucer;
+  creationMap["PlayerShip"]         = &EntityFactory::createPlayerShip;
+  creationMap["PlayerBullet"]       = &EntityFactory::createPlayerBullet;
+  creationMap["Border"]             = &EntityFactory::createBorder;
+  creationMap["Background"]         = &EntityFactory::createBackground;
+  creationMap["EnemyGrunt"]         = &EntityFactory::createEnemyGrunt;
+  creationMap["FlyingSaucer"]       = &EntityFactory::createFlyingSaucer;
+  creationMap["FlyingObstacle"]     = &EntityFactory::createFlyingSaucer;
 
 }
 
@@ -74,6 +75,13 @@ std::unique_ptr<Entity> EntityFactory::createFlyingSaucer(creationArgs& args){
   int worth = entitiesJson["FlyingSaucer"]["worth"];
   ent_ptr->setWorth(worth);
   return ent_ptr;
-} 
+}
+std::unique_ptr<Entity> EntityFactory::createFlyingObstacle(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<FlyingSaucer>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  int worth = entitiesJson["FlyingSaucer"]["worth"];
+  ent_ptr->setWorth(worth);
+  return ent_ptr;
+}
 
 }

@@ -44,6 +44,8 @@ private:
 
   std::unique_ptr<Entity> createFlyingSaucer(creationArgs& args);
 
+  std::unique_ptr<Entity> createFlyingObstacle(creationArgs& args);
+
   using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&);
   std::map<std::string, creationMethod> creationMap;
   nlohmann::json entitiesJson;
