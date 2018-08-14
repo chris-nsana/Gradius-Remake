@@ -5,6 +5,7 @@
 #include "Entities/Background.h"
 #include "Entities/EnemyGrunt.h"
 #include "Entities/FlyingSaucer.h"
+#include "Entities/FlyingObstacle.h"
 #include <fstream>
 
 namespace Model{
@@ -21,7 +22,7 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   creationMap["Background"]         = &EntityFactory::createBackground;
   creationMap["EnemyGrunt"]         = &EntityFactory::createEnemyGrunt;
   creationMap["FlyingSaucer"]       = &EntityFactory::createFlyingSaucer;
-  creationMap["FlyingObstacle"]     = &EntityFactory::createFlyingSaucer;
+  creationMap["FlyingObstacle"]     = &EntityFactory::createFlyingObstacle;
 
 }
 
@@ -77,10 +78,10 @@ std::unique_ptr<Entity> EntityFactory::createFlyingSaucer(creationArgs& args){
   return ent_ptr;
 }
 std::unique_ptr<Entity> EntityFactory::createFlyingObstacle(creationArgs& args){
-  std::unique_ptr<Entity> ent_ptr = std::make_unique<FlyingSaucer>(args.x, args.y, args.health, args.damage,
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<FlyingObstacle>(args.x, args.y, args.health, args.damage,
   args.speed, args.width, args.height, args.texture);
-  int worth = entitiesJson["FlyingSaucer"]["worth"];
-  ent_ptr->setWorth(worth);
+  //Flying obstacles have no worth
+  ent_ptr->setWorth(0);
   return ent_ptr;
 }
 

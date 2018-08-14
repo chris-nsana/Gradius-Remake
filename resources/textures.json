@@ -47,9 +47,32 @@
 	"image_path"   : "./../resources/images/Player2Bullet.png",
 	"frames"       : 1,
 	"rows"         : 1,
-	"switch_time"  : 0.15
+	"switch_time"  : 0.0
 	},
 
+"SandRock" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/SandRockSheet.png",
+	"frames"       : 20,
+	"rows"         : 2,
+	"switch_time"  : 0.05
+	},
+
+"MoonRock" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/MoonRockSheet.png",
+	"frames"       : 20,
+	"rows"         : 2,
+	"switch_time"  : 0.05
+	},
+
+"IceRock" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/IceRockSheet.png",
+	"frames"       : 20,
+	"rows"         : 2,
+	"switch_time"  : 0.05
+	},
 "Background1" : {
 	"sprite_sheet" : false,
 	"image_path"   : "./../resources/images/BackgroundLevel1.png"

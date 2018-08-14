@@ -86,7 +86,7 @@ public:
 
 private:
 
-	//Window to render the images.
+	//Window to render the visuals.
 	std::shared_ptr<sf::RenderWindow> window;
 	//Associative container that maps texture names to their respective texture object.
 	std::map<std::string, std::unique_ptr<sf::Texture>> textures;
@@ -96,12 +96,11 @@ private:
 	std::map<int, Animation> animations;
 	//Json object containing all information on entity textures
 	nlohmann::json texturesJson;
-	//A container keeping track of dying sprites and when to delete them
-	//the key contains the ID and the value is the ammount of ticks left before deletion.
+	//A container keeping track of dying sprites and when to delete them (key = ID, value = time left)
 	std::map<int, int> dyingSprites;
-	//2 x 2
+	//Object in charge of the representation of the player information
 	StatusDisplay playerStatus;
-	//sf::Fo
+	//Font used in the game
 	sf::Font font;
 	bool co_op;
 	bool paused;

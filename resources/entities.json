@@ -119,7 +119,36 @@
 	"height"      : 0.333,
 	"texture"     : "RedSaucer",
 	"worth"       : 100
-	}
+	},
 
+"RockMeteor" : {
+	"entity_type" : "FlyingObstacle",
+	"health"      : 300,
+	"speed"       : 4.0,
+	"damage"      : 250,
+	"width"       : 1.5,
+	"height"      : 1.5,
+	"texture"     : "SandRock"
+	},
+
+"MoonMeteor" : {
+	"entity_type" : "FlyingObstacle",
+	"health"      : 300,
+	"speed"       : 4.0,
+	"damage"      : 250,
+	"width"       : 1.5,
+	"height"      : 1.5,
+	"texture"     : "MoonRock"
+	},
+
+"IceMeteor" : {
+	"entity_type" : "FlyingObstacle",
+	"health"      : 300,
+	"speed"       : 4.0,
+	"damage"      : 250,
+	"width"       : 1.5,
+	"height"      : 1.5,
+	"texture"     : "IceRock"
+	}
 }
 

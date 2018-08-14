@@ -5,7 +5,7 @@
 "Elements"    : [
 				{
 				"timeframe"    : 30,
-				"entity_type" : "EnemyGrunt",
+				"entity_type" : "IceMeteor",
 				"posX"         : 6.0,
 				"posY"         : 1.0
 				}, 
