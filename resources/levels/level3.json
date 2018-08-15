@@ -1,6 +1,12 @@
 {
-"Duration"    : 6000,
-"Border"      : "BorderLevel1",
-"Background"  : "BackgroundLevel1",
-"Elements"    : []
+"Border"      : "BorderLevel3",
+"Background"  : "BackgroundLevel3",
+"Elements"    : [
+				{
+				"timeframe"    : 30,
+				"entity_type" : "CrystalBoss",
+				"posX"         : 2.0,
+				"posY"         : 0.0
+				}
+]
 }

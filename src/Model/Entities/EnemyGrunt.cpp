@@ -40,7 +40,7 @@ void EnemyGrunt::move(){
   setPosition(pos.first - distanceX, pos.second + distanceY);
   //Destroy entity that leaves the playable and visible part of the world.
   if(getPosition().first < (-4.0f - getHalfWidth())){
-    EventQueue::getInstance().addEnemyDeath(getID(), 0, 0);
+    EventQueue::getInstance().addEnemyDeath(getID());
   }
 }
 

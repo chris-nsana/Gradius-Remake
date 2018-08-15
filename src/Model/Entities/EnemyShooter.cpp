@@ -11,9 +11,9 @@ EnemyShooter::EnemyShooter(float x, float y, float health, float damage, float s
 void EnemyShooter::update(){
   move();
   if(shootingTime == 0){
-    shootingTime = 60;
-    auto pos     = getPosition.first;
-    EventQueue::getInstance().addEnemyFire("EnemyBullet", pos.first, pos.second);
+    shootingTime = 120;
+    auto pos     = getPosition();
+    EventQueue::getInstance().addEnemyFire("RedEnemyBullet", pos.first, pos.second);
   }
   else{
     shootingTime -= 1;
@@ -28,7 +28,7 @@ void EnemyShooter::move(){
 
   //Destroy entity that leaves the playable and visible part of the world.
   if(getPosition().first < (-4.0f - getHalfWidth())){
-    EventQueue::getInstance().addEnemyDeath(getID(), 0, 0);
+    EventQueue::getInstance().addEnemyDeath(getID());
   }
 }
 

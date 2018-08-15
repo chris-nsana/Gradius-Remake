@@ -157,6 +157,12 @@
 				"entity_type" : "FlyingSaucer",
 				"posX"         : 6.0,
 				"posY"         : 2.20
+				},
+				{
+				"timeframe"    : 550,
+				"entity_type" : "SaucerBoss",
+				"posX"         : 6.0,
+				"posY"         : 0.0
 				}
 ]
 }

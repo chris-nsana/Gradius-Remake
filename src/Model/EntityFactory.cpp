@@ -4,11 +4,14 @@
 #include "Entities/Border.h"
 #include "Entities/Background.h"
 #include "Entities/EnemyBullet.h"
+#include "Entities/EnemyLaser.h"
 #include "Entities/EnemyGrunt.h"
 #include "Entities/FlyingSaucer.h"
 #include "Entities/FlyingObstacle.h"
-#include "Entities/EnemyShooter"
+#include "Entities/EnemyShooter.h"
 #include "Entities/SaucerBoss.h"
+#include "Entities/ShooterBoss.h"
+#include "Entities/CrystalBoss.h"
 #include <fstream>
 
 namespace Model{
@@ -24,10 +27,14 @@ EntityFactory::EntityFactory(std::string entitiesFile){
   creationMap["Border"]             = &EntityFactory::createBorder;
   creationMap["Background"]         = &EntityFactory::createBackground;
   creationMap["EnemyBullet"]        = &EntityFactory::createEnemyBullet;
+  creationMap["EnemyLaser"]         = &EntityFactory::createEnemyLaser;
   creationMap["EnemyGrunt"]         = &EntityFactory::createEnemyGrunt;
   creationMap["FlyingSaucer"]       = &EntityFactory::createFlyingSaucer;
   creationMap["FlyingObstacle"]     = &EntityFactory::createFlyingObstacle;
+  creationMap["EnemyShooter"]       = &EntityFactory::createEnemyShooter;
   creationMap["SaucerBoss"]         = &EntityFactory::createSaucerBoss;
+  creationMap["ShooterBoss"]        = &EntityFactory::createShooterBoss;
+  creationMap["CrystalBoss"]        = &EntityFactory::createCrystalBoss;
 
 }
 
@@ -68,9 +75,17 @@ std::unique_ptr<Entity> EntityFactory::createBackground(creationArgs& args){
 }
 
 std::unique_ptr<Entity> EntityFactory::createEnemyBullet(creationArgs& args){
-  std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyGrunt>(args.x, args.y, args.health, args.damage,
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyBullet>(args.x, args.y, args.health, args.damage,
   args.speed, args.width, args.height, args.texture);
   //Enemy bullets have no worth
+  ent_ptr->setWorth(0);
+  return ent_ptr;
+}
+
+std::unique_ptr<Entity> EntityFactory::createEnemyLaser(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyLaser>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  //EnemyLasers have no worth
   ent_ptr->setWorth(0);
   return ent_ptr;
 }
@@ -101,7 +116,7 @@ std::unique_ptr<Entity> EntityFactory::createFlyingObstacle(creationArgs& args){
 std::unique_ptr<Entity> EntityFactory::createEnemyShooter(creationArgs& args){
   std::unique_ptr<Entity> ent_ptr = std::make_unique<EnemyShooter>(args.x, args.y, args.health, args.damage,
   args.speed, args.width, args.height, args.texture);
-  int worth = entitiesJson["FlyingSaucer"]["worth"];
+  int worth = entitiesJson["EnemyShooter"]["worth"];
   ent_ptr->setWorth(worth);
   return ent_ptr;
 }
@@ -112,7 +127,23 @@ std::unique_ptr<Entity> EntityFactory::createSaucerBoss(creationArgs& args){
   int worth = entitiesJson["SaucerBoss"]["worth"];
   ent_ptr->setWorth(worth);
   return ent_ptr;
-
 }
+
+std::unique_ptr<Entity> EntityFactory::createShooterBoss(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<ShooterBoss>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  int worth = entitiesJson["ShooterBoss"]["worth"];
+  ent_ptr->setWorth(worth);
+  return ent_ptr;
+}
+
+std::unique_ptr<Entity> EntityFactory::createCrystalBoss(creationArgs& args){
+  std::unique_ptr<Entity> ent_ptr = std::make_unique<CrystalBoss>(args.x, args.y, args.health, args.damage,
+  args.speed, args.width, args.height, args.texture);
+  int worth = entitiesJson["CrystalBoss"]["worth"];
+  ent_ptr->setWorth(worth);
+  return ent_ptr;
+}
+
 
 }

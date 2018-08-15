@@ -40,6 +40,8 @@ public:
 
 	void resetLevel();
 
+	void startNextLevel();
+
 	/**
 	*@brief Creates an entity at location (x, y)
 	*/

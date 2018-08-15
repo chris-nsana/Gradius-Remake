@@ -4,7 +4,7 @@
 namespace Model{
 
 Player::Player(float x, float y, float health, float speed, float damage, float width, float height, string texture)
- : Friendly(x, y, health, damage, speed, width, height, texture), gunJammed(false){}
+ : Friendly(x, y, health, damage, speed, width, height, texture), gunJammed(0){}
 
 Player::~Player(){}
 
@@ -24,12 +24,12 @@ void Player::fire(){
   float y  = pos.second - 0.050f;  //Same reason as why the x coordinate is slightly different.
   EventQueue::getInstance().addPlayerFire(getID(), "Player1Bullet", x, y);
   //We shoot fired a bullet, so the gun is jammed for the next tick.
-  gunJammed = 10;
+  gunJammed = 15;
 }
 
 void Player::takeDamage(float amount, bool enemy){
   Entity::takeDamage(amount, enemy);
-	if(this->isDead()) EventQueue::getInstance().addPlayerDeath(getID());
+	if(this->isDead()) EventQueue::getInstance().addPlayerDeath(getID(), enemy);
 }
 
 void Player::moveLeft(){

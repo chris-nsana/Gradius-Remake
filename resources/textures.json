@@ -3,6 +3,7 @@
 	"sprite_sheet" : false,
 	"image_path"   : "./../resources/images/heart.png"
 	},
+
 "BlueViper" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/Player1Sheet.png",
@@ -59,9 +60,25 @@
 	"switch_time"  : 0.0333
 	},
 
+"Crystal"    : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/CrystalBossSheet.png",
+	"frames"       : 6,
+	"rows"         : 2,
+	"switch_time"  : 0.30
+	},
+
 "BlueBullet" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/BlueBullet.png",
+	"frames"       : 1,
+	"rows"         : 1,
+	"switch_time"  : 0.0
+	},
+
+"BlueBullet2" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/BlueBullet2.png",
 	"frames"       : 1,
 	"rows"         : 1,
 	"switch_time"  : 0.0
@@ -75,12 +92,29 @@
 	"switch_time"  : 0.0
 	},
 
+"RedBullet2" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/RedBullet2.png",
+	"frames"       : 1,
+	"rows"         : 1,
+	"switch_time"  : 0.0
+	},
+
+"BlueLaser" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/BlueLaserBeam.png",
+	"frames"       : 1,
+	"rows"         : 1,
+	"switch_time"  : 0.0
+	},
+
+
 "SandRock" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/SandRockSheet.png",
 	"frames"       : 20,
 	"rows"         : 2,
-	"switch_time"  : 0.05
+	"switch_time"  : 0.02
 	},
 
 "MoonRock" : {
@@ -106,6 +140,26 @@
 "Border1" : {
 	"sprite_sheet" : false,
 	"image_path"   : "./../resources/images/BorderLevel1.jpeg"
+	},
+
+"Background2" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BackgroundLevel2.jpg"
+	},
+
+"Border2" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BorderLevel2.png"
+	},
+
+"Background3" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BackgroundLevel3.png"
+	},
+
+"Border3" : {
+	"sprite_sheet" : false,
+	"image_path"   : "./../resources/images/BorderLevel3.png"
 	}
 }
 

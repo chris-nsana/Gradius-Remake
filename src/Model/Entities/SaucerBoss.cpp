@@ -8,6 +8,11 @@ SaucerBoss::SaucerBoss(float x, float y, float health, float damage, float speed
 
  SaucerBoss::~SaucerBoss(){}
 
+void SaucerBoss::takeDamage(float amount, bool enemy){
+  Enemy::takeDamage(amount, enemy);
+  if(isDead()) EventQueue::getInstance().addBossDeath();
+}
+
 void SaucerBoss::update(){
   move();
   if(spawnTime == 0){

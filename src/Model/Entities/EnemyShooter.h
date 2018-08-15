@@ -16,6 +16,10 @@ public:
 
   virtual void move();
 
+private:
+
+  int shootingTime;
+
 };
 
 }

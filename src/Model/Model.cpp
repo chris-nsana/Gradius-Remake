@@ -37,6 +37,7 @@ void Model::createWorldElements(nlohmann::json& levelInfo){
   std::string background = levelInfo["Background"];
   std::string border     = levelInfo["Border"];
   float xpos = 0;
+
   for(int i = 0; i < 3; i += 1){
     //Create Background and upper+lower Border elements
     createEntity(background, xpos, 0.0f);
@@ -99,6 +100,20 @@ void Model::resetLevel(){
   }
 }
 
+void Model::startNextLevel(){
+  currentLevel += 1;
+  //If we already finished the last level the game is over.
+  if(currentLevel > levels.size()){
+    this->active = false;
+    return void();
+  }
+  //Destroy everything from the previous level.
+  this->entities.clear();
+  //We chose the next level, we can start it now.
+  startLevel();
+
+}
+
 void Model::readLevel(){
   for(auto it = elementPtr; it != levelElements.end(); ++it){
     //If it's time to process this element
@@ -151,7 +166,7 @@ void Model::processEvents(){
   int toProcess = EventQueue::getInstance().getSize();
   //We only want to process Events generated in the previous tick
   //so only execute the ones we can see now
-  while(processed < toProcess){
+  while((processed < toProcess) and (!EventQueue::getInstance().isEmpty())){
     std::unique_ptr<Event> e = std::move(EventQueue::getInstance().dequeue());
     e->execute();
     processed += 1;

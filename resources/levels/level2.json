@@ -1,6 +1,12 @@
 {
-"Duration"    : 6000,
-"Border"      : "BorderLevel1",
-"Background"  : "BackgroundLevel1",
-"Elements"    : []
+"Border"      : "BorderLevel2",
+"Background"  : "BackgroundLevel2",
+"Elements"    : [
+				{
+				"timeframe"    : 30,
+				"entity_type" : "ShooterBoss",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				}
+]
 }

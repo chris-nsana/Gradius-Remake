@@ -55,6 +55,8 @@ void Game::run(){
 		tickNumber += 1;
     }
 
-	
+		std::cout << "Model Ended" << std::endl;
+
+
 
 }

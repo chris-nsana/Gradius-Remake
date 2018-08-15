@@ -28,16 +28,12 @@ public:
   //This constructor is handy if the Enemy died without being killed.
   EnemyDeath(int eID);
 
-  EnemyDeath(int eID, int killerID, int worth);
-
   ~EnemyDeath();
 
   virtual void execute() override;
 
 private:
   int eID;
-  int killerID;
-  int worth;
 };
 
 class FriendlyDeath : public Event{
@@ -55,7 +51,7 @@ private:
 class PlayerDeath : public Event{
 public:
 
-  PlayerDeath(int eID);
+  PlayerDeath(int eID, bool byEnemy);
 
   ~PlayerDeath();
 
@@ -63,20 +59,18 @@ public:
 
 private:
   int eID;
+  bool byEnemy;
 };
 
 class BossDeath : public Event{
 public:
 
-  BossDeath(int eID, int worth);
+  BossDeath();
 
   ~BossDeath();
 
   virtual void execute() override;
 
-private:
-  int eID;
-  int worth;
 };
 
 class PlayerFire : public Event{
@@ -134,6 +128,17 @@ public:
 
   virtual void execute() override;
 
+};
+
+class LevelEnd : public Event{
+
+public:
+
+  LevelEnd();
+
+  ~LevelEnd();
+
+  virtual void execute() override;
 };
 
 

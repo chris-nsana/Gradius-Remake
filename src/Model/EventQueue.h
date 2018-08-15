@@ -21,13 +21,11 @@ public:
 
   void addEnemyDeath(int eID);
 
-  void addEnemyDeath(int eID, int killerID, int worth);
-
   void addFriendlyDeath(int eID);
 
-  void addPlayerDeath(int eID);
+  void addPlayerDeath(int eID, bool byEnemy);
 
-  void addBossDeath(int eID, int worth);
+  void addBossDeath();
 
   void addPlayerFire(int shooterID, std::string entity, float x, float y);
 
@@ -36,6 +34,8 @@ public:
   void addPointsGain(int id, int amount);
 
   void addLevelReset();
+
+  void addLevelEnd();
 
   std::unique_ptr<Event> dequeue();
 

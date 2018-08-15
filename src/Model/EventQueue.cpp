@@ -16,11 +16,6 @@ void EventQueue::clear(){
   container = {};
 }
 
-void EventQueue::addEnemyDeath(int eID, int killerID, int worth){
-  std::unique_ptr<Event> e = std::make_unique<EnemyDeath>(eID, killerID, worth);
-  container.push(std::move(e));
-}
-
 void EventQueue::addEnemyDeath(int eID){
   std::unique_ptr<Event> e = std::make_unique<EnemyDeath>(eID);
   container.push(std::move(e));
@@ -31,13 +26,13 @@ void EventQueue::addFriendlyDeath(int eID){
   container.push(std::move(e));
 }
 
-void EventQueue::addPlayerDeath(int eID){
-  std::unique_ptr<Event> e = std::make_unique<PlayerDeath>(eID);
+void EventQueue::addPlayerDeath(int eID, bool byEnemy){
+  std::unique_ptr<Event> e = std::make_unique<PlayerDeath>(eID, byEnemy);
   container.push(std::move(e));
 }
 
-void EventQueue::addBossDeath(int eID, int worth){
-  std::unique_ptr<Event> e = std::make_unique<BossDeath>(eID, worth);
+void EventQueue::addBossDeath(){
+  std::unique_ptr<Event> e = std::make_unique<BossDeath>();
   container.push(std::move(e));
 }
 
@@ -58,6 +53,11 @@ void EventQueue::addPointsGain(int id, int amount){
 
 void EventQueue::addLevelReset(){
   std::unique_ptr<Event> e = std::make_unique<LevelReset>();
+  container.push(std::move(e));
+}
+
+void EventQueue::addLevelEnd(){
+  std::unique_ptr<Event> e = std::make_unique<LevelEnd>();
   container.push(std::move(e));
 }
 

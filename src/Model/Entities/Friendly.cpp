@@ -50,7 +50,7 @@ void Friendly::onCollisionReact(Entity& other){
 		float otherDamage = other.getDamage();
 		float thisDamage  = thisEntity.getDamage();
 		thisEntity.takeDamage(otherDamage, true);
-		other.takeDamage(thisEntity.getDamage(), false);
+		other.takeDamage(thisDamage, false);
 		if(other.isDead()) EventQueue::getInstance().addPointsGain(thisEntity.getCreatorID(), other.getWorth());
 	}
 }
