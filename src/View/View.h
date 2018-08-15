@@ -63,6 +63,13 @@ public:
 	 * @param int id to identify which object we're animating.
 	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
 	 */
+	void informHit(int id);
+
+	/**
+	 * @brief Method that creates the animation object for a certain entity that will be displayed
+	 * @param int id to identify which object we're animating.
+	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 */
 	void informDeath(int id);
 
 	/**

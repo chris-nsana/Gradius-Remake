@@ -43,16 +43,5 @@ void Neutral::onCollisionReact(Entity& other){
 		return void();
 	}
 }
-/*
-void Neutral::onCollisionReact(Friendly& other){
-	//The friendly entity takes damage, but the neutral entity stays unchanged.
-	float myDamage = this->getDamage();
-	other.takeDamage(myDamage);
-}
 
-void Neutral::onCollisionReact(Enemy& other){
-	//The Enemey entity is obstructed by this neutral entity
-	other.setBlocked();
-
-}*/
 }

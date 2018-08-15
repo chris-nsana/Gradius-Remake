@@ -40,11 +40,17 @@ private:
 
   std::unique_ptr<Entity> createBackground(creationArgs& args);
 
+  std::unique_ptr<Entity> createEnemyBullet(creationArgs& args);
+
   std::unique_ptr<Entity> createEnemyGrunt(creationArgs& args);
 
   std::unique_ptr<Entity> createFlyingSaucer(creationArgs& args);
 
   std::unique_ptr<Entity> createFlyingObstacle(creationArgs& args);
+
+  std::unique_ptr<Entity> createEnemyShooter(creationArgs& args);
+
+  std::unique_ptr<Entity> createSaucerBoss(creationArgs& args);
 
   using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&);
   std::map<std::string, creationMethod> creationMap;

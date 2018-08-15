@@ -5,11 +5,10 @@
 "Elements"    : [
 				{
 				"timeframe"    : 30,
-				"entity_type" : "IceMeteor",
+				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
-				"posY"         : 1.0
-				}, 
-				{
+				"posY"         : 0.0
+				},				{
 				"timeframe"    : 90,
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
@@ -68,6 +67,12 @@
 				"entity_type" : "EnemyGrunt",
 				"posX"         : 6.0,
 				"posY"         : -0.500
+				},
+				{
+				"timeframe"    : 260,
+				"entity_type" : "RockMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.0
 				}, 
 				{
 				"timeframe"    : 290,
@@ -152,5 +157,6 @@
 				"entity_type" : "FlyingSaucer",
 				"posX"         : 6.0,
 				"posY"         : 2.20
-				}]
+				}
+]
 }

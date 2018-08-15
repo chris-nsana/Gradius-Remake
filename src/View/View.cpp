@@ -46,6 +46,11 @@ void View::displayGame(){
 	}
 	playerStatus.draw(window);
 	window->display();
+
+  sf::Color normal = sf::Color(255, 255, 255, 255);
+  for(auto& s : sprites){
+    s.second.setColor(normal);
+  }
 }
 
 void View::addSprite(int id, std::string texture){
@@ -122,6 +127,12 @@ void View::inform(int id, float x, float y){
 	sf::Sprite& sprite = sprites[id];
 	sprite.setPosition(xPixels, yPixels);
 	}
+
+void View::informHit(int id){
+  sf::Color faded = sf::Color(255, 255, 255, 64);
+  auto& sprite    = sprites[id];
+  sprite.setColor(faded);
+}
 
 void View::informDeath(int id){
 	//If it's not animated just delete the sprite.

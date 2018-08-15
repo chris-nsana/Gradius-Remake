@@ -30,6 +30,12 @@ void Enemy::takeDamage(float amount, bool enemy){
 		int id = getID();
 		EventQueue::getInstance().addEnemyDeath(id);
 	}
+	//Else the Enemy took damage and survived, inform the View about the taken damage
+	//to visually represent it by fading the sprite.
+	else if(auto spt = observer.lock()){
+		spt->informHit(getID());
+	}
+	else throw std::runtime_error("An entity tried to notify its changes to the observer, but no observer was attached to it!");
 }
 
 void Enemy::onCollisionReact(Entity& other){

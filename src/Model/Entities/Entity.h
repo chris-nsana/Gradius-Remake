@@ -114,6 +114,9 @@ public:
 
 	virtual void onCollisionReact(Entity& other)=0;
 
+protected:
+
+	static std::weak_ptr<View::View> observer; //The observer viewing the state of all entities.
 
 private:
 
@@ -127,7 +130,6 @@ private:
 	int creatorID;
 	string texture;
 	int eID;
-	static std::weak_ptr<View::View> observer; //The observer viewing the state of all entities.
 	static int entityCount; //Count of all entities in the game.
 
 

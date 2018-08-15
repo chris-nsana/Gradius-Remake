@@ -26,6 +26,15 @@
 	"rows"         : 2,
 	"switch_time"  : 0.10
 	},
+
+"PurpleSaucer" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/SaucerBossSheet.png",
+	"frames"       : 8,
+	"rows"         : 2,
+	"switch_time"  : 0.10
+	},
+
 "RedSaucer" : {
 	"sprite_sheet" : true,
 	"image_path"   : "./../resources/images/SaucerSheet.png",
@@ -34,9 +43,25 @@
 	"switch_time"  : 0.10
 	},
 
+"RedShooter" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/RedShooterSheet.png",
+	"frames"       : 5,
+	"rows"         : 2,
+	"switch_time"  : 0.0333
+	},
+
+"BlueShooter" : {
+	"sprite_sheet" : true,
+	"image_path"   : "./../resources/images/BlueShooterSheet.png",
+	"frames"       : 5,
+	"rows"         : 2,
+	"switch_time"  : 0.0333
+	},
+
 "BlueBullet" : {
 	"sprite_sheet" : true,
-	"image_path"   : "./../resources/images/Player1Bullet.png",
+	"image_path"   : "./../resources/images/BlueBullet.png",
 	"frames"       : 1,
 	"rows"         : 1,
 	"switch_time"  : 0.0
@@ -44,7 +69,7 @@
 
 "RedBullet" : {
 	"sprite_sheet" : true,
-	"image_path"   : "./../resources/images/Player2Bullet.png",
+	"image_path"   : "./../resources/images/RedBullet.png",
 	"frames"       : 1,
 	"rows"         : 1,
 	"switch_time"  : 0.0
@@ -80,7 +105,7 @@
 
 "Border1" : {
 	"sprite_sheet" : false,
-	"image_path"   : "./../resources/images/BorderLevel1.png"
+	"image_path"   : "./../resources/images/BorderLevel1.jpeg"
 	}
 }
 

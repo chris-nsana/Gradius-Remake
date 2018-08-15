@@ -32,7 +32,7 @@
 "Player2Bullet" : {
 	"entity_type" : "PlayerBullet",
 	"health"      : 100,
-	"speed"       : 1.0,
+	"speed"       : 4.0,
 	"damage"      : 100,
 	"width"       : 0.15,
 	"height"      : 0.075,
@@ -99,6 +99,18 @@
 	"texture"     : "Border3"
 	},
 
+"EnemyBullet" : {
+	"entity_type" : "EnemyBullet",
+	"health"      : 100,
+	"speed"       : 4.0,
+	"damage"      : 100,
+	"width"       : 0.15,
+	"height"      : 0.75,
+	"texture"     : "RedBullet",
+	"worth"       : 0
+
+	},
+
 "EnemyGrunt" : {
 	"entity_type" : "EnemyGrunt",
 	"health"      : 100,
@@ -113,7 +125,7 @@
 "FlyingSaucer" : {
 	"entity_type" : "FlyingSaucer",
 	"health"      : 100,
-	"speed"       : 2.0,
+	"speed"       : 4.0,
 	"damage"      : 100,
 	"width"       : 1.0,
 	"height"      : 0.333,
@@ -121,10 +133,32 @@
 	"worth"       : 100
 	},
 
+"EnemyShooter" : {
+	"entity_type" : "EnemyShooter",
+	"health"      : 100,
+	"speed"       : 2.0,
+	"damage"      : 100,
+	"width"       : 1.0,
+	"height"      : 0.48,
+	"texture"     : "RedShooter",
+	"worth"       : 100
+	},
+
+"SaucerBoss" : {
+	"entity_type" : "SaucerBoss",
+	"health"      : 1500,
+	"speed"       : 3.0,
+	"damage"      : 200,
+	"width"       : 2.0,
+	"height"      : 0.666,
+	"texture"     : "PurpleSaucer",
+	"worth"       : 500
+	},
+
 "RockMeteor" : {
 	"entity_type" : "FlyingObstacle",
 	"health"      : 300,
-	"speed"       : 4.0,
+	"speed"       : 5.0,
 	"damage"      : 250,
 	"width"       : 1.5,
 	"height"      : 1.5,
@@ -134,7 +168,7 @@
 "MoonMeteor" : {
 	"entity_type" : "FlyingObstacle",
 	"health"      : 300,
-	"speed"       : 4.0,
+	"speed"       : 5.0,
 	"damage"      : 250,
 	"width"       : 1.5,
 	"height"      : 1.5,
@@ -144,7 +178,7 @@
 "IceMeteor" : {
 	"entity_type" : "FlyingObstacle",
 	"health"      : 300,
-	"speed"       : 4.0,
+	"speed"       : 5.0,
 	"damage"      : 250,
 	"width"       : 1.5,
 	"height"      : 1.5,

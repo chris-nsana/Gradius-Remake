@@ -76,7 +76,9 @@ EnemyFire::EnemyFire(std::string entity, float x, float y) : entity(entity), x(x
 EnemyFire::~EnemyFire(){}
 
 void EnemyFire::execute(){
-  return void();
+  if(auto spt = model.lock()){
+    spt->createEntity(this->entity, this->x, this->y);
+  }
 }
 
 PointsGain::PointsGain(int scorerID, int amount) : scorerID(scorerID), amount(amount){}

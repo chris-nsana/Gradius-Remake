@@ -1,5 +1,31 @@
 include_directories(./)
-SET(SOURCES main.cpp  ./View/Animation.cpp ./Model/Entities/Entity.cpp ./Model/Entities/Neutral.cpp ./Model/Entities/Friendly.cpp ./Model/Entities/Enemy.cpp ./Model/Entities/Player.cpp ./Model/Entities/PlayerBullet.cpp ./Model/Entities/Background.cpp ./Model/Entities/Border.cpp ./Model/Entities/EnemyGrunt.cpp ./Model/Entities/FlyingSaucer.cpp  ./Model/Entities/FlyingObstacle.cpp ./Model/EntityFactory.cpp ./Model/Events.cpp ./Model/EventQueue.cpp ./Model/PlayerData.cpp ./View/StatusDisplay.cpp ./Game.cpp ./Model/Model.cpp ./Controller/Controller.cpp ./View/View.cpp ./Utilities/Transformation.cpp ./Utilities/Stopwatch.cpp)
+SET(SOURCES 
+main.cpp 
+./Model/Entities/Entity.cpp
+./Model/Entities/Friendly.cpp 
+./Model/Entities/Enemy.cpp  
+./Model/Entities/Neutral.cpp 
+./Model/Entities/Player.cpp 
+./Model/Entities/PlayerBullet.cpp 
+./Model/Entities/Background.cpp 
+./Model/Entities/Border.cpp
+./Model/Entities/EnemyBullet.cpp 
+./Model/Entities/EnemyGrunt.cpp 
+./Model/Entities/FlyingSaucer.cpp  
+./Model/Entities/FlyingObstacle.cpp 
+./Model/Entities/SaucerBoss.cpp 
+./Model/EntityFactory.cpp 
+./Model/Events.cpp 
+./Model/EventQueue.cpp 
+./Model/PlayerData.cpp
+./Model/Model.cpp
+./View/Animation.cpp 
+./View/StatusDisplay.cpp 
+./View/View.cpp  
+./Controller/Controller.cpp 
+./Utilities/Transformation.cpp 
+./Utilities/Stopwatch.cpp
+./Game.cpp)
 
 ADD_EXECUTABLE(Gradius ${SOURCES})
 TARGET_LINK_LIBRARIES(Gradius -lsfml-graphics -lsfml-window -lsfml-system)
