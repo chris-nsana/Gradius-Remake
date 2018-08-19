@@ -12,6 +12,8 @@ public:
 
   ~ShooterBoss();
 
+  virtual void takeDamage(float amount, bool enemy) override;
+
   virtual void update();
 
   virtual void move();

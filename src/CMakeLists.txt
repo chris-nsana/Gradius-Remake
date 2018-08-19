@@ -29,7 +29,7 @@ main.cpp
 ./Controller/Controller.cpp 
 ./Utilities/Transformation.cpp 
 ./Utilities/Stopwatch.cpp
-./Game.cpp)
+./Game/Game.cpp)
 
 ADD_EXECUTABLE(Gradius ${SOURCES})
 TARGET_LINK_LIBRARIES(Gradius -lsfml-graphics -lsfml-window -lsfml-system)

@@ -9,6 +9,11 @@ ShooterBoss::ShooterBoss(float x, float y, float health, float damage, float spe
 
  ShooterBoss::~ShooterBoss(){}
 
+void ShooterBoss::takeDamage(float amount, bool enemy){
+  Enemy::takeDamage(amount, enemy);
+  if(isDead()) EventQueue::getInstance().addBossDeath();
+}
+
 void ShooterBoss::update(){
   move();
   if(spawnTime == 0){
@@ -17,7 +22,7 @@ void ShooterBoss::update(){
     float yCoord = getPosition().second;
     EventQueue::getInstance().addEnemyFire("EnemyShooter", 5.5f, std::min(yCoord + 1.50f, 2.0f));
     EventQueue::getInstance().addEnemyFire("EnemyShooter", 5.5f, std::max(yCoord - 1.50f, -2.0f));
-    EventQueue::getInstance().addEnemyFire("RockMeteor", 5.0f, yCoord);
+    EventQueue::getInstance().addEnemyFire("MoonRock", 5.0f, yCoord);
   }
   else{
     spawnTime -= 1;
@@ -26,7 +31,7 @@ void ShooterBoss::update(){
   if(shootingTime == 0){
     shootingTime = 15;
     auto pos     = getPosition();
-    EventQueue::getInstance().addEnemyFire("BlueEnemyBullet", pos.first, pos.second);
+    EventQueue::getInstance().addEnemyFire("BlueEnemyBullet", pos.first, pos.second + (0.85f * getHalfHeight()));
   }
   else{
     shootingTime -= 1;

@@ -12,6 +12,8 @@ public:
 
   ~CrystalBoss();
 
+  virtual void takeDamage(float amount, bool enemy) override;  
+
   virtual void update();
 
   virtual void move();
@@ -19,6 +21,8 @@ public:
 private:
 
   int shootingTime;
+  bool moveUpward;
+  int standStill;
 
 
 };

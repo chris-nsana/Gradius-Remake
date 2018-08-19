@@ -1,9 +1,9 @@
 {
 "Player1" : {
 	"entity_type" : "PlayerShip",
-	"health"      : 100,
+	"health"      : 10000000000,
 	"speed"       : 2.0,
-	"damage"      : 0,
+	"damage"      : 100,
 	"width"       : 1.0,
 	"height"      : 0.333,
 	"texture"     : "BlueViper"
@@ -11,9 +11,9 @@
 
 "Player2" : {
 	"entity_type" : "PlayerShip",
-	"health"      : 100,
+	"health"      : 1000000000000000,
 	"speed"       : 1.0,
-	"damage"      : 100,
+	"damage"      : 1000000000000000,
 	"width"       : 1.0,
 	"height"      : 0.333,
 	"texture"     : "RedViper"
@@ -23,7 +23,7 @@
 	"entity_type" : "PlayerBullet",
 	"health"      : 100,
 	"speed"       : 8.0,
-	"damage"      : 10000000,
+	"damage"      : 100,
 	"width"       : 0.15,
 	"height"      : 0.075,
 	"texture"     : "BlueBullet"
@@ -180,7 +180,7 @@
 
 "ShooterBoss" : {
 	"entity_type" : "ShooterBoss",
-	"health"      : 2000,
+	"health"      : 1500,
 	"speed"       : 4.0,
 	"damage"      : 200,
 	"width"       : 2.0,
@@ -191,7 +191,7 @@
 
 "CrystalBoss" : {
 	"entity_type" : "CrystalBoss",
-	"health"      : 2000,
+	"health"      : 2500,
 	"speed"       : 4.0,
 	"damage"      : 200,
 	"width"       : 2.0,
@@ -210,7 +210,7 @@
 	"texture"     : "SandRock"
 	},
 
-"MoonMeteor" : {
+"MoonRock" : {
 	"entity_type" : "FlyingObstacle",
 	"health"      : 300,
 	"speed"       : 5.0,

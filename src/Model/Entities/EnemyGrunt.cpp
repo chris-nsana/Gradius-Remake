@@ -28,13 +28,14 @@ void EnemyGrunt::move(){
   float distanceX = tick * getSpeed();
   float distanceY = 0.0f;
   auto pos        = this->getPosition();
+  //If the swarmPoint is up ahead we alter our trajectory to get closer to it.
   if(swarmPoint.first < pos.first){
     //distanceX = 0.5 * distanceX;
     if(pos.second > swarmPoint.second){
-      distanceY = -0.1 * (tick * getSpeed());
+      distanceY = -0.25 * (tick * getSpeed());
     }
     else if(pos.second < swarmPoint.second){
-      distanceY = + 0.35 *(tick * getSpeed());
+      distanceY = + 0.25 *(tick * getSpeed());
     }
   }
   setPosition(pos.first - distanceX, pos.second + distanceY);

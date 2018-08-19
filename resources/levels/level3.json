@@ -4,9 +4,1081 @@
 "Elements"    : [
 				{
 				"timeframe"    : 30,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 45,
+				"entity_type"  : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 60,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 60,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 75,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 75,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 90,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 100,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -0.75
+				},
+				{
+				"timeframe"    : 115,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 130,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				}, 
+				{
+				"timeframe"    : 130,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 135,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 145,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
+				"timeframe"    : 145,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				}, 
+				{
+				"timeframe"    : 160,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.5
+				},
+				{
+				"timeframe"    : 160,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 170,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				}, 
+				{
+				"timeframe"    : 180,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 200,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 215,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 215,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.75
+				},
+				{
+				"timeframe"    : 215,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -0.75
+				},				
+				{
+				"timeframe"    : 230,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+				"timeframe"    : 230,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 245,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 245,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 260,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 260,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 260,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 275,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -1
+				},
+				{
+				"timeframe"    : 290,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 300,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 315,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},
+				{
+				"timeframe"    : 330,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.25
+				},
+				{
+				"timeframe"    : 340,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 360,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.25
+				},
+				{
+				"timeframe"    : 380,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.50
+				},
+				{
+				"timeframe"    : 400,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.45
+				},
+				{
+				"timeframe"    : 400,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.45
+				},
+				{
+				"timeframe"    : 415,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.25
+				},
+				{
+				"timeframe"    : 430,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.25
+				},
+				{
+				"timeframe"    : 445,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.25
+				},
+				{
+				"timeframe"    : 450,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -0.80
+				},
+				{
+				"timeframe"    : 450,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.80
+				},
+				{
+				"timeframe"    : 470,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.80
+				},
+				{
+				"timeframe"    : 490,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.80
+				},
+				{
+				"timeframe"    : 515,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.80
+				},
+				{
+				"timeframe"    : 520,
+				"entity_type"  : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.25
+				},
+				{
+				"timeframe"    : 530,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 5.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 530,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 5.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 535,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -1.25
+				},
+				{
+				"timeframe"    : 550,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 560,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},
+				{
+				"timeframe"    : 580,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 600,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 600,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 600,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 620,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+				"timeframe"    : 620,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 640,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 640,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 620,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 660,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.60
+				},
+				{
+				"timeframe"    : 660,
+				"entity_type"  : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.60
+				},
+				{
+				"timeframe"    : 660,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 5.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 670,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 5.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 670,
+				"entity_type"  : "EnemyGrunt",
+				"posX"         : 5.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 700,
+				"entity_type"  : "FlyingSaucer",
+				"posX"         : 5.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 705,
+				"entity_type"  : "IceMeteor",
+				"posX"         : 5.0,
+				"posY"         : -1.20
+				},
+				{
+				"timeframe"    : 710,
+				"entity_type"  : "FlyingSaucer",
+				"posX"         : 5.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 720,
+				"entity_type"  : "FlyingSaucer",
+				"posX"         : 5.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 730,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 745,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 760,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 760,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 775,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 775,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 800,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 810,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 810,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+{
+				"timeframe"    : 830,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 845,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 860,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 860,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 875,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 875,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 880,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 880,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 880,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 900,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 900,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+				"timeframe"    : 930,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 945,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 960,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 960,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 975,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 975,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1000,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1010,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1030,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1030,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 1060,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1060,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1080,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1080,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},
+				{
+				"timeframe"    : 1080,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1080,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1080,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1100,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 1100,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.75
+				},
+				{
+				"timeframe"    : 1130,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1145,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1160,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1160,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 1175,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1175,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1200,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1200,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.5
+				},
+				{
+				"timeframe"    : 1200,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.5
+				},
+				{
+				"timeframe"    : 1200,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 1225,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1250,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+				"timeframe"    : 1275,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1300,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1325,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.75
+				},
+				{
+				"timeframe"    : 1325,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 1350,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 1350,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -1.75
+				},
+				{
+				"timeframe"    : 1380,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1380,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1400,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1400,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 1425,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1425,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1450,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1470,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.40
+				},
+				{
+				"timeframe"    : 1490,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.40
+				},
+				{
+				"timeframe"    : 1520,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1520,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},
+				{
+				"timeframe"    : 1550,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.75
+				},
+				{
+				"timeframe"    : 1570,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -0.80
+				},
+				{
+				"timeframe"    : 1590,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.65
+				},
+				{
+				"timeframe"    : 1615,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+				"timeframe"    : 1630,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.75
+				},
+				{
+				"timeframe"    : 1630,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 1645,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -0.75
+				},
+				{
+				"timeframe"    : 1660,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1675,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1690,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1690,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 1715,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1715,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+{
+				"timeframe"    : 1730,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+				{
+				"timeframe"    : 1750,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1770,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1770,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},
+				{
+				"timeframe"    : 1800,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 1815,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.25
+				},
+				{
+				"timeframe"    : 1830,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				},
+				{
+
+				"timeframe"    : 1850,
+				"entity_type"  : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1870,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				},				
+				{
+				"timeframe"    : 1880,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 2.0
+				},
+				{
+				"timeframe"    : 1880,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -2.0
+				},
+
+{
+				"timeframe"    : 1900,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 1.0
+				},
+				{
+				"timeframe"    : 1900,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -1.0
+				}, 
+				{
+				"timeframe"    : 1920,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : 1.50
+				}, 
+				{
+				"timeframe"    : 1940,
+				"entity_type" : "FlyingSaucer",
+				"posX"         : 6.0,
+				"posY"         : -1.50
+				},
+				{
+				"timeframe"    : 1950,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				}, 
+				{
+				"timeframe"    : 1970,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : 2.25
+				},
+				{
+				"timeframe"    : 1970,
+				"entity_type" : "EnemyGrunt",
+				"posX"         : 6.0,
+				"posY"         : -2.25
+				},
+				{
+				"timeframe"    : 2000,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.10
+				},
+				{
+				"timeframe"    : 2030,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 2060,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 1.85
+				},
+				{
+				"timeframe"    : 2060,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : -1.85
+				},
+				{
+				"timeframe"    : 2090,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 2120,
+				"entity_type" : "EnemyShooter",
+				"posX"         : 6.0,
+				"posY"         : 0.0
+				},
+				{
+				"timeframe"    : 2150,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : 1.6
+				},
+				{
+				"timeframe"    : 2150,
+				"entity_type" : "IceMeteor",
+				"posX"         : 6.0,
+				"posY"         : -1.6
+				},
+				{
+				"timeframe"    : 2200,
 				"entity_type" : "CrystalBoss",
-				"posX"         : 2.0,
+				"posX"         : 6.0,
 				"posY"         : 0.0
 				}
+
+
 ]
 }

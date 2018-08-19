@@ -13,7 +13,7 @@ void EnemyShooter::update(){
   if(shootingTime == 0){
     shootingTime = 120;
     auto pos     = getPosition();
-    EventQueue::getInstance().addEnemyFire("RedEnemyBullet", pos.first, pos.second);
+    EventQueue::getInstance().addEnemyFire("RedEnemyBullet", pos.first, pos.second + (0.85f * getHalfHeight()));
   }
   else{
     shootingTime -= 1;

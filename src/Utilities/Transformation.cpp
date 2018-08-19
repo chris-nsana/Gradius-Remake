@@ -32,7 +32,7 @@ std::pair<float, float> Transformation::coordinatesToPixels(float x, float y) co
 	if(true){
 		//In or outside the bottom half of the screen
 		if(y <= 0.0f){
-			temp1 = 3.0f + std::abs(y);
+			temp1 = 3.0f + std::fabs(y);
 			yPixels = temp1 * baseLengthUnit;;
 		}
 		else {
