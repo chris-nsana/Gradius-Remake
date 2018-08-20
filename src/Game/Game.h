@@ -12,20 +12,21 @@ namespace sf{class RenderWindow;}
 
 class Game{
 
-	/*class Menu{
+	class Menu{
 	public:
 
-		Menu();
+		Menu(Game& game);
 
-		~Menu();
+		~Menu() = default;
 
 		void presentMainOptions();
 
 		void presentLevelOptions();
 
 	private:
+		Game& game;
 		int nr_Levels;
-	}*/
+	};
 
 public:
 
@@ -42,10 +43,11 @@ public:
 	void run();
 
 private:
-	//std::shated_ptr<sf::RenderWindow> window;
+	std::shared_ptr<sf::RenderWindow> window;
 	std::shared_ptr<View::View> gameView;
 	std::shared_ptr<Model::Model> gameModel;
 	std::shared_ptr<Controller::Controller> gameControl;
+	Menu gameMenu;
 };
 
 

@@ -11,7 +11,7 @@
 #include <SFML/Graphics.hpp>
 
 
-Game::Game(){}
+Game::Game() : gameMenu(*this){}
 
 void Game::init(bool co_op){
 	nlohmann::json config;
@@ -24,7 +24,7 @@ void Game::init(bool co_op){
 	int startingLevel               = config["startingLevel"];
 	int lives                       = config["playerLives"];
 
-	std::shared_ptr<sf::RenderWindow> window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(1200, 900), "Gradius", sf::Style::Close);
+	window           = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close);
 	gameView         = std::make_shared<View::View>(window, texturesFile, mainFont, co_op);
 	Model::Entity::attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, lives, co_op);
@@ -58,31 +58,35 @@ void Game::run(){
 		std::cout << "Model Ended" << std::endl;
 }
 
-/*void Game::Menu::presentMainOptions(){
-	int totalOptions  = 3
+Game::Menu::Menu(Game& game) : game(game){}
+
+void Game::Menu::presentMainOptions(){
+	int totalOptions  = 3;
 	int currentOption = 1;
 	int entered       = 0;
+	auto width        = game.window->getSize().x;
+	auto height       = game.window->getSize().y;
 
 	sf::Text play;
 	play.setColor(sf::Color::Red);
 	play.setString("PLAY");
-	play.setPosition(sf::Vector2u(width/2, (0.5 * height)));
+	play.setPosition(sf::Vector2f(width/2, (0.5 * height)));
 
-	sf::Text play;
-	play.setColor(sf::Color::White);
-	play.setString("LEVEL SELECT");
-	play.setPosition(sf::Vector2u(width/2, (0.5 * height) + ((0.5 * height)/3.0)));
+	sf::Text levelSelect;
+	levelSelect.setColor(sf::Color::White);
+	levelSelect.setString("LEVEL SELECT");
+	levelSelect.setPosition(sf::Vector2f(width/2, (0.5 * height) + ((0.5 * height)/3.0)));
 
-	sf::Text play;
-	play.setColor(sf::Color::White);
-	play.setString("SCOREBOARD");
-	play.setPosition(sf::Vector2u(width/2, (0.5 * height) + ((0.5 * height)/3.0) * 2));
+	sf::Text score;
+	score.setColor(sf::Color::White);
+	score.setString("SCOREBOARD");
+	score.setPosition(sf::Vector2f(width/2, (0.5 * height) + ((0.5 * height)/3.0) * 2));
 
 	while(true){
 		sf::Event event;
-		if(window->pollEvent(event)){
+		if(game.window->pollEvent(event)){
 			if(event.type == sf::Event::KeyReleased){
-				if(e.key.code == sf::Keyboard::Key::Down){
+				if(event.key.code == sf::Keyboard::Key::Down){
 					currentOption += 1;
 					if(currentOption > totalOptions) currentOption = totalOptions;
 				}
@@ -93,4 +97,6 @@ void Game::run(){
 	}
 
 
-}*/
+}
+
+void Game::Menu::presentLevelOptions(){}
