@@ -1,7 +1,6 @@
 #include "Model.h"
 #include "EventQueue.h"
 #include "Entities/Player.h"
-#include "Entities/PlayerBullet.h"
 
 #include <iostream>
 #include <fstream>
@@ -109,6 +108,8 @@ void Model::startNextLevel(){
   }
   //Destroy everything from the previous level.
   this->entities.clear();
+  //Reset the level time
+  levelTime = 0;
   //We chose the next level, we can start it now.
   startLevel();
 
