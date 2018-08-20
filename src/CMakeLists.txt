@@ -1,3 +1,4 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5.1)
 include_directories(./)
 SET(SOURCES 
 main.cpp 
