@@ -2,12 +2,12 @@
 #define GAME_H_
 #include <memory>
 #include <vector>
+#include <SFML/Graphics.hpp>
 #include "Utilities/json.hpp"
 
 namespace Model{class Model;}
 namespace Controller{class Controller;}
 namespace View{class View;}
-namespace sf{class RenderWindow;}
 
 
 class Game{
@@ -21,9 +21,12 @@ class Game{
 
 		void presentMainOptions();
 
-		void presentLevelOptions();
-
 	private:
+
+		void modeSelection();
+
+		void levelSelection();
+
 		Game& game;
 		int nr_Levels;
 	};
@@ -31,6 +34,11 @@ class Game{
 public:
 
 	Game();
+
+	/**
+	*@brief Method that starts the whole application by presenting the menu options.
+	*/
+	void start();
 
 	/**
 	 * @brief Something something.
@@ -43,11 +51,15 @@ public:
 	void run();
 
 private:
+	nlohmann::json configuration;
 	std::shared_ptr<sf::RenderWindow> window;
 	std::shared_ptr<View::View> gameView;
 	std::shared_ptr<Model::Model> gameModel;
 	std::shared_ptr<Controller::Controller> gameControl;
+	sf::Font gameFont;
+	sf::Font errorFont;
 	Menu gameMenu;
+	int startingLevel;
 };
 
 
