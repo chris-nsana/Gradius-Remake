@@ -93,23 +93,15 @@ public:
 
 private:
 
-	//Window to render the visuals.
-	std::shared_ptr<sf::RenderWindow> window;
-	//Associative container that maps texture names to their respective texture object.
-	std::map<std::string, std::unique_ptr<sf::Texture>> textures;
-	//Assiocative container that maps entities to their respective sprites.
-	std::map<int, sf::Sprite> sprites;
-	//Associative container that maps entities to their respective animation texture.
-	std::map<int, Animation> animations;
-	//Json object containing all information on entity textures
-	nlohmann::json texturesJson;
-	//A container keeping track of dying sprites and when to delete them (key = ID, value = time left)
-	std::map<int, int> dyingSprites;
-	//Object in charge of the representation of the player information
-	StatusDisplay playerStatus;
-	//Font used in the game
-	sf::Font font;
-	bool co_op;
+	std::shared_ptr<sf::RenderWindow> window; //Window to render the visuals.
+	std::map<std::string, std::unique_ptr<sf::Texture>> textures; //Textures used throughout the game.
+	std::map<int, sf::Sprite> sprites; //Map that holds sprites for non-animated entities, key = entity id, value
+	std::map<int, Animation> animations; //Map that holds animations, key = entity id, value = animation object
+	nlohmann::json texturesJson; //Json object containing all information on entity textures
+	std::map<int, int> dyingSprites; //Map that keeps track of dying sprites, key = id, value = ticks left
+	StatusDisplay playerStatus; //Object that visualizes player info (score, lives et cetera)
+	sf::Font font; //Font used for the game
+	bool co_op; //Boolean indicating whether the game is in co-op mode
 	bool paused;
 
 };

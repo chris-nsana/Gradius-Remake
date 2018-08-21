@@ -25,7 +25,8 @@ public:
 private:
   float baseLengthUnit;
   bool co_op;
-  sf::Sprite lifeIcon;
+  sf::Sprite lifeIcon1;
+  sf::Sprite lifeIcon2;
   sf::Text p1;
   sf::Text p2;
   sf::Text lives1;

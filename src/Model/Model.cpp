@@ -46,12 +46,17 @@ void Model::createWorldElements(nlohmann::json& levelInfo){
   }
 
   auto player1    = factory.create("Player1");
-  player1->setPosition(-1.0f, 0.0f);
+  player1->setPosition(-1.5f, 0.0);
   this->p1.setID(player1->getID());
   entities.push_back(std::move(player1));
 
   if(co_op){
-    //Create player2
+    auto player2  = factory.create("Player2");
+    player2->setPosition(-1.5f, 1.5f);
+    this->p2.setID(player2->getID());
+    auto& p1      = getPlayer1();
+    p1.setPosition(-1.5f, -1.5f);
+    entities.push_back(std::move(player2));
   }
 }
 
@@ -108,6 +113,8 @@ void Model::startNextLevel(){
   }
   //Destroy everything from the previous level.
   this->entities.clear();
+  //Empty the EventQueue
+  EventQueue::getInstance().clear();
   //Reset the level time
   levelTime = 0;
   //We chose the next level, we can start it now.

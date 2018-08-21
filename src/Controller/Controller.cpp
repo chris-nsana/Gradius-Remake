@@ -120,7 +120,7 @@ void Controller::processKeyReleased(sf::Event& event){
 			break;
 
 		case sf::Keyboard::Key::D :
-      p1Movement -= 5;
+      p2Movement -= 5;
 			break;
 
 		case sf::Keyboard::Key::Up :
