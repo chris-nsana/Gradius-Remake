@@ -38,6 +38,10 @@ void Controller::processInput(){
 			processKeyReleased(event);
 		}
 
+    else if(event.type == sf::Event::Resized){
+      resizeWindow(event);
+    }
+
     //This case should be handled regardless if the Controller is paused.
 		else if(event.type == sf::Event::Closed){
 			window->close();
@@ -228,6 +232,33 @@ void Controller::controlPlayer2(){
     controlPlayer(p2, p2Movement);
   }
   catch(std::out_of_range& e){return void();}
+}
+
+void Controller::resizeWindow(sf::Event& resizeEvent){
+  sf::View newView;
+  newView.reset(sf::FloatRect(0, 0, 800, 600));
+
+  auto maxVideo    = sf::VideoMode::getDesktopMode();
+  //This means we're going from smallscreen to fullscreen
+  if(resizeEvent.size.height > 600){
+    float width      = (float) resizeEvent.size.width;
+    float height     = (float) resizeEvent.size.height;
+    //Factor to determine how small the width should be to achieve 4:3 aspect ratio
+    float factor     = (1.333f * height) / width;
+    auto newWidth    = factor * width;
+    //Factor to get the desired newWdth if multiplied with the window width.
+    auto widthFactor = newWidth / width;
+    //Factor to needed to calculate the view offset, to get 2 equal black bars on the edges.
+    auto sideFactor  = (1 - widthFactor) / 2.0f;
+
+    newView.setViewport(sf::FloatRect(sideFactor, 0.f, widthFactor, 1.f));
+    window->setView(newView);
+  }
+  //Else we're going from fullscreen back to smallscreen
+  else{
+    window->setView(window->getDefaultView());
+  }
+
 }
 
 }

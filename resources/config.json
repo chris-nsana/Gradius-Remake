@@ -1,6 +1,8 @@
 {
 "entitiesFile"  : "./../resources/entities.json",
 "texturesFile"  : "./../resources/textures.json",
+"scoreFile"     :"./../resources/scores.json",
+"gameLogo"      : "./../resources/images/gamelogo.png",
 "gameFont"      : "./../resources/fonts/no-continue.ttf",
 "errorFont"     : "./../resources/fonts/arial.ttf",
 "levels"        : ["level1.json", "level2.json", "level3.json"],

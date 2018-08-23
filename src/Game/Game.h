@@ -4,6 +4,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Utilities/json.hpp"
+#include "Game/Scoreboard.h"
 
 namespace Model{class Model;}
 namespace Controller{class Controller;}
@@ -51,6 +52,12 @@ public:
 	void run();
 
 private:
+
+	/**
+	*
+	*/
+	void resizeWindow(sf::Event& resizeEvent);
+
 	nlohmann::json configuration;
 	std::shared_ptr<sf::RenderWindow> window;
 	std::shared_ptr<View::View> gameView;
@@ -59,6 +66,7 @@ private:
 	sf::Font gameFont;
 	sf::Font errorFont;
 	Menu gameMenu;
+	Scoreboard scoreboard;
 	int startingLevel;
 };
 

@@ -27,12 +27,16 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, s
 
 	const sf::Texture& lifeTexture = *((this->textures["lifeIcon"]).get());
 	playerStatus = StatusDisplay(lifeTexture, this->font, co_op);
+  //window->create(sf::VideoMode(800, 600), "Gradius", sf::Style::Close | sf::Style::Resize);
 }
 
 View::~View(){}
 
 void View::displayGame(){
-	if(paused) return;
+	if(paused){
+    window->display();
+    return;
+  }
 	window->clear();
 	for(auto& s : sprites){
 		auto it = this->animations.find(s.first);

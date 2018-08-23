@@ -40,6 +40,8 @@ public:
 
 	void controlPlayer2();
 
+	void resizeWindow(sf::Event& resizeEvent);
+
 private:
 
 	std::shared_ptr<Model::Model> model;

@@ -14,9 +14,10 @@
 Game::Game() : gameMenu(*this), startingLevel(1){
 	std::ifstream file("./../resources/config.json");
 	file >> this->configuration;
-	window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close);
+	window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close | sf::Style::Resize);
 	this->gameFont.loadFromFile(configuration["gameFont"]);
 	this->errorFont.loadFromFile(configuration["errorFont"]);
+	this->scoreboard = Scoreboard(configuration["scoreFile"], this->gameFont);
 
 }
 
@@ -61,6 +62,31 @@ void Game::run(){
 
 }
 
+void Game::resizeWindow(sf::Event& resizeEvent){
+	sf::View newView;
+	newView.reset(sf::FloatRect(0, 0, 800, 600));
+
+	//This means we're going from smallscreen to fullscreen
+	if(resizeEvent.size.height > 600){
+		float width      = (float) resizeEvent.size.width;
+		float height     = (float) resizeEvent.size.height;
+		//Factor to determine how small the width should be to achieve 4:3 aspect ratio
+		float factor     = (1.333f * height) / width;
+		auto newWidth    = factor * width;
+		//Factor to get the desired newWdth if multiplied with the window width.
+		auto widthFactor = newWidth / width;
+		//Factor to needed to calculate the view offset, to get 2 equal black bars on the edges.
+		auto sideFactor  = (1 - widthFactor) / 2.0f;
+
+		newView.setViewport(sf::FloatRect(sideFactor, 0.f, widthFactor, 1.f));
+		window->setView(newView);
+	}
+	//Else we're going from fullscreen back to smallscreen
+	else{
+		window->setView(window->getDefaultView());
+	}
+}
+
 Game::Menu::Menu(Game& game) : game(game){}
 
 void Game::Menu::presentMainOptions(){
@@ -69,6 +95,15 @@ void Game::Menu::presentMainOptions(){
 	auto width        = game.window->getSize().x;
 	auto height       = game.window->getSize().y;
 	std::map<int, sf::Text> textMap;
+
+	sf::Sprite logo;
+	sf::Texture logoTexture;
+	logoTexture.loadFromFile(game.configuration["gameLogo"]);
+	logo.setTexture(logoTexture);
+	float startWidth  = (float)logo.getTextureRect().width;
+	float startHeight = (float)logo.getTextureRect().height;
+	float scale       = width / startWidth;
+	logo.scale(scale, scale);
 
 	sf::Text play("PLAY", game.gameFont);
 	play.setColor(sf::Color::Red);
@@ -101,18 +136,22 @@ void Game::Menu::presentMainOptions(){
 					if(currentOption < 1) currentOption = 1;
 					textMap[currentOption].setColor(sf::Color::Red);
 				}
-
 				else if(event.key.code == sf::Keyboard::Key::Return){
 					if(currentOption == 1) return modeSelection();
 					else if(currentOption == 2) return levelSelection();
-					else if (currentOption == 3) return void();
+					else if (currentOption == 3)
+						return game.scoreboard.showScoreboard(game.window);
 				}
+			}
+			else if(event.type == sf::Event::Resized){
+				game.resizeWindow(event);
 			}
 		}
 		game.window->clear();
 		for(auto& t : textMap){
 			game.window->draw(t.second);
 		}
+		game.window->draw(logo);
 		game.window->display();
 	}
 }
@@ -155,7 +194,9 @@ void Game::Menu::modeSelection(){
 					else if(currentOption == 2) game.init(true);
 					return game.run();
 				}
-
+			}
+			else if(event.type == sf::Event::Resized){
+				game.resizeWindow(event);
 			}
 		}
 		game.window->clear();
@@ -206,7 +247,9 @@ void Game::Menu::levelSelection(){
 					game.startingLevel = currentOption;
 					return modeSelection();
 				}
-
+			}
+			else if(event.type == sf::Event::Resized){
+				game.resizeWindow(event);
 			}
 		}
 		game.window->clear();

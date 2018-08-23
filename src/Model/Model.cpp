@@ -45,17 +45,18 @@ void Model::createWorldElements(nlohmann::json& levelInfo){
     xpos += 7.99; //7.99 instead of 8.0 to allow a tiny smidgen of overlap.
   }
 
-  auto player1    = factory.create("Player1");
-  player1->setPosition(-1.5f, 0.0);
-  this->p1.setID(player1->getID());
-  entities.push_back(std::move(player1));
+  if(p1.getLives() > 0){
+    auto player1    = factory.create("Player1");
+    if(co_op) player1->setPosition(-1.5f, -1.5f);
+    else      player1->setPosition(-1.5f, 0.0);
+    this->p1.setID(player1->getID());
+    entities.push_back(std::move(player1));
+  }
 
-  if(co_op){
+  if(co_op and (p2.getLives() > 0)){
     auto player2  = factory.create("Player2");
     player2->setPosition(-1.5f, 1.5f);
     this->p2.setID(player2->getID());
-    auto& p1      = getPlayer1();
-    p1.setPosition(-1.5f, -1.5f);
     entities.push_back(std::move(player2));
   }
 }

@@ -17,14 +17,14 @@ void Border::move(){
   //So move 1/60 of the speed on every call.
   float fraction   = 1.0f/60.0f;
   auto current_pos = this->getPosition();
+  float x_distance = fraction * this->getSpeed();
   //The object is out of sight, wrap around to the right to simulate
   //an endless border
   if(current_pos.first < -8.0f){
     //15.960 is the position to wrap around to perfectly connect to the rightmost Border entity.
-    this->setPosition(15.960, current_pos.second);
+    this->setPosition(15.98f - x_distance, current_pos.second);
   }
   else{
-    float x_distance = fraction * this->getSpeed();
     float new_X      = current_pos.first - x_distance;
     this->setPosition(new_X, current_pos.second);
   }
