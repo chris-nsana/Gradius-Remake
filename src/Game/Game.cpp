@@ -5,22 +5,33 @@
 #include "View/View.h"
 #include "Controller/Controller.h"
 #include "Utilities/Stopwatch.h"
+#include "Utilities/Transformation.h"
 #include <fstream>
 #include <iostream>
 #include <utility>
 
 
 
-Game::Game() : gameMenu(*this), startingLevel(1){
+Game::Game() : gameMenu(*this), startingLevel(1) {
 	std::ifstream file("./../resources/config.json");
 	file >> this->configuration;
-	window  = std::make_shared<sf::RenderWindow>(sf::VideoMode(800, 600), "Gradius", sf::Style::Close | sf::Style::Resize);
+	int resX = configuration["resolutionX"];
+	int resY = configuration["resolutionY"];
+	if(((float)resX  / (float)resY) !=  (4.0f/3.0f)){
+	
+	}
+	//This is how much pixels corresponds to 1.0 in the game's coordinate system.
+	float pixelUnit = (float)resX / 8.0f;
+	utils::Transformation::getInstance().setLengthUnit(pixelUnit);
+	window = std::make_shared<sf::RenderWindow>(sf::VideoMode(resX, resY), "Gradius", sf::Style::Close | sf::Style::Resize);
+	this->resolution = {resX, resY};
 	//This is an important setting to correctly handle keyboard input.
 	//This basically means that holding a key won't fill the Window Event queue with multiple events of that key.
 	window->setKeyRepeatEnabled(false);
 	this->gameFont.loadFromFile(configuration["gameFont"]);
 	this->errorFont.loadFromFile(configuration["errorFont"]);
-	this->scoreboard = Scoreboard(configuration["scoreFile"], this->gameFont);
+	std::string scoreFile = configuration["scoreFile"];
+	scoreboard = Scoreboard(scoreFile, this->gameFont);
 
 }
 
@@ -65,11 +76,14 @@ void Game::run(){
 
 }
 
+std::pair<int, int> Game::getResolution() const{
+	return this->resolution;
+}
+
 void Game::resizeWindow(sf::Event& resizeEvent){
   sf::View newView;
   newView.reset(sf::FloatRect(0, 0, 800, 600));
 
-  auto maxVideo    = sf::VideoMode::getDesktopMode();
   //This means we're going from smallscreen to fullscreen
   if(resizeEvent.size.height > 600){
 	float width      = (float) resizeEvent.size.width;
@@ -113,8 +127,8 @@ Game::Menu::Menu(Game& game) : game(game){}
 void Game::Menu::presentMainOptions(){
 	int totalOptions  = 3;
 	int currentOption = 1;
-	auto width        = game.window->getSize().x;
-	auto height       = game.window->getSize().y;
+	float width       = static_cast<float>(game.resolution.first);
+	float height      = static_cast<float>(game.resolution.second);
 	std::map<int, sf::Text> textMap;
 
 	sf::Sprite logo;
@@ -158,10 +172,10 @@ void Game::Menu::presentMainOptions(){
 					textMap[currentOption].setColor(sf::Color::Red);
 				}
 				else if(event.key.code == sf::Keyboard::Key::Return){
-					if(currentOption == 1) return modeSelection();
-					else if(currentOption == 2) return levelSelection();
+					if(currentOption == 1) modeSelection();
+					else if(currentOption == 2) levelSelection();
 					else if (currentOption == 3)
-						return game.scoreboard.showScoreboard(game.window);
+						game.scoreboard.showScoreboard(game, game.window);
 				}
 			}
 			else if(event.type == sf::Event::Resized){
@@ -180,8 +194,8 @@ void Game::Menu::presentMainOptions(){
 void Game::Menu::modeSelection(){
 	int totalOptions  = 2;
 	int currentOption = 1;
-	auto width        = game.window->getSize().x;
-	auto height       = game.window->getSize().y;
+	auto width        = static_cast<float>(game.resolution.first);
+	auto height       = static_cast<float>(game.resolution.second);
 	std::map<int, sf::Text> textMap;
 
 	sf::Text single("SINGLE-PLAYER MODE", game.gameFont);
@@ -215,6 +229,7 @@ void Game::Menu::modeSelection(){
 					else if(currentOption == 2) game.init(true);
 					return game.run();
 				}
+				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
 			else if(event.type == sf::Event::Resized){
 				game.resizeWindow(event);
@@ -231,8 +246,8 @@ void Game::Menu::modeSelection(){
 void Game::Menu::levelSelection(){
 	int totalOptions;
 	int currentOption = 1;
-	auto width        = game.window->getSize().x;
-	auto height       = game.window->getSize().y;
+	auto width        = static_cast<float>(game.resolution.first);
+	auto height       = static_cast<float>(game.resolution.second);
 	std::map<int, sf::Text> textMap;
 
 	int totalLevels   = game.configuration["levels"].size();
@@ -268,6 +283,8 @@ void Game::Menu::levelSelection(){
 					game.startingLevel = currentOption;
 					return modeSelection();
 				}
+				
+				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
 			else if(event.type == sf::Event::Resized){
 				game.resizeWindow(event);

@@ -21,7 +21,7 @@ void Controller::processInput(){
 		//This is how the movementPatten should change when a new key gets pressed.
 		if(event.type == sf::Event::KeyPressed){
       //This key pauses the game and should also pause the control of other keys.
-      if(event.key.code == sf::Keyboard::Key::Escape){
+      if(event.key.code == sf::Keyboard::Key::P){
         pauseControl();
       }
       else{

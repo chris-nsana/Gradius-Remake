@@ -1,4 +1,5 @@
 #include "Scoreboard.h"
+#include "Game.h"
 #include <utility> //to include std::pair
 #include <fstream>
 #include <set>
@@ -6,7 +7,7 @@
 
 Scoreboard::Scoreboard(){}
 
-Scoreboard::Scoreboard(std::string scoreFile, sf::Font& font) : font(font){
+Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : font(font){
   std::ifstream file;
   try{
     file.open(scoreFile);
@@ -50,9 +51,9 @@ void Scoreboard::addEntry(int score, bool p1,  std::string player){
   entries.insert(iterator, val);
 }
 
-void Scoreboard::showScoreboard(const std::shared_ptr<sf::RenderWindow>& window){
-  auto width        = window->getSize().x;
-  auto height       = window->getSize().y;
+void Scoreboard::showScoreboard(Game& game, const std::shared_ptr<sf::RenderWindow>& window){
+  auto width        = static_cast<double>(game.getResolution().first);
+  auto height       = static_cast<double>(game.getResolution().second);
 
   sf::Text name("NAME", this->font);
   name.setPosition(sf::Vector2f(0.60 * (float)width, 0.0f));
@@ -82,6 +83,11 @@ void Scoreboard::showScoreboard(const std::shared_ptr<sf::RenderWindow>& window)
     offset += 1;
   }
   while(true){
+	sf::Event event;
+	if(window->pollEvent(event)){
+		if(event.key.code == sf::Keyboard::Key::Escape) return void();
+		else if(event.type == sf::Event::Resized) game.resizeWindow(event);
+	}
     window->clear(sf::Color(135, 206, 250));
     for(auto& drawable : toDraw){
       window->draw(drawable);

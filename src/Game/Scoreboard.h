@@ -5,13 +5,15 @@
 #include <SFML/Graphics.hpp>
 #include "Utilities/json.hpp"
 
+class Game;
+
 class Scoreboard{
 
 public:
 
   Scoreboard();
 
-  Scoreboard(std::string scoreFile, sf::Font& font);
+  Scoreboard(std::string& scoreFile, sf::Font& font);
 
    ~Scoreboard();
 
@@ -19,7 +21,7 @@ public:
 
    void addEntry(int score, bool p1,  std::string player);
 
-   void showScoreboard(const std::shared_ptr<sf::RenderWindow>& window);
+   void showScoreboard(Game& game, const std::shared_ptr<sf::RenderWindow>& window);
 
 private:
   nlohmann::json entries;

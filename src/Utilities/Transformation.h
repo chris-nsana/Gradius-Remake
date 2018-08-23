@@ -28,7 +28,7 @@ public:
 	 * @brief Method that changes the scale of the coordinate to pixel mapping
 	 * @param scale, a float that determines how much bigger the new screen is compared to the default.
 	 */
-	 void scaleTransformation(float scale);
+	 void setLengthUnit(float unit);
 
 
 

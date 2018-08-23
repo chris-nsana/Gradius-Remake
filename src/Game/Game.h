@@ -50,15 +50,17 @@ public:
 	 * @brief Method that initializes the subsystems of the game and starts running it.
 	 */
 	void run();
+	
+	std::pair<int, int> getResolution() const;
+	
+	void resizeWindow(sf::Event& resizeEvent);
 
 private:
 
-	/**
-	*
-	*/
-	void resizeWindow(sf::Event& resizeEvent);
+	
 
 	nlohmann::json configuration;
+	std::pair<int, int> resolution;
 	std::shared_ptr<sf::RenderWindow> window;
 	std::shared_ptr<View::View> gameView;
 	std::shared_ptr<Model::Model> gameModel;

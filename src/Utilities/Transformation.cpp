@@ -49,9 +49,8 @@ float Transformation::getLengthUnit() const{
 	return baseLengthUnit;
 }
 
-void Transformation::scaleTransformation(float scale){
-	float newUnit = this->baseLengthUnit * scale;
-	this->baseLengthUnit = newUnit;
+void Transformation::setLengthUnit(float unit){
+	this->baseLengthUnit = unit;
 }
 
 template class Singleton<Transformation>;
