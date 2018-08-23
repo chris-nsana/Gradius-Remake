@@ -7,11 +7,7 @@
 
 namespace Controller{
 Controller::Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op)
- : model(model), window(window), p1Movement(0), p2Movement(0), co_op(co_op), paused(false){
-	//This is an important setting to correctly handle keyboard input.
-	//This basically means that holding a key won't fill the Window Event queue with multiple events of that key.
-	window->setKeyRepeatEnabled(false);
-}
+ : model(model), window(window), p1Movement(0), p2Movement(0), co_op(co_op), paused(false){}
 
 Controller::~Controller(){}
 
@@ -238,20 +234,36 @@ void Controller::resizeWindow(sf::Event& resizeEvent){
   sf::View newView;
   newView.reset(sf::FloatRect(0, 0, 800, 600));
 
-  auto maxVideo    = sf::VideoMode::getDesktopMode();
   //This means we're going from smallscreen to fullscreen
   if(resizeEvent.size.height > 600){
     float width      = (float) resizeEvent.size.width;
     float height     = (float) resizeEvent.size.height;
-    //Factor to determine how small the width should be to achieve 4:3 aspect ratio
-    float factor     = (1.333f * height) / width;
-    auto newWidth    = factor * width;
-    //Factor to get the desired newWdth if multiplied with the window width.
-    auto widthFactor = newWidth / width;
-    //Factor to needed to calculate the view offset, to get 2 equal black bars on the edges.
-    auto sideFactor  = (1 - widthFactor) / 2.0f;
+    float wFactor    = 1.0f;
+    float hFactor    = 1.0f;
+    float sideBars   = 0.0f;
+    float topBars    = 0.0f;
+    //This means we need to add bars to the side to enforce 4:3 aspect ratio
+    if((width/height) > 1.333f){
+    	//Factor to determine how small the width should be to achieve 4:3 aspect ratio
+    	float factor   = (1.333f * height) / width;
+    	float newWidth = factor * width;
+    	wFactor        = newWidth / width;
+    	sideBars       = (1 - wFactor) / 2.0f;
+    	
+    }
+    //This means we need to add bars to the top and the bottom to enforce 4:3 aspect ratio
+    else if((width/height) < 1.333f){
+    	//Factor to determine how small the width should be to achieve 4:3 aspect ratio
+    	float factor    = 1.0f / (1.333f / width * height);
+    	float newHeight = factor * height;
+    	hFactor         = newHeight / height;
+    	topBars         = (1 - hFactor) / 2.0f;
+    	
+    }
+    //This means that the screen already has a 4:3 aspect ratio, so nothing has to be done.
+    else{}
 
-    newView.setViewport(sf::FloatRect(sideFactor, 0.f, widthFactor, 1.f));
+    newView.setViewport(sf::FloatRect(sideBars, topBars, wFactor, hFactor));
     window->setView(newView);
   }
   //Else we're going from fullscreen back to smallscreen
