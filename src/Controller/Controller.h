@@ -16,7 +16,7 @@ namespace sf{
 namespace Controller{
 
 class Controller{
-	
+
 	struct playerMovement{
 		bool left{false};
 		bool right{false};
@@ -46,8 +46,6 @@ public:
 	void controlPlayer1();
 
 	void controlPlayer2();
-
-	void resizeWindow(sf::Event& resizeEvent);
 
 private:
 

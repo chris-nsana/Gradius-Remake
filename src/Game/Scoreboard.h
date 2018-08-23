@@ -19,9 +19,11 @@ public:
 
    bool checkEntry(int score);
 
+   void promptName(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window);
+
    void addEntry(int score, bool p1,  std::string player);
 
-   void showScoreboard(Game& game, const std::shared_ptr<sf::RenderWindow>& window);
+   void showScoreboard(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window);
 
 private:
   nlohmann::json entries;

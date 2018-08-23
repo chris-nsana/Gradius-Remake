@@ -2,8 +2,14 @@
 #define TRANSFORMATION_H_
 #include "Singleton.h"
 #include <utility>
+#include <memory>
 
+namespace sf{
+	class Event;
+	class RenderWindow;
+}
 namespace utils{
+
 
 
 class Transformation : public Singleton<Transformation>{
@@ -29,6 +35,12 @@ public:
 	 * @param scale, a float that determines how much bigger the new screen is compared to the default.
 	 */
 	 void setLengthUnit(float unit);
+
+	 /**
+	 * @brief
+	 *
+	 */
+	 void resizeWindow(const std::shared_ptr<sf::RenderWindow>& window, sf::Event& resizeEvent);
 
 
 

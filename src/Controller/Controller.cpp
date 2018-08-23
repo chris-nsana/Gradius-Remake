@@ -2,6 +2,7 @@
 #include "Model/Model.h"
 #include "Model/Entities/Player.h"
 #include "Utilities/Stopwatch.h"
+#include "Utilities/Transformation.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -35,7 +36,7 @@ void Controller::processInput(){
 		}
 
     else if(event.type == sf::Event::Resized){
-      resizeWindow(event);
+      utils::Transformation::getInstance().resizeWindow(this->window, event);
     }
 
     //This case should be handled regardless if the Controller is paused.
@@ -115,32 +116,32 @@ void Controller::processKeyReleased(sf::Event& event){
 		case sf::Keyboard::Key::Right :
 			p1Movement.right = false;
 			break;
-	
+
 		case sf::Keyboard::Key::D :
 			p2Movement.right  = false;
 			break;
-	
+
 		case sf::Keyboard::Key::Up :
 			p1Movement.up = false;
 			break;
-	
+
 		case sf::Keyboard::Key::W :
 		case sf::Keyboard::Key::Z :
 			p2Movement.up = false;
 			break;
-	
+
 		case sf::Keyboard::Key::Down :
 			p1Movement.down = false;
 			break;
-	
+
 		case sf::Keyboard::Key::S :
 			p2Movement.down = false;
 			break;
-	
+
 		case sf::Keyboard::Key::Left :
 			p1Movement.left = false;
 			break;
-	
+
 		case sf::Keyboard::Key::A :
 		case sf::Keyboard::Key::Q :
 			p2Movement.left = false;
@@ -165,13 +166,13 @@ void Controller::controlPlayer(Model::Player& player, bool p1){
 	else   curPlayer = p2Movement;
 	//Pressing opposing bullets cancels out the movement
 	if(curPlayer.left and !curPlayer.right) player.moveLeft();
-	
+
 	if(curPlayer.right and !curPlayer.left) player.moveRight();
-	
+
 	if(curPlayer.up and !curPlayer.down) player.moveUp();
-	
+
 	if(curPlayer.down and !curPlayer.up)player.moveDown();
-	
+
 }
 
 void Controller::controlPlayer1(){
@@ -190,49 +191,6 @@ void Controller::controlPlayer2(){
     controlPlayer(p2, false);
   }
   catch(std::out_of_range& e){return void();}
-}
-
-void Controller::resizeWindow(sf::Event& resizeEvent){
-  sf::View newView;
-  newView.reset(sf::FloatRect(0, 0, 800, 600));
-
-  //This means we're going from smallscreen to fullscreen
-  if(resizeEvent.size.height > 600){
-    float width      = (float) resizeEvent.size.width;
-    float height     = (float) resizeEvent.size.height;
-    float wFactor    = 1.0f;
-    float hFactor    = 1.0f;
-    float sideBars   = 0.0f;
-    float topBars    = 0.0f;
-    //This means we need to add bars to the side to enforce 4:3 aspect ratio
-    if((width/height) > 1.333f){
-    	//Factor to determine how small the width should be to achieve 4:3 aspect ratio
-    	float factor   = (1.333f * height) / width;
-    	float newWidth = factor * width;
-    	wFactor        = newWidth / width;
-    	sideBars       = (1 - wFactor) / 2.0f;
-    	
-    }
-    //This means we need to add bars to the top and the bottom to enforce 4:3 aspect ratio
-    else if((width/height) < 1.333f){
-    	//Factor to determine how small the width should be to achieve 4:3 aspect ratio
-    	float factor    = 1.0f / (1.333f / width * height);
-    	float newHeight = factor * height;
-    	hFactor         = newHeight / height;
-    	topBars         = (1 - hFactor) / 2.0f;
-    	
-    }
-    //This means that the screen already has a 4:3 aspect ratio, so nothing has to be done.
-    else{}
-
-    newView.setViewport(sf::FloatRect(sideBars, topBars, wFactor, hFactor));
-    window->setView(newView);
-  }
-  //Else we're going from fullscreen back to smallscreen
-  else{
-    window->setView(window->getDefaultView());
-  }
-
 }
 
 }

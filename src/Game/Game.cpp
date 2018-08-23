@@ -18,7 +18,7 @@ Game::Game() : gameMenu(*this), startingLevel(1) {
 	int resX = configuration["resolutionX"];
 	int resY = configuration["resolutionY"];
 	if(((float)resX  / (float)resY) !=  (4.0f/3.0f)){
-	
+
 	}
 	//This is how much pixels corresponds to 1.0 in the game's coordinate system.
 	float pixelUnit = (float)resX / 8.0f;
@@ -76,50 +76,34 @@ void Game::run(){
 
 }
 
-std::pair<int, int> Game::getResolution() const{
-	return this->resolution;
+void Game::showVictoryScreen(){
+	showSimpleTextOnScreen("VICTORY", sf::Color::Green);
 }
 
-void Game::resizeWindow(sf::Event& resizeEvent){
-  sf::View newView;
-  newView.reset(sf::FloatRect(0, 0, 800, 600));
+void Game::showLossScreen(){
+	showSimpleTextOnScreen("GAME OVER", sf::Color::Red);
+}
 
-  //This means we're going from smallscreen to fullscreen
-  if(resizeEvent.size.height > 600){
-	float width      = (float) resizeEvent.size.width;
-	float height     = (float) resizeEvent.size.height;
-	float wFactor    = 1.0f;
-	float hFactor    = 1.0f;
-	float sideBars   = 0.0f;
-	float topBars    = 0.0f;
-	//This means we need to add bars to the side to enforce 4:3 aspect ratio
-	if((width/height) > 1.333f){
-		//Factor to determine how small the width should be to achieve 4:3 aspect ratio
-		float factor   = (1.333f * height) / width;
-		float newWidth = factor * width;
-		wFactor        = newWidth / width;
-		sideBars       = (1 - wFactor) / 2.0f;
-		
-	}
-	//This means we need to add bars to the top and the bottom to enforce 4:3 aspect ratio
-	else if((width/height) < 1.333f){
-		//Factor to determine how small the width should be to achieve 4:3 aspect ratio
-		float factor    = 1.0f / (1.333f / width * height);
-		float newHeight = factor * height;
-		hFactor         = newHeight / height;
-		topBars         = (1 - hFactor) / 2.0f;
-		
-	}
-	//This means that the screen already has a 4:3 aspect ratio, so nothing has to be done.
-	else{}
+void Game::showSimpleTextOnScreen(std::string text, sf::Color color){
+	float lengthUnit = utils::Transformation::getInstance().getLengthUnit();
 
-	newView.setViewport(sf::FloatRect(sideBars, topBars, wFactor, hFactor));
-	window->setView(newView);
-  }
-  //Else we're going from fullscreen back to smallscreen
-  else{
-	window->setView(window->getDefaultView());
-  }
+	sf::Text victory(text, this->gameFont);
+	victory.setCharacterSize(72);
+	sf::FloatRect textRect = victory.getLocalBounds();
+	victory.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
+	victory.setPosition(4 * lengthUnit, 3 * lengthUnit);
+
+	utils::Stopwatch::getInstance().reset();
+	while(utils::Stopwatch::getInstance().getElapsedTime() < 5.0f){
+		sf::Event event;
+		window->pollEvent(event);
+		if(event.type == sf::Event::Resized){
+			utils::Transformation::getInstance().resizeWindow(window, event);
+		}
+		window->clear(color);
+		window->draw(victory);
+		window->display();
+	}
 }
 
 Game::Menu::Menu(Game& game) : game(game){}
@@ -174,12 +158,13 @@ void Game::Menu::presentMainOptions(){
 				else if(event.key.code == sf::Keyboard::Key::Return){
 					if(currentOption == 1) modeSelection();
 					else if(currentOption == 2) levelSelection();
-					else if (currentOption == 3)
-						game.scoreboard.showScoreboard(game, game.window);
+					else if (currentOption == 3) game.showVictoryScreen();
+						//game.scoreboard.showScoreboard(game.resolution, game.window);
+						//game.scoreboard.promptName(game.resolution, game.window);
 				}
 			}
 			else if(event.type == sf::Event::Resized){
-				game.resizeWindow(event);
+				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
 		}
 		game.window->clear();
@@ -232,7 +217,7 @@ void Game::Menu::modeSelection(){
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
 			else if(event.type == sf::Event::Resized){
-				game.resizeWindow(event);
+				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
 		}
 		game.window->clear();
@@ -283,11 +268,11 @@ void Game::Menu::levelSelection(){
 					game.startingLevel = currentOption;
 					return modeSelection();
 				}
-				
+
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
 			else if(event.type == sf::Event::Resized){
-				game.resizeWindow(event);
+				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
 		}
 		game.window->clear();

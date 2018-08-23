@@ -50,14 +50,17 @@ public:
 	 * @brief Method that initializes the subsystems of the game and starts running it.
 	 */
 	void run();
-	
-	std::pair<int, int> getResolution() const;
-	
-	void resizeWindow(sf::Event& resizeEvent);
+
+	void showVictoryScreen();
+
+	void showLossScreen();
+
 
 private:
 
-	
+	void showSimpleTextOnScreen(std::string text, sf::Color color);
+
+
 
 	nlohmann::json configuration;
 	std::pair<int, int> resolution;
