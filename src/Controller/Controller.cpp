@@ -7,7 +7,7 @@
 
 namespace Controller{
 Controller::Controller(std::shared_ptr<Model::Model> model, std::shared_ptr<sf::RenderWindow> window, bool co_op)
- : model(model), window(window), p1Movement(0), p2Movement(0), co_op(co_op), paused(false){}
+ : model(model), window(window), co_op(co_op), paused(false){}
 
 Controller::~Controller(){}
 
@@ -54,37 +54,37 @@ void Controller::processInput(){
 void Controller::processKeyPressed(sf::Event& event){
 	switch(event.key.code){
 		case sf::Keyboard::Key::Right :
-			p1Movement += 5;
+			p1Movement.right = true;
 			break;
 
 		case sf::Keyboard::Key::D :
-			p2Movement += 5;
+			p2Movement.right  = true;
 			break;
 
 		case sf::Keyboard::Key::Up :
-			p1Movement += 3;
+			p1Movement.up = true;
 			break;
 
 		case sf::Keyboard::Key::W :
 		case sf::Keyboard::Key::Z :
-			p2Movement += 3;
+			p2Movement.up = true;
 			break;
 
 		case sf::Keyboard::Key::Down :
-			p1Movement -= 3;
+			p1Movement.down = true;
 			break;
 
 		case sf::Keyboard::Key::S :
-			p2Movement -= 3;
+			p2Movement.down = true;
 			break;
 
 		case sf::Keyboard::Key::Left :
-			p1Movement -= 5;
+			p1Movement.left = true;
 			break;
 
 		case sf::Keyboard::Key::A :
 		case sf::Keyboard::Key::Q :
-			p2Movement -= 5;
+			p2Movement.left = true;
 			break;
 
 		case sf::Keyboard::Key::Space :
@@ -113,40 +113,37 @@ void Controller::processKeyPressed(sf::Event& event){
 void Controller::processKeyReleased(sf::Event& event){
 	switch(event.key.code){
 		case sf::Keyboard::Key::Right :
-      //In some cases the Controller can detect KeyReleased events without the accompanying KeyPressed event.
-      //We only want let the released key to have have effect if there was an effect of KeyPressed, we can check
-      //this using the movementPatterns which has deterministic values.
-      p1Movement -= 5;
+			p1Movement.right = false;
 			break;
-
+	
 		case sf::Keyboard::Key::D :
-      p2Movement -= 5;
+			p2Movement.right  = false;
 			break;
-
+	
 		case sf::Keyboard::Key::Up :
-			p1Movement -= 3;
+			p1Movement.up = false;
 			break;
-
+	
 		case sf::Keyboard::Key::W :
 		case sf::Keyboard::Key::Z :
-			p2Movement -= 3;
+			p2Movement.up = false;
 			break;
-
+	
 		case sf::Keyboard::Key::Down :
-			p1Movement += 3;
+			p1Movement.down = false;
 			break;
-
+	
 		case sf::Keyboard::Key::S :
-			p2Movement += 3;
+			p2Movement.down = false;
 			break;
-
+	
 		case sf::Keyboard::Key::Left :
-			p1Movement += 5;
+			p1Movement.left = false;
 			break;
-
+	
 		case sf::Keyboard::Key::A :
 		case sf::Keyboard::Key::Q :
-			p2Movement += 5;
+			p2Movement.left = false;
 			break;
     }
 }
@@ -162,60 +159,25 @@ void Controller::pauseControl(){
   }
 }
 
-void Controller::controlPlayer(Model::Player& player, int pattern){
-	switch(pattern){
-
-		case 5:
-			player.moveRight();
-			break;
-
-		case 3:
-			player.moveUp();
-			break;
-
-		case -3:
-			player.moveDown();
-			break;
-
-		case -5:
-			player.moveLeft();
-			break;
-
-		case 0:
-			//Do nothing because there was no movement or the keys cancelled eachother out.
-			break;
-
-		case 8:
-			//Diagonal (up + right)
-			player.moveRight();
-			player.moveUp();
-			break;
-
-		case 2:
-			//Diagonal (right + down)
-			player.moveRight();
-			player.moveDown();
-			break;
-
-		case -2:
-			//Diagonal (left + up)
-			player.moveLeft();
-			player.moveUp();
-			break;
-
-		case -8:
-			//Diagonal (left + down)
-			player.moveLeft();
-			player.moveDown();
-			break;
-
-		}
+void Controller::controlPlayer(Model::Player& player, bool p1){
+	playerMovement curPlayer;
+	if(p1) curPlayer = p1Movement;
+	else   curPlayer = p2Movement;
+	//Pressing opposing bullets cancels out the movement
+	if(curPlayer.left and !curPlayer.right) player.moveLeft();
+	
+	if(curPlayer.right and !curPlayer.left) player.moveRight();
+	
+	if(curPlayer.up and !curPlayer.down) player.moveUp();
+	
+	if(curPlayer.down and !curPlayer.up)player.moveDown();
+	
 }
 
 void Controller::controlPlayer1(){
   try{
     Model::Player& p1 = model->getPlayer1();
-    controlPlayer(p1, p1Movement);
+    controlPlayer(p1, true);
   }
   catch(std::out_of_range& e){return void();}
 }
@@ -225,7 +187,7 @@ void Controller::controlPlayer2(){
 	if(!co_op) return void();
   try{
     Model::Player& p2 = model->getPlayer2();
-    controlPlayer(p2, p2Movement);
+    controlPlayer(p2, false);
   }
   catch(std::out_of_range& e){return void();}
 }

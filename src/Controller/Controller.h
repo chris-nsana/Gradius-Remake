@@ -16,6 +16,13 @@ namespace sf{
 namespace Controller{
 
 class Controller{
+	
+	struct playerMovement{
+		bool left{false};
+		bool right{false};
+		bool up{false};
+		bool down{false};
+	};
 
 public:
 
@@ -34,7 +41,7 @@ public:
 
 	void pauseControl();
 
-	void controlPlayer(Model::Player& player, int pattern);
+	void controlPlayer(Model::Player& player, bool p1);
 
 	void controlPlayer1();
 
@@ -46,8 +53,8 @@ private:
 
 	std::shared_ptr<Model::Model> model;
 	std::shared_ptr<sf::RenderWindow> window;
-	int p1Movement;
-	int p2Movement;
+	playerMovement p1Movement;
+	playerMovement p2Movement;
 	bool co_op;
 	bool paused;
 
