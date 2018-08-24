@@ -7,7 +7,7 @@
 	"width"       : 1.0,
 	"height"      : 0.333,
 	"texture"     : "BlueViper"
-	},
+	},,
 
 "Player2" : {
 	"entity_type" : "PlayerShip",

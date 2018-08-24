@@ -153,13 +153,15 @@ void Game::showErrorMessage(GameException& e){
 	float height      = static_cast<float>(this->resolution.second);
 	
 	try{throw e;}
-	
-	catch(InternalError& e){
-		err2 = "Internal error occured...";
-	}
-	catch(ExternalError& e){
+	catch(GameException& e){
+		std::cout << " AHA" << std::endl;
 		err2 = e.what();
 	}
+	catch(InternalError& e){
+		std::cout << "OHO" << std::endl;
+		err2 = "Internal error occured...";
+	}
+
 	sf::Text t1(err1, this->errorFont);
 	t1.setCharacterSize(21);
 	t1.setPosition(sf::Vector2f(0.0f, 0.0f));
