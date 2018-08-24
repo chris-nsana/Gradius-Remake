@@ -33,9 +33,16 @@ Scoreboard::~Scoreboard(){}
 bool Scoreboard::checkEntry(int score){
   if(score == 0) return false;
   else if (entries.empty()) return true;
-  auto it = --(entries.end());
-  int entryScore = (*it)["score"];
-  return (entryScore < score);
+  std::set<std::pair<int, std::string>> elements;
+  for(auto& entry : entries){
+	  int score        = entry["score"];
+	  std::string name = entry["name"];
+	  std::pair<int, std::string> element = {score, name};
+	  elements.insert(element);
+  }
+  
+  if(score >= elements.rbegin()->first) return true;
+  else return false;
 }
 
 std::string Scoreboard::promptName(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window){
@@ -50,7 +57,7 @@ std::string Scoreboard::promptName(std::pair<int, int> resolution, const std::sh
   typed.setPosition(sf::Vector2f(0.035 * width, 0.5 * height));
   //This string is what is going to be represented in the window.
   std::string visual = "";
-  //The ammount of time to wait to show or hide the typing underscore
+  //The amount of time to wait to show or hide the typing underscore
   float flickerTime = 0.25f;
   //Bool indicating if the underscore is visible
   bool visibleChar  = true;
@@ -139,13 +146,16 @@ void Scoreboard::showScoreboard(std::pair<int, int> resolution, const std::share
     toDraw.push_back(temp1); toDraw.push_back(temp2);
     offset += 1;
   }
-  while(true){
+  while(window->isOpen()){
 	sf::Event event;
 	if(window->pollEvent(event)){
 		if(event.key.code == sf::Keyboard::Key::Escape) return void();
+		
 		else if(event.type == sf::Event::Resized){
-      utils::Transformation::getInstance().resizeWindow(window, event);
-    }
+			utils::Transformation::getInstance().resizeWindow(window, event);
+		}
+		
+		else if(event.type == sf::Event::Closed) window->close();
 	}
     window->clear(sf::Color(135, 206, 250));
     for(auto& drawable : toDraw){

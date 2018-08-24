@@ -1,7 +1,7 @@
 {
 "Player1" : {
 	"entity_type" : "PlayerShip",
-	"health"      : 100,
+	"health"      : 10000000000000,
 	"speed"       : 2.0,
 	"damage"      : 100,
 	"width"       : 1.0,
@@ -11,7 +11,7 @@
 
 "Player2" : {
 	"entity_type" : "PlayerShip",
-	"health"      : 1000000000000000,
+	"health"      : 1000000000000,
 	"speed"       : 2.0,
 	"damage"      : 1000000000000000,
 	"width"       : 1.0,

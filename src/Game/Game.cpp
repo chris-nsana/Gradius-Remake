@@ -62,7 +62,7 @@ void Game::run(){
 	float tick     = 1.0f / 60.0f;
 	gameModel->startLevel();
 
-	while(gameModel->isActive()){
+	while(gameModel->isActive() and window->isOpen()){
 		utils::Stopwatch::getInstance().reset();
 		//Process what the keyboard and view get as input
 		gameControl->processInput();
@@ -75,7 +75,8 @@ void Game::run(){
 		//Display these changes
 		gameView->displayGame();
     }
-		//The Model has ended either because of a loss or because of a win
+	//The Model has ended either because of a loss or because of a win and the window is still open.
+	if(window->isOpen()){
 		if(gameModel->isWinningState()) showVictoryScreen();
 		else showLossScreen();
 		int p1Score = gameModel->getPlayerScore(true);
@@ -86,12 +87,13 @@ void Game::run(){
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
 			scoreboard.addEntry(p1Score, playerName);
 		}
-
+		std::cout << p2Score << std::endl;
 		if(scoreboard.checkEntry(p2Score)){
 			showHighscoreMessage(false);
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
 			scoreboard.addEntry(p2Score, playerName);
 		}
+	}
 
 
 }
@@ -166,7 +168,7 @@ void Game::Menu::presentMainOptions(){
 	score.setPosition(sf::Vector2f(0.10 * width, (0.5 * height) + ((0.5 * height)/3.0) * 2));
 	textMap[currentOption+2] = score;
 
-	while(true){
+	while(game.window->isOpen()){
 		sf::Event event;
 		if(game.window->pollEvent(event)){
 			if(event.type == sf::Event::KeyReleased){
@@ -192,6 +194,8 @@ void Game::Menu::presentMainOptions(){
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
+			
+			else if(event.type == sf::Event::Closed) game.window->close();
 		}
 		game.window->clear();
 		for(auto& t : textMap){
@@ -219,7 +223,7 @@ void Game::Menu::modeSelection(){
 	coop.setPosition(sf::Vector2f(0.10 * width, (0.5 * height) + ((0.5 * height)/3.0)));
 	textMap[currentOption+1] = coop;
 
-	while(true){
+	while(game.window->isOpen()){
 		sf::Event event;
 		if(game.window->pollEvent(event)){
 			if(event.type == sf::Event::KeyReleased){
@@ -242,6 +246,9 @@ void Game::Menu::modeSelection(){
 				}
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
+				
+			else if(event.type == sf::Event::Closed) game.window->close();
+				
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
@@ -252,6 +259,7 @@ void Game::Menu::modeSelection(){
 		}
 		game.window->display();
 	}
+	
 }
 
 void Game::Menu::levelSelection(){
@@ -274,7 +282,7 @@ void Game::Menu::levelSelection(){
 	//Make the first choice red as usual.
 	textMap.begin()->second.setColor(sf::Color::Red);
 
-	while(true){
+	while(game.window->isOpen()){
 		sf::Event event;
 		if(game.window->pollEvent(event)){
 			if(event.type == sf::Event::KeyReleased){
@@ -296,10 +304,13 @@ void Game::Menu::levelSelection(){
 				}
 
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
+				
 			}
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
+			
+			else if(event.type == sf::Event::Closed) game.window->close();
 		}
 		game.window->clear();
 		for(auto& t : textMap){
