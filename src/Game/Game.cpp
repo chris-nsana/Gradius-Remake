@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Game/GameExceptions.h"
 #include "Model/Model.h"
 #include "Model/Entities/Entity.h"
 #include "Model/Events.h"
@@ -14,11 +15,30 @@ namespace Game{
 
 Game::Game() : gameMenu(*this), startingLevel(1) {
 	std::ifstream file("./../resources/config.json");
-	file >> this->configuration;
-	int resX = configuration["resolutionX"];
-	int resY = configuration["resolutionY"];
+	if(!file.is_open()) throw FileNotFoundError("Configuration file", "./../resources/config.json");
+	try{
+		file >> this->configuration;
+	}
+	catch(...){throw InvalidFileError("Configuration file");}
+	int resX;
+	int resY;
+	std::string fontPath1;
+	std::string fontPath2;
+	std::string scoreFile;
+	try{
+		resX      = configuration["resolutionX"];
+		resY      = configuration["resolutionY"];
+		fontPath1 = configuration["gameFont"];
+		fontPath2 = configuration["errorFont"];
+		scoreFile = configuration["scoreFile"];
+	}
+	catch(...){
+		throw InvalidInputError("Config file", "Invalid input detected.");
+	}
+	//If the aspect ratio doesn't match the expected value default to 800x600
 	if(((float)resX  / (float)resY) !=  (4.0f/3.0f)){
-
+		resX = 800.0f;
+		resY = 600.0f;
 	}
 	//This is how much pixels corresponds to 1.0 in the game's coordinate system.
 	float pixelUnit = (float)resX / 8.0f;
@@ -28,30 +48,41 @@ Game::Game() : gameMenu(*this), startingLevel(1) {
 	//This is an important setting to correctly handle keyboard input.
 	//This basically means that holding a key won't fill the Window Event queue with multiple events of that key.
 	window->setKeyRepeatEnabled(false);
-	this->gameFont.loadFromFile(configuration["gameFont"]);
-	this->errorFont.loadFromFile(configuration["errorFont"]);
-	std::string scoreFile = configuration["scoreFile"];
+	this->gameFont.loadFromFile(fontPath1);
+	this->errorFont.loadFromFile(fontPath2);
 	scoreboard = Scoreboard(scoreFile, this->gameFont);
 
 }
 
 void Game::start(){
-	this->gameMenu.presentMainOptions();
-	/*try{
+	try{
 		this->gameMenu.presentMainOptions();
 	}
 	catch(Game::GameException e){
-	  throw e;
-	}*/
+	  showErrorMessage(e);
+	}
 }
 
 void Game::init(bool co_op){
-	std::string entitiesFile        = configuration["entitiesFile"];
-	std::string texturesFile        = configuration["texturesFile"];
-	std::string gameFont            = configuration["gameFont"];
-	std::vector<std::string> levels = configuration["levels"];
-	int lives                       = configuration["playerLives"];
-
+	
+	std::string entitiesFile;
+	std::string texturesFile;
+	std::string gameFont;
+	std::vector<std::string> levels;
+	int lives;                   
+	
+	try{
+		entitiesFile                = configuration["entitiesFile"];
+	    texturesFile                = configuration["texturesFile"];
+		gameFont                    = configuration["gameFont"];
+		std::vector<std::string> t  = configuration["levels"];
+		levels                      = t;
+		lives                       = configuration["playerLives"];
+	}
+	
+	catch(...){
+		throw InvalidInputError("Config file", "Invalid input detected.");
+	}
 
 	gameView         = std::make_shared<View::View>(window, texturesFile, gameFont, co_op);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, lives, co_op);
@@ -89,7 +120,7 @@ void Game::run(){
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
 			scoreboard.addEntry(p1Score, playerName);
 		}
-		std::cout << p2Score << std::endl;
+		
 		if(scoreboard.checkEntry(p2Score)){
 			showHighscoreMessage(false);
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
@@ -113,6 +144,41 @@ void Game::showHighscoreMessage(bool p1){
 	if(p1) text = "PLAYER 1 REACHED HIGHSCORE!";
 	else text = "PLAYER 2 REACHED HIGHSCORE!";
 	showSimpleTextOnScreen(text, sf::Color::Blue);
+}
+
+void Game::showErrorMessage(GameException& e){
+	std::string err1 = "An error occured! Details:";
+	std::string err2;
+	float width       = static_cast<float>(game.resolution.first);
+	float height      = static_cast<float>(game.resolution.second);
+	
+	throw e;
+	
+	catch(InternalError& e){
+		err2 = "Internal error occured..."
+	}
+	catch(ExternalError& e){
+		err2 = e.what();
+	}
+	sf::Text t1(err1, this->errorFont);
+	t1.setCharacterSize(21);
+	t1.setPosition(sf::Vector2f(0.0f, 0.0f));
+	
+	sf::Text t2(err1, this->errorFont);
+	t1.setCharacterSize(21);
+	t1.setPosition(sf::Vector2f(0.0f, 0.5 * height));
+	
+	while(window->isOpen()){
+		sf::Event event;
+		if(window->pollEvent){
+			if(event.type == sf::Event::Closed) window->close();
+		}
+		
+		window->clear(sf::Color::Red);
+		window->draw(t1);
+		window->draw(t2);
+		window->display();
+	}
 }
 
 void Game::showSimpleTextOnScreen(std::string text, sf::Color color){

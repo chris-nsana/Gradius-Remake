@@ -12,6 +12,8 @@ namespace View{class View;}
 
 namespace Game{
 
+class GameException;
+
 class Game{
 
 	class Menu{
@@ -57,6 +59,8 @@ public:
 	void showLossScreen();
 
 	void showHighscoreMessage(bool p1);
+	
+	void showErrorMessage(GameException& e);
 
 
 private:
