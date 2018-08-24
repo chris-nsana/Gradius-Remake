@@ -26,19 +26,18 @@ public:
 	std::pair<float, float> coordinatesToPixels(float x, float y) const;
 
 		/**
-		* @brief ...
+		* @brief Returns how many pixels a distance of 1.0 is in the game coordinates.
 		*/
 	float getLengthUnit() const;
 
 	/**
 	 * @brief Method that changes the scale of the coordinate to pixel mapping
-	 * @param scale, a float that determines how much bigger the new screen is compared to the default.
+	 * @param unit a float that determines how big a distance of 1.0 in the game coordinates in pixels.
 	 */
 	 void setLengthUnit(float unit);
 
 	 /**
-	 * @brief
-	 *
+	 * @brief Resize the window while keeping the 4:3 aspect ratio.
 	 */
 	 void resizeWindow(const std::shared_ptr<sf::RenderWindow>& window, sf::Event& resizeEvent);
 

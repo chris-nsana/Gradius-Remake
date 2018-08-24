@@ -32,7 +32,7 @@ Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : scoreFile(score
 
 Scoreboard::~Scoreboard(){}
 
-bool Scoreboard::checkEntry(int score){
+bool Scoreboard::checkEntry(int score) const{
   if(score == 0) return false;
   else if (entries.empty()) return true;
   std::set<std::pair<int, std::string>> elements;
@@ -42,7 +42,7 @@ bool Scoreboard::checkEntry(int score){
 	  std::pair<int, std::string> element = {score, name};
 	  elements.insert(element);
   }
-  
+
   if(score >= elements.rbegin()->first) return true;
   else return false;
 }
@@ -152,11 +152,11 @@ void Scoreboard::showScoreboard(std::pair<int, int> resolution, const std::share
 	sf::Event event;
 	if(window->pollEvent(event)){
 		if(event.key.code == sf::Keyboard::Key::Escape) return void();
-		
+
 		else if(event.type == sf::Event::Resized){
 			utils::Transformation::getInstance().resizeWindow(window, event);
 		}
-		
+
 		else if(event.type == sf::Event::Closed) window->close();
 	}
     window->clear(sf::Color(135, 206, 250));

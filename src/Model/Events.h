@@ -13,6 +13,9 @@ protected:
 
 public:
 
+  /**
+   * @brief Abstract base for all Events in the game that will be stored in the EventQueue.
+   */
   Event();
 
   virtual ~Event();

@@ -58,28 +58,31 @@ void Game::start(){
 	try{
 		this->gameMenu.presentMainOptions();
 	}
-	catch(GameException& e){
-	  showErrorMessage(e);
+	catch(InternalError& e){
+	  showErrorMessage("Internal error occured.");
+	}
+	catch(ExternalError& e){
+		showErrorMessage(e.what());
 	}
 }
 
 void Game::init(bool co_op){
-	
+
 	std::string entitiesFile;
 	std::string texturesFile;
 	std::string gameFont;
 	std::vector<std::string> levels;
-	int lives;                   
-	
+	int lives;
+
 	try{
 		entitiesFile                = configuration["entitiesFile"];
-	    texturesFile                = configuration["texturesFile"];
+	  texturesFile                = configuration["texturesFile"];
 		gameFont                    = configuration["gameFont"];
 		std::vector<std::string> t  = configuration["levels"];
 		levels                      = t;
 		lives                       = configuration["playerLives"];
 	}
-	
+
 	catch(...){
 		throw InvalidInputError("Config file", "Invalid input detected.");
 	}
@@ -120,7 +123,7 @@ void Game::run(){
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
 			scoreboard.addEntry(p1Score, playerName);
 		}
-		
+
 		if(scoreboard.checkEntry(p2Score)){
 			showHighscoreMessage(false);
 			std::string playerName = scoreboard.promptName(this->resolution, this->window);
@@ -146,36 +149,30 @@ void Game::showHighscoreMessage(bool p1){
 	showSimpleTextOnScreen(text, sf::Color::Blue);
 }
 
-void Game::showErrorMessage(GameException& e){
-	std::string err1 = "An error occured! Details:";
-	std::string err2;
+void Game::showErrorMessage(std::string message){
 	float width       = static_cast<float>(this->resolution.first);
 	float height      = static_cast<float>(this->resolution.second);
-	
-	try{throw e;}
-	catch(GameException& e){
-		std::cout << " AHA" << std::endl;
-		err2 = e.what();
-	}
-	catch(InternalError& e){
-		std::cout << "OHO" << std::endl;
-		err2 = "Internal error occured...";
-	}
+	std::cout << "An error occured! Details:" << std::endl;
+	std::cout << message << std::endl;
 
-	sf::Text t1(err1, this->errorFont);
+	sf::Text t1("An error occured! Details:", this->errorFont);
 	t1.setCharacterSize(21);
 	t1.setPosition(sf::Vector2f(0.0f, 0.0f));
-	
-	sf::Text t2(err1, this->errorFont);
-	t1.setCharacterSize(21);
-	t1.setPosition(sf::Vector2f(0.0f, 0.5 * height));
-	
+
+	sf::Text t2(message, this->errorFont);
+	t2.setCharacterSize(21);
+	t2.setPosition(sf::Vector2f(0.0f, 0.5 * height));
+
 	while(window->isOpen()){
 		sf::Event event;
 		if(window->pollEvent(event)){
 			if(event.type == sf::Event::Closed) window->close();
 		}
-		
+
+		else if(event.type == sf::Event::Resized){
+			utils::Transformation::getInstance().resizeWindow(window, event);
+		}
+
 		window->clear(sf::Color::Red);
 		window->draw(t1);
 		window->draw(t2);
@@ -264,7 +261,7 @@ void Game::Menu::presentMainOptions(){
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
-			
+
 			else if(event.type == sf::Event::Closed) game.window->close();
 		}
 		game.window->clear();
@@ -316,9 +313,9 @@ void Game::Menu::modeSelection(){
 				}
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
 			}
-				
+
 			else if(event.type == sf::Event::Closed) game.window->close();
-				
+
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
@@ -329,7 +326,7 @@ void Game::Menu::modeSelection(){
 		}
 		game.window->display();
 	}
-	
+
 }
 
 void Game::Menu::levelSelection(){
@@ -374,12 +371,12 @@ void Game::Menu::levelSelection(){
 				}
 
 				else if(event.key.code == sf::Keyboard::Key::Escape) return void();
-				
+
 			}
 			else if(event.type == sf::Event::Resized){
 				utils::Transformation::getInstance().resizeWindow(game.window, event);
 			}
-			
+
 			else if(event.type == sf::Event::Closed) game.window->close();
 		}
 		game.window->clear();

@@ -8,6 +8,12 @@ class Event;
 
 namespace Model{
 
+
+  /**
+   * @brief EventQueue class
+   * Object concerned with the addition and holding of events
+   * Is a Singleton because at any time only one queue should get all the events
+   */
 class EventQueue : public utils::Singleton<EventQueue>{
   friend Singleton<EventQueue>;
 

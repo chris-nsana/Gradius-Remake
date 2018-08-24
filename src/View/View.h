@@ -33,47 +33,58 @@ public:
 	/**
 	 * @brief Method that creates a new sprite for an object that will be displayed by View.
 	 * @param int id to identify which object we're displaying
-	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 * @param string texture used to make a basic sprite
 	 */
 	void addSprite(int id, std::string texture);
 
+	/**
+	 * @brief Method that scales a sprite using its real width and height in the game
+	 * @param int id to identify which object we're displaying
+	 * @param float width the real width in the model system
+	 * @param float height the real width in the model system
+	 * @param bool indicating whether the sprite is a sprite sheet.
+	 */
 	void scaleSprite(int id, float width, float height, bool sheet);
 
+	/**
+	 * @brief Method that creates a new animation object that will be displayed by View.
+	 * @param int id to identify which object we're displaying
+	 * @param string texture used to make an animation
+	 */
 	void addAnimation(int id, std::string texture);
 
 	/**
-	 * @brief Method that creates the animation object for a certain entity that will be displayed
+	 * @brief Method that tells the Viewer a new entity has been created and its visual representation should be created.
 	 * @param int id to identify which object we're animating.
-	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 * @param float width the real width in the model system
+	 * @param float height the real width in the model system
+	 * @param string the texture needed to make the visual representation
 	 */
 	void informCreation(int id, float width, float height, std::string texture);
 
 	/**
 	 * @brief Method that informs the view of a entity's changes.
+	 	* @param integer id the entity ID to identify which entity is changing
 	 * @param float x the x-coordinate of the entity in the model
 	 * @param float y the y-coordinate of the entity in the model
-	 * @param integer id the entity ID to identify which entity is changing
-	 * @param int type an integer that represents what type of entity is informing the view of its changes.
-	 * @param bool animatet that tells the view if the entity is animated or not
 	 */
 	void inform(int id, float x, float y);
 
 	/**
-	 * @brief Method that creates the animation object for a certain entity that will be displayed
-	 * @param int id to identify which object we're animating.
-	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 * @brief Method that informs the view an entity is hit and to visualize it
+	 * @param int id to identify which object we're using.
 	 */
 	void informHit(int id);
 
 	/**
-	 * @brief Method that creates the animation object for a certain entity that will be displayed
-	 * @param int id to identify which object we're animating.
-	 * @param int typeOfEntity represents the type of the object, since its type determines certain attributes.
+	 * @brief Method that informs that an entity has died
+	 * @param int id to identify which object has died
 	 */
 	void informDeath(int id);
 
 	/**
-	*@brief Method that ...
+	*@brief Method that informs the view about the changes in playerInfo (lives, score et cetera)
+	* @param bool p1 indicating if it's updating player1, true for player1 and false for player 2
 	*/
 	void informPlayerInfo(bool p1, int lives, int score);
 
@@ -82,13 +93,20 @@ public:
 	 * @param int ID to identify the entity
 	 */
 	void deleteEntity(int ID);
+
 	/**
 	 * @brief Method that updates all the animations of the view.
 	 */
 	void updateAnimations();
 
+	/**
+	 * @brief Method that freezes the view.
+	 */
 	void freezeView();
 
+	/**
+	 * @brief Method that unfreezes the view.
+	 */
 	void unfreezeView();
 
 private:

@@ -7,6 +7,10 @@ namespace View{ class View;}
 
 namespace Model{
 
+  /**
+   * @brief PlayerData class
+   * Holds crucial information about the Player that should be remembered even past its lifetime
+   */
 class PlayerData{
 public:
 

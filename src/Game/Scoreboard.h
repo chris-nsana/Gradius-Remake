@@ -17,7 +17,7 @@ public:
 
    ~Scoreboard();
 
-   bool checkEntry(int score);
+   bool checkEntry(int score) const;
 
    std::string promptName(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window);
 

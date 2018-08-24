@@ -335,8 +335,6 @@ void Model::addPoints(int id, int amount){
     p1.addPoints(amount);
   } else if (id == p2.getID()) {
     p2.addPoints(amount);
-  } else {
-	  throw Game::EntityNotFoundError(id);
   }
 }
 

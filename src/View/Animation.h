@@ -25,22 +25,18 @@ public:
 	~Animation();
 
 	/**
-	*@brief Bloodee blabla bloo blieblie bloo bla
+	*@brief Method that returns a sf::IntRect rerpesenting the current animation frame
 	*/
 	const sf::IntRect& getTextureRect() const;
 
-	/**
-	*@brief Bloodee blabla bloo blieblie bloo bla
-	*/
+
 	int getNumberOfFrames() const;
 
-	/**
-	*@brief Bloodee blabla bloo blieblie bloo bla
-	*/
+
 	int getNumberOfRows() const;
 
 	/**
-	*@brief Bloodee blabla bloo blieblie bloo bla
+	*@brief Return the amount of time it takes to move on to the next frame
 	*/
 	float getSwitchTime() const;
 
@@ -51,8 +47,7 @@ public:
 	void update(float deltaTime);
 
 	/**
-	 * @brief Method that changes the animation sequence to a different one.
-	 * @param int nRow that represents is used to choose this new sequence.
+	 * @brief Method that changes the animation sequence to the next one, which is the one for death.
 	 */
 	void startDeathAnimation();
 

@@ -8,6 +8,11 @@ namespace Model{
 
 class Entity;
 
+/**
+ * @brief EntityFactory class to create all the entities given their typ
+ * Encapsulates the main game loop, collision detection and UI related functions
+ * Is a Singleton because at any time only one Game should exist
+ */
 class EntityFactory{
 
   //Struct to convienently pass all the needed arguments to the creation methods.
@@ -57,7 +62,7 @@ private:
   std::unique_ptr<Entity> createShooterBoss(creationArgs& args);
 
   std::unique_ptr<Entity> createCrystalBoss(creationArgs& args);
-  
+
   int readWorth(std::string type) const;
 
   using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&);

@@ -16,9 +16,12 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, s
 	nlohmann::json textures;
 	std::ifstream file{texturesFile};
 	if(!file.is_open()) throw Game::FileNotFoundError("Texturefile", texturesFile);
-	file >> textures;
+  try{
+	   file >> textures;
+  }
+  catch(...){ throw Game::InvalidFileError("Texturesfile");}
 	this->texturesJson = textures;
-	
+
 	try{
 		for(auto it = textures.begin(); it != textures.end(); ++it ){
 			auto textureName = it.key();
@@ -32,7 +35,7 @@ View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, s
 		std::string details = "An element in the file contains an invalid value.";
 		throw Game::InvalidInputError(texturesFile, details);
 	}
-			
+
 
 	const sf::Texture& lifeTexture = *((this->textures["lifeIcon"]).get());
 	playerStatus = StatusDisplay(lifeTexture, this->font, co_op);

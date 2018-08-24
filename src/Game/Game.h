@@ -58,8 +58,8 @@ public:
 	void showLossScreen();
 
 	void showHighscoreMessage(bool p1);
-	
-	void showErrorMessage(GameException& e);
+
+	void showErrorMessage(std::string message);
 
 
 private:
