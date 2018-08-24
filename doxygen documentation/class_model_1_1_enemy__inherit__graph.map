@@ -1,0 +1,12 @@
+<map id="Model::Enemy" name="Model::Enemy">
+<area shape="rect" id="node3" href="$class_model_1_1_crystal_boss.html" title="Model::CrystalBoss" alt="" coords="314,5,451,32"/>
+<area shape="rect" id="node4" href="$class_model_1_1_enemy_bullet.html" title="Model::EnemyBullet" alt="" coords="313,56,452,83"/>
+<area shape="rect" id="node5" href="$class_model_1_1_enemy_grunt.html" title="Model::EnemyGrunt" alt="" coords="313,107,452,133"/>
+<area shape="rect" id="node6" href="$class_model_1_1_enemy_laser.html" title="Model::EnemyLaser" alt="" coords="313,157,452,184"/>
+<area shape="rect" id="node7" href="$class_model_1_1_enemy_shooter.html" title="Model::EnemyShooter" alt="" coords="307,208,458,235"/>
+<area shape="rect" id="node8" href="$class_model_1_1_flying_obstacle.html" title="Model::FlyingObstacle" alt="" coords="307,259,459,285"/>
+<area shape="rect" id="node9" href="$class_model_1_1_flying_saucer.html" title="Model::FlyingSaucer" alt="" coords="312,309,453,336"/>
+<area shape="rect" id="node10" href="$class_model_1_1_saucer_boss.html" title="Model::SaucerBoss" alt="" coords="315,360,451,387"/>
+<area shape="rect" id="node11" href="$class_model_1_1_shooter_boss.html" title="Model::ShooterBoss" alt="" coords="313,411,453,437"/>
+<area shape="rect" id="node2" href="$class_model_1_1_entity.html" title="Model::Entity" alt="" coords="5,208,104,235"/>
+</map>

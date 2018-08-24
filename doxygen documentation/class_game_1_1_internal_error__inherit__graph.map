@@ -1,0 +1,5 @@
+<map id="Game::InternalError" name="Game::InternalError">
+<area shape="rect" id="node4" href="$class_game_1_1_entity_not_found_error.html" title="Game::EntityNotFoundError" alt="" coords="5,229,189,256"/>
+<area shape="rect" id="node5" href="$class_game_1_1_observer_error.html" title="Game::ObserverError" alt="" coords="213,229,360,256"/>
+<area shape="rect" id="node2" href="$class_game_1_1_game_exception.html" title="Game::GameException" alt="" coords="113,80,271,107"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Model::Neutral" name="Model::Neutral">
+<area shape="rect" id="node3" href="$class_model_1_1_background.html" title="Model::Background" alt="" coords="5,155,140,181"/>
+<area shape="rect" id="node4" href="$class_model_1_1_border.html" title="Model::Border" alt="" coords="164,155,267,181"/>
+<area shape="rect" id="node2" href="$class_model_1_1_entity.html" title="Model::Entity" alt="" coords="94,5,193,32"/>
+</map>

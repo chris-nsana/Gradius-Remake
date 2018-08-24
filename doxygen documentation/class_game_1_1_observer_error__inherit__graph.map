@@ -1,0 +1,4 @@
+<map id="Game::ObserverError" name="Game::ObserverError">
+<area shape="rect" id="node2" href="$class_game_1_1_internal_error.html" title="Game::InternalError" alt="" coords="17,155,153,181"/>
+<area shape="rect" id="node3" href="$class_game_1_1_game_exception.html" title="Game::GameException" alt="" coords="5,80,164,107"/>
+</map>

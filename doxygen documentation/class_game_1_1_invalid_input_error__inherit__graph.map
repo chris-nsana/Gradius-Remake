@@ -1,0 +1,4 @@
+<map id="Game::InvalidInputError" name="Game::InvalidInputError">
+<area shape="rect" id="node2" href="$class_game_1_1_external_error.html" title="Game::ExternalError" alt="" coords="15,155,156,181"/>
+<area shape="rect" id="node3" href="$class_game_1_1_game_exception.html" title="Game::GameException" alt="" coords="6,80,165,107"/>
+</map>

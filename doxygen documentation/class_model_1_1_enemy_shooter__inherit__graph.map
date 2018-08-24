@@ -1,0 +1,4 @@
+<map id="Model::EnemyShooter" name="Model::EnemyShooter">
+<area shape="rect" id="node2" href="$class_model_1_1_enemy.html" title="Model::Enemy" alt="" coords="27,80,134,107"/>
+<area shape="rect" id="node3" href="$class_model_1_1_entity.html" title="Model::Entity" alt="" coords="31,5,130,32"/>
+</map>

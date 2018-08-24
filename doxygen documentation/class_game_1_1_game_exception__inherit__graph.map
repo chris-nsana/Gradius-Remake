@@ -1,0 +1,9 @@
+<map id="Game::GameException" name="Game::GameException">
+<area shape="rect" id="node3" href="$class_game_1_1_external_error.html" title="Game::ExternalError" alt="" coords="364,81,505,108"/>
+<area shape="rect" id="node7" href="$class_game_1_1_internal_error.html" title="Game::InternalError" alt="" coords="367,157,503,184"/>
+<area shape="rect" id="node4" href="$class_game_1_1_file_not_found_error.html" title="Game::FileNotFoundError" alt="" coords="560,5,731,32"/>
+<area shape="rect" id="node5" href="$class_game_1_1_invalid_file_error.html" title="Game::InvalidFileError" alt="" coords="569,56,721,83"/>
+<area shape="rect" id="node6" href="$class_game_1_1_invalid_input_error.html" title="Game::InvalidInputError" alt="" coords="565,107,725,133"/>
+<area shape="rect" id="node8" href="$class_game_1_1_entity_not_found_error.html" title="Game::EntityNotFoundError" alt="" coords="553,157,737,184"/>
+<area shape="rect" id="node9" href="$class_game_1_1_observer_error.html" title="Game::ObserverError" alt="" coords="572,208,719,235"/>
+</map>

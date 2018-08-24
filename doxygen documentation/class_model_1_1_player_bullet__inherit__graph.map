@@ -1,0 +1,4 @@
+<map id="Model::PlayerBullet" name="Model::PlayerBullet">
+<area shape="rect" id="node2" href="$class_model_1_1_friendly.html" title="Model::Friendly" alt="" coords="17,80,128,107"/>
+<area shape="rect" id="node3" href="$class_model_1_1_entity.html" title="Model::Entity" alt="" coords="23,5,122,32"/>
+</map>

@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['saucerboss',['SaucerBoss',['../class_model_1_1_saucer_boss.html#ab2db41994fa3b870dd4fcccd352638f8',1,'Model::SaucerBoss']]],
+  ['scalesprite',['scaleSprite',['../class_view_1_1_view.html#a6f3368a08b4267841ff4bf60e9c8e954',1,'View::View']]],
+  ['scoreboard',['Scoreboard',['../class_game_1_1_scoreboard.html#a561a03e8d2b63a7f0bf0343bc8c39a7f',1,'Game::Scoreboard::Scoreboard()'],['../class_game_1_1_scoreboard.html#afc744813fc0fed5bd4ae1a18f78e285d',1,'Game::Scoreboard::Scoreboard(std::string &amp;scoreFile, sf::Font &amp;font)']]],
+  ['setcreatorid',['setCreatorID',['../class_model_1_1_entity.html#a8c0e91d25f8d9cb5e2bdf322da8ea725',1,'Model::Entity']]],
+  ['setid',['setID',['../class_model_1_1_player_data.html#abe35fd83135106bdedc00839a861e380',1,'Model::PlayerData']]],
+  ['setlengthunit',['setLengthUnit',['../classutils_1_1_transformation.html#a8f0ad65bbc7985a67fd4ee35ff6afb9f',1,'utils::Transformation']]],
+  ['setmodel',['setModel',['../class_model_1_1_event.html#a3b71fb81fc437dd15924c61ef9a1c356',1,'Model::Event']]],
+  ['setposition',['setPosition',['../class_model_1_1_entity.html#a2db5d01d5f5d92b6fe369b980f492330',1,'Model::Entity']]],
+  ['setshooterid',['setShooterID',['../class_model_1_1_player_bullet.html#a0accb0e1ff195f8c9dc810c7a84acb5d',1,'Model::PlayerBullet']]],
+  ['setworth',['setWorth',['../class_model_1_1_entity.html#ae6eae2e94f95605e24381687fccbaaaa',1,'Model::Entity']]],
+  ['shooterboss',['ShooterBoss',['../class_model_1_1_shooter_boss.html#a3bba44770ffd4e104be2d692175c92d2',1,'Model::ShooterBoss']]],
+  ['showerrormessage',['showErrorMessage',['../class_game_1_1_game.html#a2a69a161dced71c0f7aadeb83996f4c7',1,'Game::Game']]],
+  ['showhighscoremessage',['showHighscoreMessage',['../class_game_1_1_game.html#ae121bfa8b907acfb4927cbaf3d58a77b',1,'Game::Game']]],
+  ['showlossscreen',['showLossScreen',['../class_game_1_1_game.html#a67db61733b859cf7dfd0e8959340cc9b',1,'Game::Game']]],
+  ['showscoreboard',['showScoreboard',['../class_game_1_1_scoreboard.html#a3612f64ca5876b08896f8a74e1a1bf07',1,'Game::Scoreboard']]],
+  ['showvictoryscreen',['showVictoryScreen',['../class_game_1_1_game.html#ab0c650b2ef107d2c712bba50588b87f1',1,'Game::Game']]],
+  ['start',['start',['../class_game_1_1_game.html#a38bc10d6ea07e82ca028938bc0e7513c',1,'Game::Game']]],
+  ['startdeathanimation',['startDeathAnimation',['../class_view_1_1_animation.html#ac39f7839a97d5cba03ed0f315830d78a',1,'View::Animation']]],
+  ['startlevel',['startLevel',['../class_model_1_1_model.html#a2a1568b795e138e2d38116e46ce0db5a',1,'Model::Model']]],
+  ['startnextlevel',['startNextLevel',['../class_model_1_1_model.html#a15ccaf83b67256568156d9eec5418f85',1,'Model::Model']]],
+  ['statusdisplay',['StatusDisplay',['../class_view_1_1_status_display.html#a7cbc7280ca6157b8139b7be6eec59801',1,'View::StatusDisplay::StatusDisplay()'],['../class_view_1_1_status_display.html#a18fdb0274e0a82c954bace6cb553040c',1,'View::StatusDisplay::StatusDisplay(const sf::Texture &amp;lifeTexture, sf::Font &amp;font, bool co_op)']]],
+  ['stringify_5fscore',['stringify_score',['../class_view_1_1_status_display.html#aa3a8ec00e7a46042595561fe2054b5a5',1,'View::StatusDisplay']]]
+];

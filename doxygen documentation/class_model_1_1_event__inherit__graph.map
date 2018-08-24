@@ -1,0 +1,11 @@
+<map id="Model::Event" name="Model::Event">
+<area shape="rect" id="node2" href="$class_model_1_1_boss_death.html" title="Model::BossDeath" alt="" coords="160,5,291,32"/>
+<area shape="rect" id="node3" href="$class_model_1_1_enemy_death.html" title="Model::EnemyDeath" alt="" coords="155,56,296,83"/>
+<area shape="rect" id="node4" href="$class_model_1_1_enemy_fire.html" title="Model::EnemyFire" alt="" coords="161,107,289,133"/>
+<area shape="rect" id="node5" href="$class_model_1_1_friendly_death.html" title="Model::FriendlyDeath" alt="" coords="152,157,299,184"/>
+<area shape="rect" id="node6" href="$class_model_1_1_level_end.html" title="Model::LevelEnd" alt="" coords="166,208,285,235"/>
+<area shape="rect" id="node7" href="$class_model_1_1_level_reset.html" title="Model::LevelReset" alt="" coords="160,259,291,285"/>
+<area shape="rect" id="node8" href="$class_model_1_1_player_death.html" title="Model::PlayerDeath" alt="" coords="157,309,294,336"/>
+<area shape="rect" id="node9" href="$class_model_1_1_player_fire.html" title="Model::PlayerFire" alt="" coords="163,360,287,387"/>
+<area shape="rect" id="node10" href="$class_model_1_1_points_gain.html" title="Model::PointsGain" alt="" coords="161,411,290,437"/>
+</map>
