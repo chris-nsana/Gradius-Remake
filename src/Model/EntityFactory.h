@@ -57,6 +57,8 @@ private:
   std::unique_ptr<Entity> createShooterBoss(creationArgs& args);
 
   std::unique_ptr<Entity> createCrystalBoss(creationArgs& args);
+  
+  int readWorth(std::string type) const;
 
   using creationMethod = std::unique_ptr<Entity> (EntityFactory::*)(creationArgs&);
   std::map<std::string, creationMethod> creationMap;

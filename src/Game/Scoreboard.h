@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "Utilities/json.hpp"
 
-class Game;
+namespace Game{
 
 class Scoreboard{
 
@@ -30,5 +30,7 @@ private:
   std::string scoreFile;
   sf::Font font;
 };
+
+}
 
 #endif /* SCOREBOARD_H_ */

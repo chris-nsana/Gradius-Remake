@@ -10,6 +10,7 @@ namespace Model{class Model;}
 namespace Controller{class Controller;}
 namespace View{class View;}
 
+namespace Game{
 
 class Game{
 
@@ -76,6 +77,8 @@ private:
 	Scoreboard scoreboard;
 	int startingLevel;
 };
+
+}
 
 
 

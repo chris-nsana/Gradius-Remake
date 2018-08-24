@@ -3,6 +3,7 @@
 #include "Model/Entities/Player.h"
 #include "Utilities/Stopwatch.h"
 #include "Utilities/Transformation.h"
+#include "Game/GameExceptions.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -94,7 +95,7 @@ void Controller::processKeyPressed(sf::Event& event){
         auto& p1 = model->getPlayer1();
 			  p1.fire();
       }
-      catch(std::out_of_range& e){}
+      catch(Game::EntityNotFoundError& e){}
 			break;
 		}
 
@@ -105,7 +106,7 @@ void Controller::processKeyPressed(sf::Event& event){
   			auto& p2 = model->getPlayer2();
   			p2.fire();
       }
-      catch(std::out_of_range& e){}
+      catch(Game::EntityNotFoundError& e){}
 			break;
 			}
 		}
@@ -180,7 +181,7 @@ void Controller::controlPlayer1(){
     Model::Player& p1 = model->getPlayer1();
     controlPlayer(p1, true);
   }
-  catch(std::out_of_range& e){return void();}
+  catch(Game::EntityNotFoundError& e){return void();}
 }
 
 void Controller::controlPlayer2(){
@@ -190,7 +191,7 @@ void Controller::controlPlayer2(){
     Model::Player& p2 = model->getPlayer2();
     controlPlayer(p2, false);
   }
-  catch(std::out_of_range& e){return void();}
+  catch(Game::EntityNotFoundError& e){return void();}
 }
 
 }

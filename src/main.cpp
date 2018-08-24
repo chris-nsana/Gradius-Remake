@@ -3,7 +3,7 @@
 
 int main()
 {
-    Game Gradius;
+    Game::Game Gradius;
     Gradius.start();
     return 0;
 }

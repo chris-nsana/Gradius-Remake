@@ -5,25 +5,34 @@
 #include "Animation.h"
 #include "Utilities/Transformation.h"
 #include "Utilities/Stopwatch.h"
+#include "Game/GameExceptions.h"
 #include "View.h"
 
 namespace View{
 
 View::View(std::shared_ptr<sf::RenderWindow> window, std::string texturesFile, std::string fontPath, bool co_op)
  : window(window), co_op(co_op), paused(false){
-	this->font.loadFromFile(fontPath);
+	if(!this->font.loadFromFile(fontPath)) throw Game::FileNotFoundError("Font file", fontPath);
 	nlohmann::json textures;
 	std::ifstream file{texturesFile};
+	if(!file.is_open()) throw Game::FileNotFoundError("Texturefile", texturesFile);
 	file >> textures;
 	this->texturesJson = textures;
-
-	for(auto it = textures.begin(); it != textures.end(); ++it ){
-		auto textureName = it.key();
-		auto file_path   = it.value()["image_path"];
-		this->textures[textureName] = std::make_unique<sf::Texture>();
-		this->textures[textureName]->loadFromFile(file_path);
-		this->textures[textureName]->setRepeated(true);
+	
+	try{
+		for(auto it = textures.begin(); it != textures.end(); ++it ){
+			auto textureName = it.key();
+			auto file_path   = it.value()["image_path"];
+			this->textures[textureName] = std::make_unique<sf::Texture>();
+			this->textures[textureName]->loadFromFile(file_path);
+			this->textures[textureName]->setRepeated(true);
+		}
 	}
+	catch(...){
+		std::string details = "An element in the file contains an invalid value.";
+		throw Game::InvalidInputError(texturesFile, details);
+	}
+			
 
 	const sf::Texture& lifeTexture = *((this->textures["lifeIcon"]).get());
 	playerStatus = StatusDisplay(lifeTexture, this->font, co_op);
@@ -119,12 +128,7 @@ void View::informCreation(int id, float width, float height, std::string texture
 
 void View::inform(int id, float x, float y){
 	//Get the existing sprite
-	try{
-	sf::Sprite& curSprite = sprites.at(id);
-	}
-	catch(std::out_of_range& e){
-		throw std::logic_error("pop");
-	}
+	sf::Sprite& curSprite = sprites[id];
 	float xPixels, yPixels;
 	//Unpacking the pixel values that the Transformation object returned in the variables xPixels and yPixels.
 	std::tie(xPixels, yPixels) = utils::Transformation::getInstance().coordinatesToPixels(x, y);

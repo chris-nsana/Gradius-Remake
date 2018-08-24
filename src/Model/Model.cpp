@@ -1,6 +1,8 @@
 #include "Model.h"
 #include "EventQueue.h"
+#include "Entities/Entity.h"
 #include "Entities/Player.h"
+#include "Game/GameExceptions.h"
 
 #include <iostream>
 #include <fstream>
@@ -16,6 +18,7 @@ Model::Model(std::string entitiesFile, std::vector<std::string> levels, int leve
 Model::~Model(){}
 
 void Model::attach(const std::shared_ptr<View::View>& obs){
+  Entity::attach(obs);
   observer = obs;
   p1.attach(obs);
   p2.attach(obs);
@@ -38,8 +41,17 @@ void Model::createEntity(std::string type, float x, float y, int creatorID){
 }
 
 void Model::createWorldElements(nlohmann::json& levelInfo){
-  std::string background = levelInfo["Background"];
-  std::string border     = levelInfo["Border"];
+   std::string background;
+   std::string border;
+  try{
+    background = levelInfo["Background"];
+    border     = levelInfo["Border"];
+  }
+  catch(...){
+	std::string descr  = "Level file number " + std::to_string(currentLevel);
+	std::string detail = "The 'Background' or 'Border' key doesn't have a valid value";
+    throw Game::InvalidInputError(descr, detail);
+  }
   float xpos = 0;
 
   for(int i = 0; i < 3; i += 1){
@@ -70,7 +82,14 @@ void Model::startLevel(){
   nlohmann::json level;
   std::string filepath = "./../resources/levels/" + levels[currentLevel-1];
   std::ifstream file(filepath);
-  file >> level;
+  if(!file.is_open()) throw Game::FileNotFoundError("Level file", filepath);
+  try{
+      file >> level;
+   }
+  catch(...){
+	std::string ref = "Level file number " + std::to_string(currentLevel);
+	throw Game::InvalidFileError(ref);
+  }
   createWorldElements(level);
   std::vector<nlohmann::json> elements = level["Elements"];
   this->levelElements = std::move(elements);
@@ -97,7 +116,15 @@ void Model::resetLevel(){
   nlohmann::json level;
   std::string filepath = "./../resources/levels/" + levels[currentLevel-1];
   std::ifstream file(filepath);
-  file >> level;
+  //If the file isn't found throw an exception.
+  if(!file.is_open()) throw Game::FileNotFoundError("Level file", filepath);
+  try{
+    file >> level;
+  }
+  catch(...){
+	std::string ref = "Level file number " + std::to_string(currentLevel);
+	throw Game::InvalidFileError(ref);
+  }
   //Clear the whole game world
   this->entities.clear();
   //Recreate the bare bones
@@ -129,23 +156,30 @@ void Model::startNextLevel(){
 }
 
 void Model::readLevel(){
-  for(auto it = elementPtr; it != levelElements.end(); ++it){
-    //If it's time to process this element
-    if(levelTime >= (*it)["timeframe"]){
-      std::string type = (*it)["entity_type"];
-      float x          = (*it)["posX"];
-      float y          = (*it)["posY"];
-      createEntity(type, x, y);
-    }
-    //Else it's too early and we wait. All events after this one also have to wait so we break out of the method.
-    else{
-      //Store this location in the vector to resume at later ticks.
-      elementPtr = it;
-      return void();
-    }
+  try{
+	  for(auto it = elementPtr; it != levelElements.end(); ++it){
+		//If it's time to process this element
+		if(levelTime >= (*it)["timeframe"]){
+		  std::string type = (*it)["entity_type"];
+		  float x          = (*it)["posX"];
+		  float y          = (*it)["posY"];
+		  createEntity(type, x, y);
+		}
+		//Else it's too early and we wait. All events after this one also have to wait so we break out of the method.
+		else{
+		  //Store this location in the vector to resume at later ticks.
+		  elementPtr = it;
+		  return void();
+		}
+	  }
+	  //If all elements are already read
+	  elementPtr = levelElements.end();
   }
-  //If all elements are already read
-  elementPtr = levelElements.end();
+  catch(...){
+    std::string ref   = "Level file " + std::to_string(currentLevel);
+    std::string descr = "A level element contains an invalid value for a key";
+    throw Game::InvalidInputError(ref, descr);
+  }
 }
 
 void Model::update(){
@@ -223,7 +257,7 @@ void Model::decreasePlayerLives(int id, int lives){
     p2.takeLives(lives);
   }
   else{
-    //throw exception here
+	  throw Game::EntityNotFoundError(id);
   }
 }
 
@@ -235,7 +269,7 @@ Player& Model::getPlayer1(){
       return playerRef;
     }
     else{
-      throw std::out_of_range("");
+    	throw Game::EntityNotFoundError(this->p1.getID());
     }
 }
 
@@ -247,7 +281,7 @@ Player& Model::getPlayer2(){
       return playerRef;
     }
     else{
-      throw std::out_of_range("");
+    	throw Game::EntityNotFoundError(this->p2.getID());
     }
 }
 
@@ -264,7 +298,7 @@ void Model::freeze(double time, bool informView){
       if(auto spt = observer.lock()){
         spt->freezeView();
       }
-      else throw std::runtime_error("This should be a custom exception.");
+      else throw Game::ObserverError("No observer attached to the Model.");
     }
   }
 }
@@ -280,7 +314,7 @@ void Model::unfreeze(){
     if(auto spt = observer.lock()){
       spt->unfreezeView();
     }
-    else throw std::runtime_error("This should be a custom exception.");
+    else throw Game::ObserverError("No observer attached to the Model.");
   }
 }
 
@@ -294,8 +328,6 @@ Model::entity_it Model::locateEntity(int eID){
   }
   //Return end iterator if no entity is found with this ID.
   return entities.end();
-  //Throw exception if not found.
-  throw std::out_of_range(std::to_string(eID));
 }
 
 void Model::addPoints(int id, int amount){
@@ -304,7 +336,7 @@ void Model::addPoints(int id, int amount){
   } else if (id == p2.getID()) {
     p2.addPoints(amount);
   } else {
-    //Throw exception
+	  throw Game::EntityNotFoundError(id);
   }
 }
 

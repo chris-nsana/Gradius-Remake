@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Game/GameExceptions.h"
 
 namespace Model{
 
@@ -34,21 +35,21 @@ void Entity::notifyCreation() const{
 	if(auto spt = observer.lock()){
 		spt->informCreation(getID(), getWidth(), getHeight(), getTexture());
 	}
-	else throw std::runtime_error("This should be a custom exception.");
+	else throw Game::ObserverError("An entity tried to notify, but no observer was attached.");
 }
 
 void Entity::notify() const{
 	if(auto spt = observer.lock()){
 		spt->inform(getID(), getPosition().first, getPosition().second);
 	}
-	else throw std::runtime_error("An entity tried to notify its changes to the observer, but no observer was attached to it!");
+	else throw Game::ObserverError("An entity tried to notify, but no observer was attached.");
 }
 
 void Entity::notifyDeath() const{
 	if(auto spt = observer.lock()){
 		spt->informDeath(getID());
 	}
-	else throw std::runtime_error("An entity tried to notify its death to the observer, but no observer was attached to it!");
+	else throw Game::ObserverError("An entity tried to notify, but no observer was attached.");
 	}
 
 void Entity::setPosition(float x, float y){

@@ -7,6 +7,8 @@
 #include "Utilities/Transformation.h"
 #include "Utilities/Stopwatch.h"
 
+namespace Game{
+
 Scoreboard::Scoreboard(){}
 
 Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : scoreFile(scoreFile), font(font){
@@ -163,5 +165,7 @@ void Scoreboard::showScoreboard(std::pair<int, int> resolution, const std::share
     }
     window->display();
   }
+
+}
 
 }

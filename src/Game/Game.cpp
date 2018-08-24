@@ -10,7 +10,7 @@
 #include <iostream>
 #include <utility>
 
-
+namespace Game{
 
 Game::Game() : gameMenu(*this), startingLevel(1) {
 	std::ifstream file("./../resources/config.json");
@@ -36,10 +36,13 @@ Game::Game() : gameMenu(*this), startingLevel(1) {
 }
 
 void Game::start(){
-	try{
+	this->gameMenu.presentMainOptions();
+	/*try{
 		this->gameMenu.presentMainOptions();
 	}
-	catch(...){}
+	catch(Game::GameException e){
+	  throw e;
+	}*/
 }
 
 void Game::init(bool co_op){
@@ -51,7 +54,6 @@ void Game::init(bool co_op){
 
 
 	gameView         = std::make_shared<View::View>(window, texturesFile, gameFont, co_op);
-	Model::Entity::attach(gameView);
 	gameModel        = std::make_shared<Model::Model>(entitiesFile, std::move(levels), startingLevel, lives, co_op);
 	gameModel->attach(gameView);
 	Model::Event::setModel(gameModel);
@@ -318,5 +320,7 @@ void Game::Menu::levelSelection(){
 		}
 		game.window->display();
 	}
+
+}
 
 }
