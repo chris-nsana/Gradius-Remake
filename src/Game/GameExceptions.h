@@ -51,7 +51,8 @@ public:
 class FileNotFoundError : public ExternalError{
 public:
 	FileNotFoundError(std::string type, std::string path) : ExternalError(""){
-		//Do something
+		std::string clean_message = type + " is not found with path: " + path;
+		GameException::message    = clean_message;
 	} 
 };
 
@@ -59,14 +60,17 @@ public:
 class InvalidFileError : public ExternalError{
 public:
 	InvalidFileError(std::string fileName) : ExternalError(""){
-		//Do something
+		std::string clean_message = fileName + " is not a valid json file.";
+		GameException::message    = clean_message;
 	} 
 };
 
 class InvalidInputError : public ExternalError{
 public:
 	InvalidInputError(std::string fileName, std::string details) : ExternalError(""){
-		//Do something
+		std::string clean_message  = fileName + " contains invalid input. " + details;
+		GameException::message     = clean_message;
+		
 	} 
 };
 

@@ -58,7 +58,7 @@ void Game::start(){
 	try{
 		this->gameMenu.presentMainOptions();
 	}
-	catch(Game::GameException e){
+	catch(GameException& e){
 	  showErrorMessage(e);
 	}
 }
@@ -149,13 +149,13 @@ void Game::showHighscoreMessage(bool p1){
 void Game::showErrorMessage(GameException& e){
 	std::string err1 = "An error occured! Details:";
 	std::string err2;
-	float width       = static_cast<float>(game.resolution.first);
-	float height      = static_cast<float>(game.resolution.second);
+	float width       = static_cast<float>(this->resolution.first);
+	float height      = static_cast<float>(this->resolution.second);
 	
-	throw e;
+	try{throw e;}
 	
 	catch(InternalError& e){
-		err2 = "Internal error occured..."
+		err2 = "Internal error occured...";
 	}
 	catch(ExternalError& e){
 		err2 = e.what();
@@ -170,7 +170,7 @@ void Game::showErrorMessage(GameException& e){
 	
 	while(window->isOpen()){
 		sf::Event event;
-		if(window->pollEvent){
+		if(window->pollEvent(event)){
 			if(event.type == sf::Event::Closed) window->close();
 		}
 		

@@ -13,7 +13,6 @@ namespace View{class View;}
 namespace Game{
 
 class GameException;
-
 class Game{
 
 	class Menu{
