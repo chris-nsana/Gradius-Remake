@@ -36,7 +36,10 @@ Game::Game() : gameMenu(*this), startingLevel(1) {
 }
 
 void Game::start(){
-	this->gameMenu.presentMainOptions();
+	try{
+		this->gameMenu.presentMainOptions();
+	}
+	catch(...){}
 }
 
 void Game::init(bool co_op){
@@ -72,7 +75,24 @@ void Game::run(){
 		//Display these changes
 		gameView->displayGame();
     }
-		std::cout << "Model Ended" << std::endl;
+		//The Model has ended either because of a loss or because of a win
+		if(gameModel->isWinningState()) showVictoryScreen();
+		else showLossScreen();
+		int p1Score = gameModel->getPlayerScore(true);
+		int p2Score = gameModel->getPlayerScore(false);
+		//If this score deserves a place in the highscores;
+		if(scoreboard.checkEntry(p1Score)){
+			showHighscoreMessage(true);
+			std::string playerName = scoreboard.promptName(this->resolution, this->window);
+			scoreboard.addEntry(p1Score, playerName);
+		}
+
+		if(scoreboard.checkEntry(p2Score)){
+			showHighscoreMessage(false);
+			std::string playerName = scoreboard.promptName(this->resolution, this->window);
+			scoreboard.addEntry(p2Score, playerName);
+		}
+
 
 }
 
@@ -84,17 +104,24 @@ void Game::showLossScreen(){
 	showSimpleTextOnScreen("GAME OVER", sf::Color::Red);
 }
 
+void Game::showHighscoreMessage(bool p1){
+	std::string text;
+	if(p1) text = "PLAYER 1 REACHED HIGHSCORE!";
+	else text = "PLAYER 2 REACHED HIGHSCORE!";
+	showSimpleTextOnScreen(text, sf::Color::Blue);
+}
+
 void Game::showSimpleTextOnScreen(std::string text, sf::Color color){
 	float lengthUnit = utils::Transformation::getInstance().getLengthUnit();
 
 	sf::Text victory(text, this->gameFont);
-	victory.setCharacterSize(72);
+	victory.setCharacterSize(50);
 	sf::FloatRect textRect = victory.getLocalBounds();
 	victory.setOrigin(textRect.width/2.0f, textRect.height/2.0f);
 	victory.setPosition(4 * lengthUnit, 3 * lengthUnit);
 
 	utils::Stopwatch::getInstance().reset();
-	while(utils::Stopwatch::getInstance().getElapsedTime() < 5.0f){
+	while(utils::Stopwatch::getInstance().getElapsedTime() < 3.0f){
 		sf::Event event;
 		window->pollEvent(event);
 		if(event.type == sf::Event::Resized){
@@ -158,9 +185,8 @@ void Game::Menu::presentMainOptions(){
 				else if(event.key.code == sf::Keyboard::Key::Return){
 					if(currentOption == 1) modeSelection();
 					else if(currentOption == 2) levelSelection();
-					else if (currentOption == 3) game.showVictoryScreen();
-						//game.scoreboard.showScoreboard(game.resolution, game.window);
-						//game.scoreboard.promptName(game.resolution, game.window);
+					else if (currentOption == 3)
+						game.scoreboard.showScoreboard(game.resolution, game.window);
 				}
 			}
 			else if(event.type == sf::Event::Resized){

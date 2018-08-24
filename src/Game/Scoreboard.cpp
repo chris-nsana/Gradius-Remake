@@ -9,7 +9,7 @@
 
 Scoreboard::Scoreboard(){}
 
-Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : font(font){
+Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : scoreFile(scoreFile), font(font){
   std::ifstream file;
   try{
     file.open(scoreFile);
@@ -17,8 +17,8 @@ Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : font(font){
   }
   //The file doesn't exist, we create a new blank one then.
   catch(std::invalid_argument&){
-    nlohmann::json newFile;
-    std::string contents = newFile.dump();
+    //Empty array of json objects
+    std::string contents = "[]";
     std::ofstream createdFile(scoreFile);
     createdFile << contents;
     createdFile.close();
@@ -31,13 +31,14 @@ Scoreboard::Scoreboard(std::string& scoreFile, sf::Font& font) : font(font){
 Scoreboard::~Scoreboard(){}
 
 bool Scoreboard::checkEntry(int score){
-  if (entries.empty()) return true;
+  if(score == 0) return false;
+  else if (entries.empty()) return true;
   auto it = --(entries.end());
   int entryScore = (*it)["score"];
   return (entryScore < score);
 }
 
-void Scoreboard::promptName(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window){
+std::string Scoreboard::promptName(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window){
   float width        = static_cast<float>(resolution.first);
   float height       = static_cast<float>(resolution.second);
   std::string instructionText = "TYPE THE NAME OF THE PLAYER THAT REACHED THE HIGHSCORE"
@@ -73,6 +74,9 @@ void Scoreboard::promptName(std::pair<int, int> resolution, const std::shared_pt
       //code == 8 is backspace
       //Backspace is not supported visually, but used to delete characters
       if(code == 8 and typedString.size() > 0) typedString.pop_back();
+
+      //If the key is equal to carriage return (enter), we exit with the string
+      if(code == 13) return typedString;
     }
 
     else if(event.type == sf::Event::Resized){
@@ -89,20 +93,17 @@ void Scoreboard::promptName(std::pair<int, int> resolution, const std::shared_pt
   }
 }
 
-void Scoreboard::addEntry(int score, bool p1,  std::string player){
-  auto iterator = entries.end();
-  if(!entries.empty()) --iterator;
-  //Loop through the entries until the right spot
-  for(auto it = iterator; it != entries.begin(); --it){
-    int entryScore = (*it)["score"];
-    if(score > entryScore) iterator = it;
-    else break;
-  }
-
+void Scoreboard::addEntry(int score, std::string player){
   nlohmann::json val;
   val["score"] = score;
   val["name"]  = player;
-  entries.insert(iterator, val);
+  entries.push_back(val);
+  if(entries.size() > 10) entries.erase(10);
+
+  std::string contents = entries.dump();
+  std::ofstream updatedFile(this->scoreFile);
+  updatedFile << contents;
+  updatedFile.close();
 }
 
 void Scoreboard::showScoreboard(std::pair<int, int> resolution, const std::shared_ptr<sf::RenderWindow>& window){
@@ -126,9 +127,11 @@ void Scoreboard::showScoreboard(std::pair<int, int> resolution, const std::share
   //int existing   = entrySet.size();
   int offset     = 1;
   float spacing  = (0.8f * height) / 10.0f;
-  for(auto& e : entrySet){
-    std::string scoreString = std::to_string(e.first);
-    std::string playerName  = e.second;
+  for(auto it = entrySet.rbegin(); it != entrySet.rend(); ++it){
+    //If the file contains some bogus entries, only keep the 10 best.
+    if(offset > 10) break;
+    std::string scoreString = std::to_string(it->first);
+    std::string playerName  = it->second;
     sf::Text temp1(scoreString, this->font);
     sf::Text temp2(playerName, this->font);
     temp1.setPosition(sf::Vector2f(0.10 *  width, static_cast<float>(offset) * spacing));

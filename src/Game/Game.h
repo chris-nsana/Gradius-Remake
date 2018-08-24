@@ -55,6 +55,8 @@ public:
 
 	void showLossScreen();
 
+	void showHighscoreMessage(bool p1);
+
 
 private:
 

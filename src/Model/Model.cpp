@@ -25,6 +25,11 @@ bool Model::isActive(){
   return active;
 }
 
+bool Model::isWinningState(){
+  if(!co_op) return (p1.getLives() > 0);
+  else return (p1.getLives() > 0 or p2.getLives() > 0);
+}
+
 void Model::createEntity(std::string type, float x, float y, int creatorID){
   auto entity    = factory.create(type);
   entity->setPosition(x, y);
@@ -244,6 +249,11 @@ Player& Model::getPlayer2(){
     else{
       throw std::out_of_range("");
     }
+}
+
+int Model::getPlayerScore(bool p1){
+  if(p1) return this->p1.getScore();
+  else return this->p2.getScore();
 }
 
 void Model::freeze(double time, bool informView){

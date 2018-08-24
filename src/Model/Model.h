@@ -36,6 +36,11 @@ public:
 	*/
 	bool isActive();
 
+	/**
+	*@biref method
+	*/
+	bool isWinningState();
+
 	void createWorldElements(nlohmann::json& levelInfo);
 
 	void resetLevel();
@@ -100,6 +105,11 @@ public:
 	*@brief Freeze all activity of the Model for a number of ticks
 	*/
 	void freeze(double time = std::numeric_limits<double>::infinity(), bool informView=true);
+
+	/**
+	*@brief
+	*/
+	int getPlayerScore(bool p1);
 
 	/**
 	*@brief
