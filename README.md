@@ -1,8 +1,8 @@
-#Gradius Resurrection#
+# Gradius Resurrection
 
-##Controls##
+## Controls
 
-###Movement###
+### Movement
 **← (leftwards arrow)** : Move player1 to the left  
 **→ (rightwards arrow)**: Move player1 to the right  
 **↑ (upwards arrow)**   : Move player1 upwards  
@@ -13,9 +13,8 @@
 **W / Z**   : Move player1 upwards  
 **S** : Move player2 downwards  
 
-###Actions###
+### Actions
 **spacebar** : player1 fire a bullet  
 **J** : player2 fire a bullet  
 **P** : pause the game  
 **ESC**: Go back in the menu
-
